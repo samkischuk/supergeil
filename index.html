@@ -111,30 +111,22 @@
     }
 
     .brand {
-      width: clamp(190px, 17vw, 275px);
-      text-align: center;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      width:260px;
+      margin:auto;
     }
 
-    .brand-symbol {
-      width: 74px;
-      height: 74px;
-      margin: 0 auto -7px;
-      border: 3px solid currentColor;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      font-family: var(--display-font);
-      font-size: 28px;
-      transform: rotate(-4deg);
+    .logo{
+      width:240px;
+      height:auto;
+      display:block;
+      transition:transform .25s ease;
     }
 
-    .brand-name {
-      display: block;
-      font-family: var(--display-font);
-      font-size: clamp(28px, 2.8vw, 43px);
-      line-height: 1;
-      letter-spacing: -0.05em;
-      white-space: nowrap;
+    .logo:hover{
+      transform:scale(1.03);
     }
 
     .mobile-toggle {
@@ -472,19 +464,23 @@
       }
 
       .brand {
-        grid-column: 1;
-        grid-row: 1;
-        width: 170px;
-        text-align: left;
-      }
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      width:260px;
+      margin:auto;
+    }
 
-      .brand-symbol {
-        display: none;
-      }
+    .logo{
+      width:240px;
+      height:auto;
+      display:block;
+      transition:transform .25s ease;
+    }
 
-      .brand-name {
-        font-size: 29px;
-      }
+    .logo:hover{
+      transform:scale(1.03);
+    }
 
       .mobile-toggle {
         display: block;
@@ -577,9 +573,8 @@
         <a href="#order">Order</a>
       </nav>
 
-      <a class="brand" href="#top" aria-label="Supergeil home">
-        <span class="brand-symbol">S</span>
-        <span class="brand-name">SUPERGEIL</span>
+      <a class="brand" href="index.html" aria-label="Supergeil Home">
+        <img class="logo" src="images/logo.jpg" alt="Supergeil Detroit Logo">
       </a>
 
       <button
