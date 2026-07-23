@@ -374,28 +374,53 @@
       display: grid;
       place-items: center;
       align-self: center;
-      padding: 24px;
+      padding: 34px;
     }
 
     .story-flourish {
       position: absolute;
-      right: 0;
-      bottom: 2%;
-      width: clamp(170px, 22vw, 260px);
+      width: clamp(150px, 18vw, 235px);
       height: auto;
-      z-index: 0;
+      z-index: 4;
       pointer-events: none;
       opacity: 0;
-      transform: translateY(28px) rotate(-4deg) scale(.94);
-      animation: flourishIn .9s ease 1.15s forwards,
-                 flourishFloat 7s ease-in-out 2.05s infinite;
       mix-blend-mode: multiply;
     }
 
-    @keyframes flourishIn {
+    .story-flourish-top {
+      top: -2%;
+      left: -3%;
+      transform: scaleY(-1) translateY(-24px) rotate(-5deg);
+      animation:
+        flourishTopIn .9s ease 1.05s forwards,
+        flourishTopFloat 7s ease-in-out 1.95s infinite;
+    }
+
+    .story-flourish-bottom {
+      right: -2%;
+      bottom: -2%;
+      transform: translateY(24px) rotate(4deg);
+      animation:
+        flourishBottomIn .9s ease 1.2s forwards,
+        flourishBottomFloat 7s ease-in-out 2.1s infinite;
+    }
+
+    @keyframes flourishTopIn {
       from {
         opacity: 0;
-        transform: translateY(28px) rotate(-4deg) scale(.94);
+        transform: scaleY(-1) translateY(-24px) rotate(-5deg) scale(.94);
+      }
+
+      to {
+        opacity: 1;
+        transform: scaleY(-1) translateY(0) rotate(0deg) scale(1);
+      }
+    }
+
+    @keyframes flourishBottomIn {
+      from {
+        opacity: 0;
+        transform: translateY(24px) rotate(4deg) scale(.94);
       }
 
       to {
@@ -404,7 +429,18 @@
       }
     }
 
-    @keyframes flourishFloat {
+    @keyframes flourishTopFloat {
+      0%,
+      100% {
+        transform: scaleY(-1) translateY(0) rotate(0deg);
+      }
+
+      50% {
+        transform: scaleY(-1) translateY(7px) rotate(-2deg);
+      }
+    }
+
+    @keyframes flourishBottomFloat {
       0%,
       100% {
         transform: translateY(0) rotate(0deg);
@@ -415,17 +451,35 @@
       }
     }
 
-    .story-photo {
+    .story-photo-stack {
       position: relative;
-      z-index: 2;
-      width: min(100%, 500px);
+      width: min(100%, 540px);
+      min-height: 650px;
+      margin: 0 auto;
+    }
+
+    .story-photo {
+      position: absolute;
+      width: min(86%, 455px);
       aspect-ratio: 4 / 5;
       object-fit: cover;
       object-position: center;
-      margin: 0 auto;
       border: 9px solid white;
       box-shadow: 0 28px 60px rgba(35, 26, 18, 0.18);
-      transform: rotate(-2deg);
+    }
+
+    .story-photo-back {
+      left: 4%;
+      top: 11%;
+      z-index: 1;
+      transform: rotate(4deg);
+    }
+
+    .story-photo-front {
+      right: 2%;
+      top: 0;
+      z-index: 3;
+      transform: rotate(-3deg);
     }
 
 
@@ -714,9 +768,25 @@
       }
 
       .story-photo-wrap {
-        width: min(540px, 94%);
+        width: min(560px, 96%);
         margin: 0 auto;
         padding: 18px;
+      }
+
+      .story-photo-stack {
+        min-height: 610px;
+      }
+
+      .story-photo {
+        width: min(88%, 430px);
+      }
+
+      .story-flourish-top {
+        left: -8%;
+      }
+
+      .story-flourish-bottom {
+        right: -8%;
       }
     }
 
@@ -780,6 +850,14 @@
 
       .story-flourish {
         opacity: 1;
+        animation: none;
+      }
+
+      .story-flourish-top {
+        transform: scaleY(-1);
+      }
+
+      .story-flourish-bottom {
         transform: none;
       }
     }
@@ -907,18 +985,33 @@
     <section class="story" id="story">
       <div class="story-grid">
         <div class="story-photo-wrap reveal">
-          <img
-            class="story-photo"
-            src="images/supergeilfront.jpg"
-            alt="Supergeil restaurant exterior"
-          >
+          <div class="story-photo-stack">
+            <img
+              class="story-photo story-photo-back"
+              src="images/insideshot.jpg"
+              alt="Interior of Supergeil restaurant"
+            >
 
-          <img
-            class="story-flourish"
-            src="images/backgroundflourish.jpg"
-            alt=""
-            aria-hidden="true"
-          >
+            <img
+              class="story-photo story-photo-front"
+              src="images/supergeilfront.jpg"
+              alt="Exterior of Supergeil restaurant"
+            >
+
+            <img
+              class="story-flourish story-flourish-top"
+              src="images/backgroundflourish.jpg"
+              alt=""
+              aria-hidden="true"
+            >
+
+            <img
+              class="story-flourish story-flourish-bottom"
+              src="images/backgroundflourish.jpg"
+              alt=""
+              aria-hidden="true"
+            >
+          </div>
         </div>
 
         <div class="story-copy reveal">
