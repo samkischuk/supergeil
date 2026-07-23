@@ -172,8 +172,8 @@
       z-index: -2;
       background:
         linear-gradient(
-          rgba(0, 0, 0, 0.22),
-          rgba(0, 0, 0, 0.42)
+          rgba(0, 0, 0, 0.36),
+          rgba(0, 0, 0, 0.50)
         );
     }
 
@@ -192,11 +192,12 @@
 
     .hero-content {
       width: min(1050px, calc(100% - 40px));
-      padding: 90px 0;
+      padding: 125px 0 70px;
       position: relative;
       z-index: 5;
       text-align: center;
       color: white;
+      transform: translateY(28px);
     }
 
     .eyebrow {
@@ -212,7 +213,7 @@
       font-family: var(--display-font);
       font-size: clamp(40px, 5.8vw, 84px);
       font-weight: 400;
-      line-height: 1.08;
+      line-height: 1.16;
       text-transform: uppercase;
       color: white;
       text-shadow: none;
@@ -266,9 +267,9 @@
 
     .flying-bird {
       position: absolute;
-      left: -420px;
-      top: 38%;
-      width: clamp(190px, 24vw, 360px);
+      left: -360px;
+      top: 40%;
+      width: clamp(155px, 19vw, 285px);
       z-index: 6;
       pointer-events: none;
       opacity: 0;
@@ -276,6 +277,16 @@
       animation:
         birdFlight 2.8s cubic-bezier(.22, .82, .18, 1) .15s forwards,
         birdFloat 4s ease-in-out 2.95s infinite;
+    }
+
+    .flying-bird-right {
+      left: auto;
+      right: -360px;
+      top: 24%;
+      transform: scaleX(-1);
+      animation:
+        birdFlightRight 2.8s cubic-bezier(.22, .82, .18, 1) .55s forwards,
+        birdFloatRight 4.4s ease-in-out 3.35s infinite;
     }
 
     .hero-title-animate,
@@ -294,10 +305,10 @@
 
     @keyframes birdFlight {
       0% {
-        left: -420px;
+        left: -360px;
         top: 42%;
         opacity: 0;
-        transform: rotate(-18deg) scale(.72);
+        transform: rotate(-15deg) scale(.72);
       }
 
       18% {
@@ -305,25 +316,60 @@
       }
 
       36% {
-        top: 17%;
-        transform: rotate(8deg) scale(.9);
+        top: 20%;
+        transform: rotate(7deg) scale(.9);
       }
 
       56% {
-        top: 26%;
-        transform: rotate(-6deg) scale(1);
+        top: 28%;
+        transform: rotate(-5deg) scale(1);
       }
 
       76% {
-        top: 16%;
-        transform: rotate(5deg) scale(1);
+        top: 19%;
+        transform: rotate(4deg) scale(1);
       }
 
       100% {
-        left: -35px;
-        top: 20%;
+        left: -28px;
+        top: 24%;
         opacity: 1;
         transform: rotate(0deg) scale(1);
+      }
+    }
+
+    @keyframes birdFlightRight {
+      0% {
+        right: -360px;
+        top: 36%;
+        opacity: 0;
+        transform: scaleX(-1) rotate(-15deg) scale(.72);
+      }
+
+      18% {
+        opacity: 1;
+      }
+
+      36% {
+        top: 16%;
+        transform: scaleX(-1) rotate(7deg) scale(.9);
+      }
+
+      56% {
+        top: 24%;
+        transform: scaleX(-1) rotate(-5deg) scale(1);
+      }
+
+      76% {
+        top: 17%;
+        transform: scaleX(-1) rotate(4deg) scale(1);
+      }
+
+      100% {
+        right: -28px;
+        top: 21%;
+        opacity: 1;
+        transform: scaleX(-1) rotate(0deg) scale(1);
       }
     }
 
@@ -335,6 +381,17 @@
 
       50% {
         transform: translateY(-9px) rotate(-1deg);
+      }
+    }
+
+    @keyframes birdFloatRight {
+      0%,
+      100% {
+        transform: scaleX(-1) translateY(0) rotate(0deg);
+      }
+
+      50% {
+        transform: scaleX(-1) translateY(-8px) rotate(1deg);
       }
     }
 
@@ -869,7 +926,11 @@
       }
 
       .flying-bird {
-        width: 210px;
+        width: 170px;
+      }
+
+      .flying-bird-right {
+        display: none;
       }
 
       .story-photo-wrap {
@@ -932,10 +993,19 @@
       }
 
       .flying-bird {
-        left: -35px;
-        top: 20%;
+        left: -28px;
+        top: 24%;
         opacity: 1;
         transform: none;
+      }
+
+      .flying-bird-right {
+        display: block;
+        left: auto;
+        right: -28px;
+        top: 21%;
+        opacity: 1;
+        transform: scaleX(-1);
       }
 
       .hero-title-animate,
@@ -1056,6 +1126,13 @@
 
       <img
         class="flying-bird"
+        src="images/birdlogo.jpg"
+        alt=""
+        aria-hidden="true"
+      >
+
+      <img
+        class="flying-bird flying-bird-right"
         src="images/birdlogo.jpg"
         alt=""
         aria-hidden="true"
