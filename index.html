@@ -444,7 +444,7 @@
 
     .story-slideshow {
       position: relative;
-      width: min(100%, 720px);
+      width: min(100%, 778px);
       margin: 0 auto;
       isolation: isolate;
     }
@@ -587,7 +587,7 @@
 
     .story-photo-stack {
       position: relative;
-      width: min(100%, 520px);
+      width: min(100%, 562px);
       margin: 0 auto;
       display: flex;
       flex-direction: column;
@@ -662,12 +662,51 @@
     /* RESERVATIONS */
 
     .reservation {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
       padding: 70px 20px;
       color: white;
-      background: var(--ink);
+      background: #171717;
+    }
+
+    .reservation::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 18% 22%, rgba(255,255,255,.07) 0 1px, transparent 1.4px),
+        radial-gradient(circle at 72% 64%, rgba(255,255,255,.05) 0 1px, transparent 1.4px),
+        radial-gradient(circle at 42% 78%, rgba(255,255,255,.035) 0 1.5px, transparent 2px),
+        radial-gradient(circle at 84% 28%, rgba(255,255,255,.025) 0 1px, transparent 1.6px);
+      background-size:
+        17px 17px,
+        23px 23px,
+        31px 31px,
+        13px 13px;
+      opacity: .28;
+      mix-blend-mode: soft-light;
+    }
+
+    .reservation::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        radial-gradient(
+          circle at center,
+          transparent 38%,
+          rgba(0,0,0,.24) 100%
+        );
     }
 
     .reservation-inner {
+      position: relative;
+      z-index: 1;
       width: min(1100px, 100%);
       margin: 0 auto;
       display: grid;
@@ -906,7 +945,7 @@
       }
 
       .story-slideshow {
-        width: min(100%, 650px);
+        width: min(100%, 702px);
       }
 
       .story-flourish-top {
@@ -939,7 +978,7 @@
       }
 
       .story-slideshow {
-        width: min(100%, 520px);
+        width: min(100%, 562px);
       }
 
       .story-flourish {
