@@ -84,7 +84,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: clamp(22px, 3vw, 54px);
+      gap: clamp(22px, 3vw, 52px);
       font-size: 16px;
       font-weight: 500;
     }
@@ -99,7 +99,7 @@
       position: absolute;
       left: 0;
       right: 100%;
-      bottom: 4px;
+      bottom: 2px;
       height: 2px;
       background: #c8a12d;
       transition: right 0.25s ease;
@@ -134,7 +134,7 @@
     }
 
     .logo:hover{
-      transform:scale(1.03);
+      transform:scale(0.875);
     }
 
     .mobile-toggle {
@@ -211,7 +211,7 @@
     .hero h1 {
       margin: 0;
       font-family: var(--display-font);
-      font-size: clamp(40px, 5.8vw, 84px);
+      font-size: clamp(40px, 5.8vw, 82px);
       font-weight: 400;
       line-height: 1.16;
       text-transform: uppercase;
@@ -224,7 +224,7 @@
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 12px;
     }
 
     .button {
@@ -308,7 +308,7 @@
         left: -360px;
         top: 42%;
         opacity: 0;
-        transform: rotate(-15deg) scale(.72);
+        transform: rotate(-15deg) scale(0.612);
       }
 
       18% {
@@ -317,24 +317,24 @@
 
       36% {
         top: 20%;
-        transform: rotate(7deg) scale(.9);
+        transform: rotate(7deg) scale(0.765);
       }
 
       56% {
         top: 28%;
-        transform: rotate(-5deg) scale(1);
+        transform: rotate(-5deg) scale(0.850);
       }
 
       76% {
         top: 19%;
-        transform: rotate(4deg) scale(1);
+        transform: rotate(4deg) scale(0.850);
       }
 
       100% {
         left: -28px;
         top: 24%;
         opacity: 1;
-        transform: rotate(0deg) scale(1);
+        transform: rotate(0deg) scale(0.850);
       }
     }
 
@@ -343,7 +343,7 @@
         right: -360px;
         top: 36%;
         opacity: 0;
-        transform: scaleX(-1) rotate(-15deg) scale(.72);
+        transform: scaleX(-1) rotate(-15deg) scale(0.612);
       }
 
       18% {
@@ -352,24 +352,24 @@
 
       36% {
         top: 16%;
-        transform: scaleX(-1) rotate(7deg) scale(.9);
+        transform: scaleX(-1) rotate(7deg) scale(0.765);
       }
 
       56% {
         top: 24%;
-        transform: scaleX(-1) rotate(-5deg) scale(1);
+        transform: scaleX(-1) rotate(-5deg) scale(0.850);
       }
 
       76% {
         top: 17%;
-        transform: scaleX(-1) rotate(4deg) scale(1);
+        transform: scaleX(-1) rotate(4deg) scale(0.850);
       }
 
       100% {
         right: -28px;
         top: 21%;
         opacity: 1;
-        transform: scaleX(-1) rotate(0deg) scale(1);
+        transform: scaleX(-1) rotate(0deg) scale(0.850);
       }
     }
 
@@ -444,7 +444,7 @@
 
     .story-slideshow {
       position: relative;
-      width: min(100%, 778px);
+      width: min(100%, 720px);
       margin: 0 auto;
       isolation: isolate;
     }
@@ -469,7 +469,7 @@
       object-fit: cover;
       object-position: center;
       opacity: 0;
-      transform: scale(1.035);
+      transform: scale(0.880);
       transition:
         opacity 1s ease,
         transform 6s ease;
@@ -477,7 +477,7 @@
 
     .story-slide.is-active {
       opacity: 1;
-      transform: scale(1);
+      transform: scale(0.850);
     }
 
     .story-dots {
@@ -504,7 +504,7 @@
 
     .story-dot:hover,
     .story-dot:focus-visible {
-      transform: scale(1.2);
+      transform: scale(1.020);
     }
 
     .story-dot.is-active {
@@ -524,7 +524,7 @@
     .story-flourish-top {
       top: -72px;
       left: -185px;
-      transform: scaleY(-1) translateY(-24px) rotate(-5deg);
+      transform: scaleY(-1) translateY(-22px) rotate(-5deg);
       animation:
         flourishTopIn .9s ease 1.05s forwards,
         flourishTopFloat 7s ease-in-out 1.95s infinite;
@@ -533,7 +533,7 @@
     .story-flourish-bottom {
       right: -185px;
       bottom: -72px;
-      transform: scaleX(-1) translateY(24px) rotate(-5deg);
+      transform: scaleX(-1) translateY(22px) rotate(-5deg);
       animation:
         flourishBottomIn .9s ease 1.2s forwards,
         flourishBottomFloat 7s ease-in-out 2.1s infinite;
@@ -542,24 +542,24 @@
     @keyframes flourishTopIn {
       from {
         opacity: 0;
-        transform: scaleY(-1) translateY(-24px) rotate(-5deg) scale(.94);
+        transform: scaleY(-1) translateY(-22px) rotate(-5deg) scale(0.799);
       }
 
       to {
         opacity: .95;
-        transform: scaleY(-1) translateY(0) rotate(0deg) scale(1);
+        transform: scaleY(-1) translateY(0) rotate(0deg) scale(0.850);
       }
     }
 
     @keyframes flourishBottomIn {
       from {
         opacity: 0;
-        transform: scaleX(-1) translateY(24px) rotate(-5deg) scale(.94);
+        transform: scaleX(-1) translateY(22px) rotate(-5deg) scale(0.799);
       }
 
       to {
         opacity: .95;
-        transform: scaleX(-1) translateY(0) rotate(0deg) scale(1);
+        transform: scaleX(-1) translateY(0) rotate(0deg) scale(0.850);
       }
     }
 
@@ -587,7 +587,7 @@
 
     .story-photo-stack {
       position: relative;
-      width: min(100%, 562px);
+      width: min(100%, 520px);
       margin: 0 auto;
       display: flex;
       flex-direction: column;
@@ -662,51 +662,12 @@
     /* RESERVATIONS */
 
     .reservation {
-      position: relative;
-      isolation: isolate;
-      overflow: hidden;
       padding: 70px 20px;
       color: white;
-      background: #171717;
-    }
-
-    .reservation::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: -2;
-      pointer-events: none;
-      background:
-        radial-gradient(circle at 18% 22%, rgba(255,255,255,.07) 0 1px, transparent 1.4px),
-        radial-gradient(circle at 72% 64%, rgba(255,255,255,.05) 0 1px, transparent 1.4px),
-        radial-gradient(circle at 42% 78%, rgba(255,255,255,.035) 0 1.5px, transparent 2px),
-        radial-gradient(circle at 84% 28%, rgba(255,255,255,.025) 0 1px, transparent 1.6px);
-      background-size:
-        17px 17px,
-        23px 23px,
-        31px 31px,
-        13px 13px;
-      opacity: .28;
-      mix-blend-mode: soft-light;
-    }
-
-    .reservation::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      background:
-        radial-gradient(
-          circle at center,
-          transparent 38%,
-          rgba(0,0,0,.24) 100%
-        );
+      background: var(--ink);
     }
 
     .reservation-inner {
-      position: relative;
-      z-index: 1;
       width: min(1100px, 100%);
       margin: 0 auto;
       display: grid;
@@ -727,10 +688,10 @@
     }
 
     .booking-shell {
-      padding: 24px;
+      padding: 22px;
       color: var(--ink);
       background: white;
-      border-radius: 4px;
+      border-radius: 2px;
       box-shadow: 10px 10px 0 var(--red);
     }
 
@@ -766,7 +727,7 @@
     }
 
     .booking-note {
-      margin: 14px 0 0;
+      margin: 12px 0 0;
       color: #666 !important;
       text-align: center;
       font-size: 12px;
@@ -808,7 +769,7 @@
     }
 
     .hours-list p {
-      margin: 0 0 24px;
+      margin: 0 0 22px;
       font-family: "Inter", sans-serif;
       font-size: 15px;
       line-height: 1.65;
@@ -851,7 +812,7 @@
     .copyright {
       width: min(var(--content-width), 100%);
       margin: 0 auto;
-      padding-top: 24px;
+      padding-top: 22px;
       border-top: 1px solid rgba(21, 21, 21, 0.22);
       font-size: 12px;
       letter-spacing: 0.06em;
@@ -897,7 +858,7 @@
     }
 
     .logo:hover{
-      transform:scale(1.03);
+      transform:scale(0.875);
     }
 
       .mobile-toggle {
@@ -945,7 +906,7 @@
       }
 
       .story-slideshow {
-        width: min(100%, 702px);
+        width: min(100%, 650px);
       }
 
       .story-flourish-top {
@@ -974,11 +935,11 @@
 
       .story-photo-wrap {
         width: 100%;
-        padding: 0 54px 40px;
+        padding: 0 52px 40px;
       }
 
       .story-slideshow {
-        width: min(100%, 562px);
+        width: min(100%, 520px);
       }
 
       .story-flourish {
@@ -1074,13 +1035,13 @@
     .social-links {
       display: flex;
       justify-content: flex-start;
-      gap: 14px;
+      gap: 12px;
       margin-top: 18px;
     }
 
     .social-links a {
-      width: 54px;
-      height: 54px;
+      width: 52px;
+      height: 52px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -1100,7 +1061,7 @@
 
     .social-links a:hover,
     .social-links a:focus-visible {
-      transform: translateY(-3px) scale(1.05);
+      transform: translateY(-3px) scale(0.892);
       background: #c8a12d;
       color: #111;
     }
