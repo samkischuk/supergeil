@@ -554,17 +554,54 @@
       gap: 40px;
     }
 
+    .footer-column {
+      min-width: 0;
+    }
+
     .footer-grid h3 {
-      margin: 0 0 12px;
+      margin: 0 0 22px;
       font-family: var(--display-font);
       font-weight: 400;
       text-transform: uppercase;
     }
 
-    .footer-grid p {
-      margin: 5px 0;
-      line-height: 1.55;
+    .location-address {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.65;
+      color: #111;
     }
+
+    .hours-list p {
+      margin: 0 0 24px;
+      font-family: "Inter", sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      color: #111;
+    }
+
+    .hours-list p:last-child {
+      margin-bottom: 0;
+    }
+
+    .hours-list strong {
+      font-weight: 700;
+    }
+
+    .contact-phone {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      font-size: 18px;
+      line-height: 1.65;
+    }
+
+    .contact-phone a {
+      color: inherit;
+      text-decoration: none;
+    }
+
 
     .copyright {
       width: min(var(--content-width), 100%);
@@ -947,31 +984,44 @@
 
   <footer class="site-footer" id="contact">
     <div class="footer-grid">
-      <div>
-        T42 Michigan Ave<br>Detroit, MI 48216</p>
-        <p>Detroit, Michigan</p>
+      <div class="footer-column">
+        <h3>Location</h3>
+
+        <p class="location-address">
+          2442 Michigan Ave<br>
+          Detroit, MI 48216
+        </p>
       </div>
 
-      <div>
+      <div class="footer-column hours-column">
         <h3>Hours</h3>
+
+        <div class="hours-list">
           <p>
-            <strong>Monday</strong> – Closed<br><br>
+            <strong>Monday</strong> – Closed
+          </p>
 
+          <p>
             <strong>Tuesday – Thursday</strong><br>
-            <em>Lunch: noon-4pm</em> | Dinner: 4pm-9pm<br><br>
+            <em>Lunch: noon-4pm</em> | Dinner: 4pm-9pm
+          </p>
 
+          <p>
             <strong>Friday &amp; Saturday</strong><br>
-            <em>Lunch: noon-4pm</em> | Dinner: 4pm-10pm<br><br>
+            <em>Lunch: noon-4pm</em> | Dinner: 4pm-10pm
+          </p>
 
+          <p>
             <strong>Sunday</strong><br>
             <em>Brunch: 11am-3pm</em> | Dinner: 3pm-8pm
           </p>
-        <p>Add happy hour here</p>
+        </div>
       </div>
 
-      <div>
+      <div class="footer-column">
         <h3>Contact</h3>
-        <p>
+
+        <p class="contact-phone">
           <a href="tel:3134624133">313-462-4133</a>
         </p>
 
@@ -994,20 +1044,13 @@
             <i class="fa-brands fa-instagram" aria-hidden="true"></i>
           </a>
         </div>
-      
       </div>
     </div>
 
     <div class="copyright">
       © 2026 Supergeil Detroit
     </div>
-  
-      <div class="social-links">
-        <a href="https://www.facebook.com/supergeildetroit/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
-        <a href="https://www.instagram.com/supergeildetroit/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram">◎</a>
-      </div>
-
-</footer>
+  </footer>
 
   <script>
     window.addEventListener("DOMContentLoaded", () => {
