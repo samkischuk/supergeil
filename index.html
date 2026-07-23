@@ -219,20 +219,22 @@
     }
 
     .button {
-      min-width: 175px;
-      padding: 15px 25px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border: 2px solid currentColor;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-size: 13px;
-      font-weight: 700;
+      min-width:175px;
+      padding:15px 25px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border:2px solid currentColor;
+      border-radius:6px;
+      font-family:var(--body-font);
+      font-size:16px;
+      font-weight:500;
+      text-transform:none;
+      letter-spacing:0;
       transition:
-        transform 0.22s ease,
-        background 0.22s ease,
-        color 0.22s ease;
+        transform .22s ease,
+        background .22s ease,
+        color .22s ease;
     }
 
     .button:hover,
@@ -567,7 +569,7 @@
     <div class="header-inner">
       <nav class="nav-group nav-left" aria-label="Primary navigation">
         <a href="#story">About</a>
-        <a href="#menu">Menu</a>
+        <a href="menu.html">Menu</a>
         <a href="#order">Order</a>
       </nav>
 
@@ -614,7 +616,7 @@
             View menu
           </a>
 
-          <a class="button button-outline" href="#reservations">
+          <a class="button button-outline" href="https://order.toasttab.com/online/supergeil" target="_blank" rel="noopener noreferrer">
             Reserve a table
           </a>
         </div>
