@@ -101,9 +101,17 @@
       right: 100%;
       bottom: 4px;
       height: 2px;
-      background: var(--red);
+      background: #c8a12d;
       transition: right 0.25s ease;
     }
+
+
+    .nav-group a:hover,
+    .nav-group a:focus-visible {
+      color: #c8a12d;
+      transform: translateY(-2px);
+    }
+
 
     .nav-group a:hover::after,
     .nav-group a:focus-visible::after {
@@ -359,11 +367,11 @@
     }
 
     .story-grid {
-      width: min(1080px, 100%);
+      width: min(1420px, 100%);
       margin: 0 auto;
       display: grid;
-      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-      gap: clamp(44px, 7vw, 105px);
+      grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
+      gap: clamp(52px, 5vw, 90px);
       align-items: center;
     }
 
@@ -373,13 +381,13 @@
       display: grid;
       place-items: center;
       align-self: center;
-      padding: 70px 95px;
+      padding: 95px 145px;
       overflow: visible;
     }
 
     .story-slideshow {
       position: relative;
-      width: min(100%, 640px);
+      width: min(100%, 720px);
       margin: 0 auto;
       isolation: isolate;
     }
@@ -448,7 +456,7 @@
 
     .story-flourish {
       position: absolute;
-      width: clamp(170px, 20vw, 265px);
+      width: clamp(210px, 22vw, 330px);
       height: auto;
       z-index: 0;
       pointer-events: none;
@@ -457,8 +465,8 @@
     }
 
     .story-flourish-top {
-      top: -95px;
-      left: -135px;
+      top: -125px;
+      left: -185px;
       transform: scaleY(-1) translateY(-24px) rotate(-5deg);
       animation:
         flourishTopIn .9s ease 1.05s forwards,
@@ -466,9 +474,9 @@
     }
 
     .story-flourish-bottom {
-      right: -135px;
-      bottom: -80px;
-      transform: translateY(24px) rotate(4deg);
+      right: -185px;
+      bottom: -110px;
+      transform: scaleX(-1) translateY(24px) rotate(-5deg);
       animation:
         flourishBottomIn .9s ease 1.2s forwards,
         flourishBottomFloat 7s ease-in-out 2.1s infinite;
@@ -489,12 +497,12 @@
     @keyframes flourishBottomIn {
       from {
         opacity: 0;
-        transform: translateY(24px) rotate(4deg) scale(.94);
+        transform: scaleX(-1) translateY(24px) rotate(-5deg) scale(.94);
       }
 
       to {
         opacity: .95;
-        transform: translateY(0) rotate(0deg) scale(1);
+        transform: scaleX(-1) translateY(0) rotate(0deg) scale(1);
       }
     }
 
@@ -512,11 +520,11 @@
     @keyframes flourishBottomFloat {
       0%,
       100% {
-        transform: translateY(0) rotate(0deg);
+        transform: scaleX(-1) translateY(0) rotate(0deg);
       }
 
       50% {
-        transform: translateY(-7px) rotate(2deg);
+        transform: scaleX(-1) translateY(-7px) rotate(2deg);
       }
     }
 
@@ -835,23 +843,23 @@
       }
 
       .story-photo-wrap {
-        width: min(560px, 96%);
+        width: min(760px, 100%);
         margin: 0 auto;
-        padding: 38px 42px;
+        padding: 80px 105px;
       }
 
       .story-slideshow {
-        width: min(100%, 540px);
+        width: min(100%, 650px);
       }
 
       .story-flourish-top {
-        left: -70px;
-        top: -60px;
+        left: -125px;
+        top: -95px;
       }
 
       .story-flourish-bottom {
-        right: -70px;
-        bottom: -45px;
+        right: -125px;
+        bottom: -80px;
       }
     }
 
@@ -862,6 +870,29 @@
 
       .flying-bird {
         width: 210px;
+      }
+
+      .story-photo-wrap {
+        width: 100%;
+        padding: 58px 54px;
+      }
+
+      .story-slideshow {
+        width: min(100%, 520px);
+      }
+
+      .story-flourish {
+        width: 190px;
+      }
+
+      .story-flourish-top {
+        left: -62px;
+        top: -58px;
+      }
+
+      .story-flourish-bottom {
+        right: -62px;
+        bottom: -52px;
       }
 
       .story-flourish {
@@ -923,7 +954,7 @@
       }
 
       .story-flourish-bottom {
-        transform: none;
+        transform: scaleX(-1);
       }
 
       .story-slide {
