@@ -370,26 +370,26 @@
     .story-photo-wrap {
       position: relative;
       width: 100%;
-      min-height: 100%;
       display: grid;
       place-items: center;
       align-self: center;
-      padding: 34px;
+      padding: 40px 55px;
+      overflow: visible;
     }
 
     .story-flourish {
       position: absolute;
       width: clamp(150px, 18vw, 235px);
       height: auto;
-      z-index: 4;
+      z-index: 0;
       pointer-events: none;
       opacity: 0;
       mix-blend-mode: multiply;
     }
 
     .story-flourish-top {
-      top: -2%;
-      left: -3%;
+      top: -20px;
+      left: -70px;
       transform: scaleY(-1) translateY(-24px) rotate(-5deg);
       animation:
         flourishTopIn .9s ease 1.05s forwards,
@@ -397,8 +397,8 @@
     }
 
     .story-flourish-bottom {
-      right: -2%;
-      bottom: -2%;
+      right: -70px;
+      bottom: -35px;
       transform: translateY(24px) rotate(4deg);
       animation:
         flourishBottomIn .9s ease 1.2s forwards,
@@ -453,33 +453,31 @@
 
     .story-photo-stack {
       position: relative;
-      width: min(100%, 540px);
-      min-height: 650px;
+      width: min(100%, 520px);
       margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      isolation: isolate;
     }
 
     .story-photo {
-      position: absolute;
-      width: min(86%, 455px);
+      position: relative;
+      width: 100%;
       aspect-ratio: 4 / 5;
       object-fit: cover;
       object-position: center;
       border: 9px solid white;
       box-shadow: 0 28px 60px rgba(35, 26, 18, 0.18);
+      z-index: 2;
     }
 
     .story-photo-back {
-      left: 4%;
-      top: 11%;
-      z-index: 1;
-      transform: rotate(4deg);
+      transform: rotate(2deg);
     }
 
     .story-photo-front {
-      right: 2%;
-      top: 0;
-      z-index: 3;
-      transform: rotate(-3deg);
+      transform: rotate(-2deg);
     }
 
 
@@ -774,19 +772,22 @@
       }
 
       .story-photo-stack {
-        min-height: 610px;
+        width: min(100%, 470px);
+        gap: 22px;
       }
 
       .story-photo {
-        width: min(88%, 430px);
+        width: 100%;
       }
 
       .story-flourish-top {
-        left: -8%;
+        left: -35px;
+        top: -15px;
       }
 
       .story-flourish-bottom {
-        right: -8%;
+        right: -35px;
+        bottom: -25px;
       }
     }
 
