@@ -3,39 +3,46 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Restaurant Homepage Concept</title>
-  <meta name="description" content="A custom restaurant homepage concept with split navigation, animated collage imagery, and reservation call-to-action.">
 
-  <!-- Replace these with your final brand fonts if needed -->
+  <title>Supergeil Detroit</title>
+  <meta
+    name="description"
+    content="A custom restaurant homepage concept for Supergeil Detroit."
+  >
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Rye&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rye&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
     :root {
-      --paper: #f7f3ea;
+      --paper: #f8f6f0;
       --ink: #151515;
-      --accent: #d93843;
-      --blue: #88b5c7;
-      --gold: #d0a544;
+      --red: #df3441;
+      --blue: #81b6c8;
+      --orange: #d07b4d;
       --content-width: 1240px;
-      --display: "Rye", Georgia, serif;
-      --body: "Inter", Arial, sans-serif;
+      --display-font: "Rye", Georgia, serif;
+      --body-font: "Inter", Arial, sans-serif;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     html {
       scroll-behavior: smooth;
-      background: var(--paper);
     }
 
     body {
       margin: 0;
+      overflow-x: hidden;
       color: var(--ink);
       background: var(--paper);
-      font-family: var(--body);
-      overflow-x: hidden;
+      font-family: var(--body-font);
     }
 
     img {
@@ -48,21 +55,29 @@
       text-decoration: none;
     }
 
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    /* HEADER */
+
     .site-header {
       position: relative;
-      z-index: 20;
-      background: rgba(247, 243, 234, .96);
-      border-bottom: 1px solid rgba(21, 21, 21, .12);
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.97);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.12);
     }
 
     .header-inner {
       width: min(var(--content-width), calc(100% - 40px));
-      min-height: 172px;
+      min-height: 170px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      gap: 42px;
+      gap: 40px;
     }
 
     .nav-group {
@@ -70,7 +85,7 @@
       align-items: center;
       justify-content: center;
       gap: clamp(22px, 3vw, 54px);
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 500;
     }
 
@@ -86,8 +101,8 @@
       right: 100%;
       bottom: 4px;
       height: 2px;
-      background: var(--accent);
-      transition: right .25s ease;
+      background: var(--red);
+      transition: right 0.25s ease;
     }
 
     .nav-group a:hover::after,
@@ -96,28 +111,29 @@
     }
 
     .brand {
-      width: clamp(170px, 16vw, 255px);
+      width: clamp(190px, 17vw, 275px);
       text-align: center;
     }
 
-    .brand-mark {
-      width: 76px;
-      height: 76px;
-      margin: 0 auto -8px;
+    .brand-symbol {
+      width: 74px;
+      height: 74px;
+      margin: 0 auto -7px;
       border: 3px solid currentColor;
       border-radius: 50%;
       display: grid;
       place-items: center;
-      font-family: var(--display);
-      font-size: 27px;
-      transform: rotate(-5deg);
+      font-family: var(--display-font);
+      font-size: 28px;
+      transform: rotate(-4deg);
     }
 
     .brand-name {
-      font-family: var(--display);
-      font-size: clamp(27px, 2.7vw, 42px);
-      line-height: .95;
-      letter-spacing: -.04em;
+      display: block;
+      font-family: var(--display-font);
+      font-size: clamp(28px, 2.8vw, 43px);
+      line-height: 1;
+      letter-spacing: -0.05em;
       white-space: nowrap;
     }
 
@@ -125,22 +141,40 @@
       display: none;
       border: 0;
       background: transparent;
-      font: inherit;
       font-weight: 700;
       cursor: pointer;
     }
 
+    /* HERO */
+
     .hero {
       position: relative;
-      min-height: min(720px, 78vh);
+      min-height: min(760px, 82vh);
       display: grid;
       place-items: center;
       overflow: hidden;
       isolation: isolate;
+    }
+
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: -3;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
       background:
-        linear-gradient(rgba(0,0,0,.26), rgba(0,0,0,.44)),
-        url("https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=2200&q=85")
-        center / cover no-repeat;
+        linear-gradient(
+          rgba(0, 0, 0, 0.22),
+          rgba(0, 0, 0, 0.42)
+        );
     }
 
     .hero::after {
@@ -148,44 +182,45 @@
       position: absolute;
       inset: 0;
       z-index: -1;
-      background: radial-gradient(circle at center, transparent 20%, rgba(0,0,0,.3) 100%);
+      background:
+        radial-gradient(
+          circle at center,
+          transparent 20%,
+          rgba(0, 0, 0, 0.28) 100%
+        );
     }
 
     .hero-content {
-      width: min(980px, calc(100% - 40px));
+      width: min(1050px, calc(100% - 40px));
+      padding: 90px 0;
+      position: relative;
+      z-index: 5;
       text-align: center;
       color: white;
-      position: relative;
-      z-index: 3;
-      padding: 100px 0;
     }
 
     .eyebrow {
       margin: 0 0 18px;
-      text-transform: uppercase;
-      letter-spacing: .18em;
       font-size: 12px;
       font-weight: 700;
-    }
-
-    .hero h1,
-    .section-title {
-      margin: 0;
-      font-family: var(--display);
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      font-weight: 400;
     }
 
     .hero h1 {
-      font-size: clamp(50px, 7.1vw, 112px);
-      line-height: 1.08;
+      margin: 0;
+      font-family: var(--display-font);
+      font-size: clamp(48px, 7vw, 108px);
+      font-weight: 400;
+      line-height: 1.06;
+      text-transform: uppercase;
       text-shadow:
-        -2px 0 rgba(64, 153, 184, .72),
-         2px 0 rgba(205, 89, 50, .72),
-         0 7px 28px rgba(0,0,0,.35);
+        -2px 0 var(--blue),
+        2px 0 var(--orange),
+        0 10px 34px rgba(0, 0, 0, 0.45);
     }
 
-    .hero-actions {
+    .hero-buttons {
       margin-top: 38px;
       display: flex;
       justify-content: center;
@@ -194,17 +229,20 @@
     }
 
     .button {
-      min-width: 170px;
-      padding: 15px 24px;
+      min-width: 175px;
+      padding: 15px 25px;
       display: inline-flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       border: 2px solid currentColor;
       text-transform: uppercase;
-      letter-spacing: .08em;
+      letter-spacing: 0.08em;
       font-size: 13px;
       font-weight: 700;
-      transition: .22s ease;
+      transition:
+        transform 0.22s ease,
+        background 0.22s ease,
+        color 0.22s ease;
     }
 
     .button:hover,
@@ -220,57 +258,32 @@
 
     .button-outline {
       color: white;
-      background: rgba(0,0,0,.14);
+      background: rgba(0, 0, 0, 0.15);
     }
 
-    .floating-art {
-      position: absolute;
-      z-index: 2;
-      pointer-events: none;
-      filter: drop-shadow(0 16px 18px rgba(0,0,0,.22));
-      transition: transform 1s cubic-bezier(.2,.8,.2,1), opacity 1s ease;
-    }
-
-    .art-left {
-      width: clamp(190px, 27vw, 470px);
-      left: clamp(-190px, -10vw, -70px);
-      bottom: -8%;
-      transform: translateX(-70px) rotate(-8deg);
-      opacity: 0;
-    }
-
-    .art-right {
-      width: clamp(175px, 23vw, 390px);
-      right: clamp(-150px, -7vw, -45px);
-      top: 6%;
-      transform: translateX(70px) rotate(8deg);
-      opacity: 0;
-    }
-
-    body.is-loaded .art-left,
-    body.is-loaded .art-right {
-      transform: translateX(0) rotate(0);
-      opacity: 1;
-    }
+    /* STORY */
 
     .story {
-      position: relative;
-      overflow: hidden;
-      padding: clamp(90px, 11vw, 170px) 20px;
+      padding: clamp(85px, 10vw, 155px) 20px;
       background:
-        linear-gradient(rgba(247,243,234,.93), rgba(247,243,234,.93)),
-        repeating-linear-gradient(90deg, transparent 0 28px, rgba(21,21,21,.04) 28px 29px);
+        linear-gradient(
+          rgba(248, 246, 240, 0.95),
+          rgba(248, 246, 240, 0.95)
+        ),
+        repeating-linear-gradient(
+          90deg,
+          transparent 0 28px,
+          rgba(21, 21, 21, 0.04) 28px 29px
+        );
     }
 
     .story-grid {
-      width: min(1060px, 100%);
+      width: min(1080px, 100%);
       margin: 0 auto;
       display: grid;
-      grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
-      gap: clamp(46px, 7vw, 110px);
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+      gap: clamp(44px, 7vw, 105px);
       align-items: center;
-      position: relative;
-      z-index: 3;
     }
 
     .story-photo-wrap {
@@ -278,58 +291,53 @@
     }
 
     .story-photo {
-      aspect-ratio: 4 / 5;
       width: 100%;
+      aspect-ratio: 4 / 5;
       object-fit: cover;
       border: 9px solid white;
-      box-shadow: 0 30px 60px rgba(35, 26, 18, .18);
-      transform: rotate(-2.5deg);
+      box-shadow: 0 28px 60px rgba(35, 26, 18, 0.18);
+      transform: rotate(-2deg);
     }
 
     .story-photo-wrap::after {
       content: "";
       position: absolute;
-      width: 44%;
+      width: 42%;
       aspect-ratio: 1;
-      right: -11%;
-      bottom: -9%;
-      border-radius: 50%;
-      background: var(--gold);
-      border: 6px solid var(--ink);
+      right: -10%;
+      bottom: -8%;
       z-index: -1;
+      border: 6px solid var(--ink);
+      border-radius: 50%;
+      background: #d2aa41;
     }
 
     .section-title {
-      font-size: clamp(46px, 6vw, 82px);
+      margin: 0;
+      font-family: var(--display-font);
+      font-size: clamp(45px, 6vw, 80px);
+      font-weight: 400;
       line-height: 1;
+      text-transform: uppercase;
       text-shadow:
         -1px 0 var(--blue),
-         1px 0 #cb6b48;
+        1px 0 var(--orange);
     }
 
     .story-copy p {
+      max-width: 650px;
       font-size: clamp(16px, 1.5vw, 20px);
       line-height: 1.75;
-      max-width: 660px;
     }
 
     .story-copy .button {
       margin-top: 16px;
-      background: var(--ink);
       color: white;
+      background: var(--ink);
       border-color: var(--ink);
     }
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(38px);
-      transition: opacity .8s ease, transform .8s cubic-bezier(.2,.8,.2,1);
-    }
-
-    .reveal.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    /* RESERVATIONS */
 
     .reservation {
       padding: clamp(80px, 10vw, 140px) 20px;
@@ -341,7 +349,7 @@
       width: min(1100px, 100%);
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr minmax(280px, 430px);
+      grid-template-columns: 1fr minmax(290px, 430px);
       gap: clamp(40px, 8vw, 100px);
       align-items: center;
     }
@@ -354,15 +362,15 @@
     .reservation p {
       max-width: 560px;
       line-height: 1.7;
-      color: rgba(255,255,255,.76);
+      color: rgba(255, 255, 255, 0.76);
     }
 
     .booking-shell {
       padding: 28px;
-      background: white;
       color: var(--ink);
+      background: white;
       border-radius: 4px;
-      box-shadow: 10px 10px 0 var(--accent);
+      box-shadow: 10px 10px 0 var(--red);
     }
 
     .booking-shell h3 {
@@ -372,11 +380,11 @@
     }
 
     .booking-field {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       min-height: 66px;
       padding: 0 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       border: 1px solid #d8d8d8;
       border-bottom: 0;
       font-size: 17px;
@@ -390,27 +398,29 @@
       width: 100%;
       min-height: 66px;
       border: 0;
-      background: var(--accent);
       color: white;
-      font: 700 17px var(--body);
+      background: var(--red);
+      font-weight: 700;
       cursor: pointer;
     }
 
     .booking-note {
-      margin: 16px 0 0;
-      font-size: 12px;
+      margin: 14px 0 0;
       color: #666 !important;
       text-align: center;
+      font-size: 12px;
     }
+
+    /* FOOTER */
 
     .site-footer {
       padding: 65px 20px 35px;
-      background: #e7dcc7;
+      background: #e8ddc9;
     }
 
     .footer-grid {
       width: min(var(--content-width), 100%);
-      margin: 0 auto 48px;
+      margin: 0 auto 45px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 40px;
@@ -418,9 +428,9 @@
 
     .footer-grid h3 {
       margin: 0 0 12px;
-      font-family: var(--display);
-      text-transform: uppercase;
+      font-family: var(--display-font);
       font-weight: 400;
+      text-transform: uppercase;
     }
 
     .footer-grid p {
@@ -431,27 +441,44 @@
     .copyright {
       width: min(var(--content-width), 100%);
       margin: 0 auto;
-      padding-top: 25px;
-      border-top: 1px solid rgba(21,21,21,.22);
+      padding-top: 24px;
+      border-top: 1px solid rgba(21, 21, 21, 0.22);
       font-size: 12px;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      letter-spacing: .06em;
     }
+
+    /* SCROLL ANIMATION */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition:
+        opacity 0.8s ease,
+        transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* MOBILE */
 
     @media (max-width: 880px) {
       .header-inner {
-        min-height: 110px;
+        min-height: 105px;
         grid-template-columns: 1fr auto;
       }
 
       .brand {
         grid-column: 1;
         grid-row: 1;
-        width: 160px;
+        width: 170px;
         text-align: left;
       }
 
-      .brand-mark {
+      .brand-symbol {
         display: none;
       }
 
@@ -478,12 +505,17 @@
         display: flex;
       }
 
-      .nav-left { grid-row: 2; }
-      .nav-right { grid-row: 3; }
+      .nav-left {
+        grid-row: 2;
+      }
+
+      .nav-right {
+        grid-row: 3;
+      }
 
       .nav-group a {
         padding: 13px 0;
-        border-top: 1px solid rgba(21,21,21,.12);
+        border-top: 1px solid rgba(21, 21, 21, 0.12);
       }
 
       .story-grid,
@@ -496,8 +528,6 @@
         width: min(520px, 88%);
         margin: 0 auto;
       }
-
-      .footer-grid { gap: 25px; }
     }
 
     @media (max-width: 560px) {
@@ -506,26 +536,15 @@
       }
 
       .hero h1 {
-        font-size: clamp(46px, 15vw, 70px);
+        font-size: clamp(43px, 14vw, 68px);
       }
 
-      .hero-actions {
-        align-items: stretch;
+      .hero-buttons {
         flex-direction: column;
       }
 
       .button {
         width: 100%;
-      }
-
-      .art-left {
-        width: 240px;
-        left: -125px;
-      }
-
-      .art-right {
-        width: 200px;
-        right: -100px;
       }
 
       .booking-shell {
@@ -534,13 +553,16 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
+      html {
+        scroll-behavior: auto;
+      }
+
       *,
       *::before,
       *::after {
-        animation-duration: .01ms !important;
+        animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
-        transition-duration: .01ms !important;
+        transition-duration: 0.01ms !important;
       }
     }
   </style>
@@ -555,12 +577,17 @@
         <a href="#order">Order</a>
       </nav>
 
-      <a class="brand" href="#top" aria-label="Restaurant home">
-        <span class="brand-mark">S</span>
-        <span class="brand-name">SUPER RESTAURANT</span>
+      <a class="brand" href="#top" aria-label="Supergeil home">
+        <span class="brand-symbol">S</span>
+        <span class="brand-name">SUPERGEIL</span>
       </a>
 
-      <button class="mobile-toggle" type="button" aria-expanded="false" aria-controls="site-header">
+      <button
+        class="mobile-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-header"
+      >
         Menu
       </button>
 
@@ -574,25 +601,31 @@
 
   <main id="top">
     <section class="hero" aria-labelledby="hero-heading">
-      <!-- Decorative public-domain-style placeholders. Replace with transparent PNG artwork. -->
-      <svg class="floating-art art-left" viewBox="0 0 500 600" aria-hidden="true">
-        <path d="M80 530C45 420 64 282 154 180c42-47 100-86 163-76 75 12 116 89 111 162-6 98-89 181-177 225-59 30-124 46-171 39Z" fill="#72adbf" stroke="#151515" stroke-width="12"/>
-        <path d="M134 387c43-97 104-180 173-239 26 96 26 188-9 267-28 64-97 105-164 92-40-8-25-63 0-120Z" fill="#db7469" stroke="#151515" stroke-width="10"/>
-        <circle cx="204" cy="272" r="36" fill="#d7b14e" stroke="#151515" stroke-width="9"/>
-      </svg>
+      <img
+        class="hero-image"
+        src="images/main-page.jpg"
+        alt="A colorful spread of Supergeil dishes"
+      >
 
-      <svg class="floating-art art-right" viewBox="0 0 500 600" aria-hidden="true">
-        <path d="M91 157c105-91 251-91 322 0-56 24-92 72-99 128 66 20 106 76 103 147-69-53-140-66-208-31-68 34-104 93-118 154-61-93-46-192 34-261-51-34-63-87-34-137Z" fill="#d9b247" stroke="#151515" stroke-width="12"/>
-        <path d="M204 120c21 72 17 143-12 213" fill="none" stroke="#151515" stroke-width="12" stroke-linecap="round"/>
-        <path d="M279 127c-20 63-17 125 11 186" fill="none" stroke="#151515" stroke-width="12" stroke-linecap="round"/>
-      </svg>
+      <div class="hero-overlay"></div>
 
       <div class="hero-content">
-        <p class="eyebrow">Detroit · Food · Drinks</p>
-        <h1 id="hero-heading">A culinary journey<br>from here to everywhere</h1>
-        <div class="hero-actions">
-          <a class="button button-solid" href="#menu">View menu</a>
-          <a class="button button-outline" href="#reservations">Reserve a table</a>
+        <p class="eyebrow">Detroit · Corktown</p>
+
+        <h1 id="hero-heading">
+          A culinary jaunt<br>
+          from Casablanca<br>
+          to Kreuzberg
+        </h1>
+
+        <div class="hero-buttons">
+          <a class="button button-solid" href="#menu">
+            View menu
+          </a>
+
+          <a class="button button-outline" href="#reservations">
+            Reserve a table
+          </a>
         </div>
       </div>
     </section>
@@ -602,23 +635,30 @@
         <div class="story-photo-wrap reveal">
           <img
             class="story-photo"
-            src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1200&q=85"
-            alt="Warm, lively restaurant interior">
+            src="images/main-page.jpg"
+            alt="Supergeil food spread"
+          >
         </div>
 
         <div class="story-copy reveal">
           <p class="eyebrow">The restaurant</p>
+
           <h2 class="section-title">Our story</h2>
+
           <p>
-            Write an original brand story here. Keep it concise, energetic, and focused on the restaurant’s
-            influences, neighborhood, food, and atmosphere. This section is intentionally inspired by the
-            editorial rhythm of the reference site without copying its wording or assets.
+            Add Supergeil's approved restaurant story here. This is a good place
+            to describe the food, the neighborhood, the influences behind the
+            menu, and the atmosphere guests can expect.
           </p>
+
           <p>
-            Pair strong typography with candid food and dining-room photography. Use playful illustration
-            around the edges to give the page its own recognizable visual language.
+            Keep the text concise so the photography and typography remain the
+            main focus of the page.
           </p>
-          <a class="button" href="#contact">Learn more</a>
+
+          <a class="button" href="#contact">
+            Learn more
+          </a>
         </div>
       </div>
     </section>
@@ -627,20 +667,43 @@
       <div class="reservation-inner">
         <div class="reveal">
           <p class="eyebrow">Dinner starts here</p>
-          <h2 class="section-title">Make a<br>reservation</h2>
+
+          <h2 class="section-title">
+            Make a<br>
+            reservation
+          </h2>
+
           <p>
-            Replace the demonstration card with the embed code from the restaurant’s OpenTable account.
-            OpenTable will handle availability, confirmation, and the actual booking flow.
+            Replace the demonstration booking card with the official OpenTable
+            widget code from the restaurant's OpenTable account.
           </p>
         </div>
 
         <div class="booking-shell reveal">
           <h3>Make a Reservation</h3>
-          <div class="booking-field"><span>📅 Select date</span><span>⌄</span></div>
-          <div class="booking-field"><span>◷ Select time</span><span>⌄</span></div>
-          <div class="booking-field"><span>♙ Party size</span><span>⌄</span></div>
-          <button class="booking-submit" type="button">Find a Table</button>
-          <p class="booking-note">Demo only — paste the official OpenTable widget here.</p>
+
+          <div class="booking-field">
+            <span>📅 Select date</span>
+            <span>⌄</span>
+          </div>
+
+          <div class="booking-field">
+            <span>◷ Select time</span>
+            <span>⌄</span>
+          </div>
+
+          <div class="booking-field">
+            <span>♙ Party size</span>
+            <span>⌄</span>
+          </div>
+
+          <button class="booking-submit" type="button">
+            Find a Table
+          </button>
+
+          <p class="booking-note">
+            Demo only — paste the official OpenTable widget here.
+          </p>
         </div>
       </div>
     </section>
@@ -650,34 +713,37 @@
     <div class="footer-grid">
       <div>
         <h3>Location</h3>
-        <p>123 Restaurant Avenue</p>
-        <p>Detroit, Michigan 48216</p>
+        <p>2442 Michigan Avenue</p>
+        <p>Detroit, Michigan</p>
       </div>
+
       <div>
         <h3>Hours</h3>
-        <p>Tuesday–Thursday · 12–9</p>
-        <p>Friday–Saturday · 12–10</p>
-        <p>Sunday · 11–8</p>
+        <p>Add current hours here</p>
+        <p>Add happy hour here</p>
       </div>
+
       <div>
         <h3>Contact</h3>
-        <p>(313) 555-0123</p>
-        <p>hello@example.com</p>
+        <p>Add phone number</p>
+        <p>Add email address</p>
         <p>Instagram · Facebook</p>
       </div>
     </div>
-    <div class="copyright">© 2026 Restaurant Name. Website concept by Your Name.</div>
+
+    <div class="copyright">
+      © 2026 Supergeil Detroit
+    </div>
   </footer>
 
   <script>
     window.addEventListener("DOMContentLoaded", () => {
-      document.body.classList.add("is-loaded");
-
       const header = document.querySelector(".site-header");
       const toggle = document.querySelector(".mobile-toggle");
 
       toggle.addEventListener("click", () => {
         const isOpen = header.classList.toggle("menu-open");
+
         toggle.setAttribute("aria-expanded", String(isOpen));
         toggle.textContent = isOpen ? "Close" : "Menu";
       });
@@ -690,7 +756,8 @@
         });
       });
 
-      const reveals = document.querySelectorAll(".reveal");
+      const revealElements = document.querySelectorAll(".reveal");
+
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -700,10 +767,14 @@
             }
           });
         },
-        { threshold: 0.16 }
+        {
+          threshold: 0.16
+        }
       );
 
-      reveals.forEach((element) => observer.observe(element));
+      revealElements.forEach((element) => {
+        observer.observe(element);
+      });
     });
   </script>
 </body>
