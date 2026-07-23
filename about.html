@@ -173,28 +173,82 @@
     }
 
 
-    .cow-panel img {
+    .cow-panel {
       position: relative;
-      z-index: 1;
-      width: 100%;
-      height: 100%;
       min-height: 590px;
-      object-fit: cover;
-      object-position: center;
-      opacity: 0;
-      transform: scale(1.025);
-      animation: aboutImageFadeIn 1.2s ease .15s forwards;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      padding: 70px 80px;
+      background:
+        linear-gradient(
+          rgba(248, 246, 240, 0.96),
+          rgba(248, 246, 240, 0.96)
+        ),
+        repeating-linear-gradient(
+          90deg,
+          transparent 0 28px,
+          rgba(21, 21, 21, 0.04) 28px 29px
+        );
     }
 
-    @keyframes aboutImageFadeIn {
+    .about-photo-wrap {
+      position: relative;
+      width: min(100%, 650px);
+      isolation: isolate;
+      opacity: 0;
+      transform: translateY(24px);
+      animation: aboutPhotoIn 1.05s ease .15s forwards;
+    }
+
+    .about-photo-frame {
+      position: relative;
+      z-index: 2;
+      padding: 12px;
+      background: #fff;
+      box-shadow: 0 28px 60px rgba(35, 26, 18, 0.18);
+      transform: rotate(-1.5deg);
+    }
+
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center;
+      border: 12px solid #dedede;
+    }
+
+    .about-flourish {
+      position: absolute;
+      z-index: 0;
+      width: clamp(220px, 22vw, 340px);
+      height: auto;
+      pointer-events: none;
+      mix-blend-mode: multiply;
+      opacity: .95;
+    }
+
+    .about-flourish-top {
+      top: -72px;
+      left: -175px;
+      transform: scaleY(-1) rotate(-3deg);
+    }
+
+    .about-flourish-bottom {
+      right: -175px;
+      bottom: -72px;
+      transform: scaleX(-1) rotate(-3deg);
+    }
+
+    @keyframes aboutPhotoIn {
       from {
         opacity: 0;
-        transform: scale(1.025);
+        transform: translateY(24px) scale(.98);
       }
 
       to {
         opacity: 1;
-        transform: scale(1);
+        transform: translateY(0) scale(1);
       }
     }
 
@@ -510,9 +564,23 @@
         grid-template-columns: 1fr;
       }
 
-      .cow-panel,
-      .cow-panel img {
-        min-height: 470px;
+      .cow-panel {
+        min-height: 560px;
+        padding: 80px 95px;
+      }
+
+      .about-photo-wrap {
+        width: min(100%, 620px);
+      }
+
+      .about-flourish-top {
+        left: -125px;
+        top: -75px;
+      }
+
+      .about-flourish-bottom {
+        right: -125px;
+        bottom: -75px;
       }
 
       .story-panel {
@@ -530,13 +598,31 @@
     }
 
     @media (max-width: 560px) {
-      .cow-panel,
-      .cow-panel img {
-        min-height: 360px;
+      .cow-panel {
+        min-height: 460px;
+        padding: 65px 48px;
       }
 
-      .cow-panel::after {
-        font-size: 360px;
+      .about-photo-frame {
+        padding: 9px;
+      }
+
+      .about-photo {
+        border-width: 8px;
+      }
+
+      .about-flourish {
+        width: 190px;
+      }
+
+      .about-flourish-top {
+        left: -62px;
+        top: -55px;
+      }
+
+      .about-flourish-bottom {
+        right: -62px;
+        bottom: -55px;
       }
 
       .story-panel {
@@ -569,7 +655,7 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .cow-panel img {
+      .about-photo-wrap {
         opacity: 1;
         transform: none;
         animation: none;
@@ -613,10 +699,29 @@
     <section class="about-intro">
       <div class="about-intro-grid">
         <div class="cow-panel">
-          <img
-            src="images/aboutus.jpg"
-            alt="Inside Supergeil Detroit"
-          >
+          <div class="about-photo-wrap">
+            <img
+              class="about-flourish about-flourish-top"
+              src="images/backgroundflourish.jpg"
+              alt=""
+              aria-hidden="true"
+            >
+
+            <div class="about-photo-frame">
+              <img
+                class="about-photo"
+                src="images/aboutus.jpg"
+                alt="Inside Supergeil Detroit"
+              >
+            </div>
+
+            <img
+              class="about-flourish about-flourish-bottom"
+              src="images/backgroundflourish.jpg"
+              alt=""
+              aria-hidden="true"
+            >
+          </div>
         </div>
 
         <div class="story-panel">
