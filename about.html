@@ -311,11 +311,21 @@
       align-items: start;
     }
 
-    .team-photo {
-      width: min(100%, 440px);
-      aspect-ratio: 1 / 1;
+     .team-photo-frame {
+      width: min(100%, 360px);
       margin: 0 auto 30px;
+      padding: 10px;
+      background: #fff;
+      box-shadow: 0 14px 30px rgba(0,0,0,.12);
+      transform: rotate(-1deg);
+    }
+
+    .team-photo {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      display:block;
       object-fit: cover;
+      border: 8px solid #e4e4e4;
     }
 
     .team-card h2 {
@@ -745,11 +755,7 @@
     <section class="team-section" aria-label="Meet the Supergeil team">
       <div class="team-grid">
         <article class="team-card">
-          <img
-            class="team-photo"
-            src="images/david.jpg"
-            alt="David Landrum"
-          >
+          <div class="team-photo-frame"><img class="team-photo" src="images/david.jpg" alt="David Landrum"></div>
 
           <h2>David Landrum</h2>
           <p class="team-role">Owner</p>
@@ -766,11 +772,7 @@
         </article>
 
         <article class="team-card">
-          <img
-            class="team-photo"
-            src="images/brendan.jpg"
-            alt="Brendan McCall"
-          >
+          <div class="team-photo-frame"><img class="team-photo" src="images/brendan.jpg" alt="Brendan McCall"></div>
 
           <h2>Brendan McCall</h2>
           <p class="team-role">Executive Chef/Partner</p>
@@ -786,11 +788,7 @@
         </article>
 
         <article class="team-card">
-          <img
-            class="team-photo"
-            src="images/joshua.jpg"
-            alt="Joshua Taylor"
-          >
+          <div class="team-photo-frame"><img class="team-photo" src="images/joshua.jpg" alt="Joshua Taylor"></div>
 
           <h2>Joshua Taylor</h2>
           <p class="team-role">Chef de Cuisine</p>
