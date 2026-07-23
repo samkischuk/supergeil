@@ -253,6 +253,95 @@
       background: rgba(0, 0, 0, 0.15);
     }
 
+
+    /* HERO ENTRANCE ANIMATIONS */
+
+    .flying-bird {
+      position: absolute;
+      left: -420px;
+      top: 38%;
+      width: clamp(190px, 24vw, 360px);
+      z-index: 6;
+      pointer-events: none;
+      opacity: 0;
+      transform-origin: center;
+      animation:
+        birdFlight 2.8s cubic-bezier(.22, .82, .18, 1) .15s forwards,
+        birdFloat 4s ease-in-out 2.95s infinite;
+    }
+
+    .hero-title-animate,
+    .hero-buttons-animate {
+      opacity: 0;
+      transform: translateY(26px);
+    }
+
+    .hero-title-animate {
+      animation: heroContentIn .75s ease 1.55s forwards;
+    }
+
+    .hero-buttons-animate {
+      animation: heroContentIn .75s ease 2.05s forwards;
+    }
+
+    @keyframes birdFlight {
+      0% {
+        left: -420px;
+        top: 42%;
+        opacity: 0;
+        transform: rotate(-18deg) scale(.72);
+      }
+
+      18% {
+        opacity: 1;
+      }
+
+      36% {
+        top: 17%;
+        transform: rotate(8deg) scale(.9);
+      }
+
+      56% {
+        top: 26%;
+        transform: rotate(-6deg) scale(1);
+      }
+
+      76% {
+        top: 16%;
+        transform: rotate(5deg) scale(1);
+      }
+
+      100% {
+        left: -35px;
+        top: 20%;
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+      }
+    }
+
+    @keyframes birdFloat {
+      0%,
+      100% {
+        transform: translateY(0) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-9px) rotate(-1deg);
+      }
+    }
+
+    @keyframes heroContentIn {
+      from {
+        opacity: 0;
+        transform: translateY(26px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     /* STORY */
 
     .story {
@@ -531,6 +620,10 @@
         min-height: 650px;
       }
 
+      .flying-bird {
+        width: 210px;
+      }
+
       .hero h1 {
         font-size: clamp(43px, 14vw, 68px);
       }
@@ -559,6 +652,19 @@
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
+      }
+
+      .flying-bird {
+        left: -35px;
+        top: 20%;
+        opacity: 1;
+        transform: none;
+      }
+
+      .hero-title-animate,
+      .hero-buttons-animate {
+        opacity: 1;
+        transform: none;
       }
     }
   </style>
@@ -602,16 +708,23 @@
         alt="A colorful spread of Supergeil dishes"
       >
 
+      <img
+        class="flying-bird"
+        src="images/birdlogo.jpg"
+        alt=""
+        aria-hidden="true"
+      >
+
       <div class="hero-overlay"></div>
 
       <div class="hero-content">
-        <h1 id="hero-heading">
+        <h1 id="hero-heading" class="hero-title-animate">
           A culinary jaunt<br>
           from Casablanca<br>
           to Kreuzberg
         </h1>
 
-        <div class="hero-buttons">
+        <div class="hero-buttons hero-buttons-animate">
           <a class="button button-solid" href="menu.html">
             Menu
           </a>
