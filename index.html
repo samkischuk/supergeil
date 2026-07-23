@@ -726,32 +726,38 @@
       }
     }
   
-    .social-links{
-      display:flex;
-      gap:18px;
-      justify-content:center;
-      margin-top:32px;
+    .social-links {
+      display: flex;
+      justify-content: flex-start;
+      gap: 14px;
+      margin-top: 18px;
     }
 
-    .social-links a{
-      width:64px;
-      height:64px;
-      border-radius:50%;
-      border:3px solid #c8a12d;
-      color:#fff;
-      background:#111;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:30px;
-      text-decoration:none;
-      transition:.25s ease;
+    .social-links a {
+      width: 54px;
+      height: 54px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid #c8a12d;
+      border-radius: 50%;
+      color: #fff;
+      background: #111;
+      font-size: 25px;
+      line-height: 1;
+      text-decoration: none;
+      box-shadow: inset 0 0 0 2px #111;
+      transition:
+        transform .22s ease,
+        background .22s ease,
+        color .22s ease;
     }
 
-    .social-links a:hover{
-      transform:translateY(-3px) scale(1.06);
-      background:#c8a12d;
-      color:#111;
+    .social-links a:hover,
+    .social-links a:focus-visible {
+      transform: translateY(-3px) scale(1.05);
+      background: #c8a12d;
+      color: #111;
     }
 
 
@@ -763,6 +769,12 @@
 }
 .contact-item strong{font-weight:700;}
 </style>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    referrerpolicy="no-referrer"
+  >
+
 </head>
 
 <body>
@@ -954,14 +966,34 @@
             <strong>Sunday</strong><br>
             <em>Brunch: 11am-3pm</em> | Dinner: 3pm-8pm
           </p>
-        <p>Add happy hour here</p>
       </div>
 
       <div>
         <h3>Contact</h3>
-        <p>Add phone number</p>
-        <p>Add email address</p>
-        <p>Instagram · Facebook</p>
+        <p>
+          <a href="tel:3134624133">313-462-4133</a>
+        </p>
+
+        <div class="social-links" aria-label="Social media links">
+          <a
+            href="https://www.facebook.com/supergeildetroit/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Supergeil on Facebook"
+          >
+            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+          </a>
+
+          <a
+            href="https://www.instagram.com/supergeildetroit/?hl=en"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Supergeil on Instagram"
+          >
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+          </a>
+        </div>
+      
       </div>
     </div>
 
