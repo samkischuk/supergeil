@@ -373,13 +373,82 @@
       display: grid;
       place-items: center;
       align-self: center;
-      padding: 40px 55px;
+      padding: 52px 68px;
       overflow: visible;
+    }
+
+    .story-slideshow {
+      position: relative;
+      width: min(100%, 520px);
+      margin: 0 auto;
+      isolation: isolate;
+    }
+
+    .story-slides {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      border: 9px solid white;
+      box-shadow: 0 28px 60px rgba(35, 26, 18, 0.18);
+      transform: rotate(-1.5deg);
+      background: #ddd;
+      z-index: 2;
+    }
+
+    .story-slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0;
+      transform: scale(1.035);
+      transition:
+        opacity 1s ease,
+        transform 6s ease;
+    }
+
+    .story-slide.is-active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .story-dots {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .story-dot {
+      width: 10px;
+      height: 10px;
+      padding: 0;
+      border: 1px solid var(--ink);
+      border-radius: 50%;
+      background: transparent;
+      cursor: pointer;
+      transition:
+        transform .2s ease,
+        background .2s ease;
+    }
+
+    .story-dot:hover,
+    .story-dot:focus-visible {
+      transform: scale(1.2);
+    }
+
+    .story-dot.is-active {
+      background: var(--ink);
     }
 
     .story-flourish {
       position: absolute;
-      width: clamp(150px, 18vw, 235px);
+      width: clamp(170px, 20vw, 265px);
       height: auto;
       z-index: 0;
       pointer-events: none;
@@ -388,8 +457,8 @@
     }
 
     .story-flourish-top {
-      top: -20px;
-      left: -70px;
+      top: -65px;
+      left: -90px;
       transform: scaleY(-1) translateY(-24px) rotate(-5deg);
       animation:
         flourishTopIn .9s ease 1.05s forwards,
@@ -397,8 +466,8 @@
     }
 
     .story-flourish-bottom {
-      right: -70px;
-      bottom: -35px;
+      right: -90px;
+      bottom: -45px;
       transform: translateY(24px) rotate(4deg);
       animation:
         flourishBottomIn .9s ease 1.2s forwards,
@@ -412,7 +481,7 @@
       }
 
       to {
-        opacity: 1;
+        opacity: .95;
         transform: scaleY(-1) translateY(0) rotate(0deg) scale(1);
       }
     }
@@ -424,7 +493,7 @@
       }
 
       to {
-        opacity: 1;
+        opacity: .95;
         transform: translateY(0) rotate(0deg) scale(1);
       }
     }
@@ -768,26 +837,21 @@
       .story-photo-wrap {
         width: min(560px, 96%);
         margin: 0 auto;
-        padding: 18px;
+        padding: 38px 42px;
       }
 
-      .story-photo-stack {
+      .story-slideshow {
         width: min(100%, 470px);
-        gap: 22px;
-      }
-
-      .story-photo {
-        width: 100%;
       }
 
       .story-flourish-top {
-        left: -35px;
-        top: -15px;
+        left: -45px;
+        top: -42px;
       }
 
       .story-flourish-bottom {
-        right: -35px;
-        bottom: -25px;
+        right: -45px;
+        bottom: -30px;
       }
     }
 
@@ -860,6 +924,10 @@
 
       .story-flourish-bottom {
         transform: none;
+      }
+
+      .story-slide {
+        transition: none;
       }
     }
   
@@ -986,25 +1054,53 @@
     <section class="story" id="story">
       <div class="story-grid">
         <div class="story-photo-wrap reveal">
-          <div class="story-photo-stack">
-            <img
-              class="story-photo story-photo-back"
-              src="images/insideshot.jpg"
-              alt="Interior of Supergeil restaurant"
-            >
-
-            <img
-              class="story-photo story-photo-front"
-              src="images/supergeilfront.jpg"
-              alt="Exterior of Supergeil restaurant"
-            >
-
+          <div class="story-slideshow" aria-label="Supergeil photo slideshow">
             <img
               class="story-flourish story-flourish-top"
               src="images/backgroundflourish.jpg"
               alt=""
               aria-hidden="true"
             >
+
+            <div class="story-slides">
+              <img
+                class="story-slide is-active"
+                src="images/supergeilfront.jpg"
+                alt="Exterior of Supergeil restaurant"
+              >
+
+              <img
+                class="story-slide"
+                src="images/insideshot.jpg"
+                alt="Interior of Supergeil restaurant"
+              >
+
+              <img
+                class="story-slide"
+                src="images/grilledcabbage.jpg"
+                alt="Grilled cabbage dish at Supergeil"
+              >
+
+              <img
+                class="story-slide"
+                src="images/cocktail.jpg"
+                alt="Cocktail served at Supergeil"
+              >
+
+              <img
+                class="story-slide"
+                src="images/hummus.jpg"
+                alt="Hummus dish at Supergeil"
+              >
+            </div>
+
+            <div class="story-dots" aria-label="Choose slideshow image">
+              <button class="story-dot is-active" type="button" aria-label="Show image 1"></button>
+              <button class="story-dot" type="button" aria-label="Show image 2"></button>
+              <button class="story-dot" type="button" aria-label="Show image 3"></button>
+              <button class="story-dot" type="button" aria-label="Show image 4"></button>
+              <button class="story-dot" type="button" aria-label="Show image 5"></button>
+            </div>
 
             <img
               class="story-flourish story-flourish-bottom"
@@ -1209,6 +1305,42 @@
       revealElements.forEach((element) => {
         observer.observe(element);
       });
+
+      const storySlides = Array.from(document.querySelectorAll(".story-slide"));
+      const storyDots = Array.from(document.querySelectorAll(".story-dot"));
+      let storySlideIndex = 0;
+      let storySlideTimer;
+
+      const showStorySlide = (index) => {
+        storySlideIndex = (index + storySlides.length) % storySlides.length;
+
+        storySlides.forEach((slide, slideIndex) => {
+          slide.classList.toggle("is-active", slideIndex === storySlideIndex);
+        });
+
+        storyDots.forEach((dot, dotIndex) => {
+          dot.classList.toggle("is-active", dotIndex === storySlideIndex);
+        });
+      };
+
+      const startStorySlideshow = () => {
+        clearInterval(storySlideTimer);
+        storySlideTimer = setInterval(() => {
+          showStorySlide(storySlideIndex + 1);
+        }, 4200);
+      };
+
+      storyDots.forEach((dot, dotIndex) => {
+        dot.addEventListener("click", () => {
+          showStorySlide(dotIndex);
+          startStorySlideshow();
+        });
+      });
+
+      if (storySlides.length > 1) {
+        startStorySlideshow();
+      }
+
     });
   </script>
 </body>
