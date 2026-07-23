@@ -167,16 +167,9 @@
 
     .cow-panel {
       position: relative;
+      z-index: 2;
       min-height: 590px;
-      overflow: hidden;
-      background: #fff;
-    }
-
-
-    .cow-panel {
-      position: relative;
-      min-height: 590px;
-      overflow: hidden;
+      overflow: visible;
       display: grid;
       place-items: center;
       padding: 70px 80px;
@@ -220,7 +213,7 @@
 
     .about-flourish {
       position: absolute;
-      z-index: 0;
+      z-index: 4;
       width: clamp(220px, 22vw, 340px);
       height: auto;
       pointer-events: none;
@@ -229,14 +222,16 @@
     }
 
     .about-flourish-top {
-      top: -72px;
-      left: -175px;
+      top: -95px;
+      right: -155px;
+      left: auto;
       transform: scaleY(-1) rotate(-3deg);
     }
 
     .about-flourish-bottom {
-      right: -175px;
+      right: -155px;
       bottom: -72px;
+      z-index: 1;
       transform: scaleX(-1) rotate(-3deg);
     }
 
@@ -254,6 +249,7 @@
 
     .story-panel {
       position: relative;
+      z-index: 1;
       padding: 160px clamp(40px, 7vw, 110px) 80px;
       background: #fff;
     }
@@ -565,13 +561,14 @@
       }
 
       .about-flourish-top {
-        left: -125px;
-        top: -75px;
+        top: -70px;
+        right: -80px;
+        left: auto;
       }
 
       .about-flourish-bottom {
-        right: -125px;
-        bottom: -75px;
+        right: -80px;
+        bottom: -70px;
       }
 
       .story-panel {
@@ -607,13 +604,14 @@
       }
 
       .about-flourish-top {
-        left: -62px;
-        top: -55px;
+        top: -48px;
+        right: -36px;
+        left: auto;
       }
 
       .about-flourish-bottom {
-        right: -62px;
-        bottom: -55px;
+        right: -36px;
+        bottom: -48px;
       }
 
       .story-panel {
@@ -738,7 +736,7 @@
       </div>
     </section>
 
-    <h2 class="team-heading">Meet the Team</h2>
+    <h2 class="team-heading">Meet Our Team</h2>
 
     <section class="team-section" aria-label="Meet the Supergeil team">
       <div class="team-grid">
