@@ -1,34 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Learn about Supergeil Detroit and meet the team." />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>About | Supergeil Detroit</title>
+  <meta
+    name="description"
+    content="Learn about Supergeil Detroit and meet the team."
+  >
 
-  <!--
-    ASSET FILENAMES USED ON THIS PAGE
-    ---------------------------------
-    logo.jpg                = Supergeil logo in the header
-    about-cow.jpg           = illustrated cow image
-    flourish-top.png        = decorative black flourish above the intro
-    david-landrum.jpg       = David's portrait
-    brendan-mccall.jpg      = Brendan's portrait
-    joshua-taylor.jpg       = Joshua's portrait
-    join-team-bg.jpg        = food image behind the hiring section
-    logo-gold.png           = gold/black Supergeil logo over the hiring image
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rye&display=swap"
+    rel="stylesheet"
+  >
 
-    Change any filename below if your files use different names.
-  -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    referrerpolicy="no-referrer"
+  >
 
   <style>
     :root {
-      --gold: #d9ad23;
-      --black: #050505;
-      --white: #ffffff;
-      --page-width: 1500px;
-      --body-font: Arial, Helvetica, sans-serif;
-      --display-font: Georgia, "Times New Roman", serif;
+      --paper: #f8f6f0;
+      --ink: #151515;
+      --gold: #c8a12d;
+      --content-width: 1240px;
+      --display-font: "Rye", Georgia, serif;
+      --body-font: "Inter", Arial, sans-serif;
     }
 
     * {
@@ -41,10 +43,10 @@
 
     body {
       margin: 0;
-      color: var(--black);
-      background: var(--white);
-      font-family: var(--body-font);
       overflow-x: hidden;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--body-font);
     }
 
     img {
@@ -57,122 +59,130 @@
       text-decoration: none;
     }
 
-    /* HEADER */
+    button {
+      font: inherit;
+    }
+
+    /* HEADER — copied from index.html */
 
     .site-header {
       position: relative;
-      z-index: 20;
-      background: #fff;
-      border-bottom: 1px solid var(--gold);
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.97);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.12);
     }
 
-    .nav-wrap {
-      width: min(100% - 40px, 1080px);
-      min-height: 210px;
+    .header-inner {
+      width: min(var(--content-width), calc(100% - 40px));
+      min-height: 170px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr 250px 1fr;
+      grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      gap: 34px;
+      gap: 40px;
     }
 
     .nav-group {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 28px;
+      justify-content: center;
+      gap: clamp(22px, 3vw, 52px);
+      font-size: 16px;
+      font-weight: 500;
     }
 
-    .nav-link {
+    .nav-group a {
       position: relative;
-      padding: 12px 4px 26px;
-      font-size: 21px;
-      line-height: 1;
-      white-space: nowrap;
-      transition: color 180ms ease;
+      padding: 10px 0;
+      transition:
+        color .25s ease,
+        transform .25s ease;
     }
 
-    .nav-link:hover,
-    .nav-link:focus-visible,
-    .nav-link.active {
-      color: var(--gold);
-    }
-
-    .nav-link.active::after {
+    .nav-group a::after {
       content: "";
       position: absolute;
-      left: -22px;
-      right: -22px;
-      bottom: 0;
-      height: 4px;
+      left: 0;
+      right: 100%;
+      bottom: 2px;
+      height: 2px;
       background: var(--gold);
+      transition: right .25s ease;
     }
 
-    .header-logo {
+    .nav-group a:hover,
+    .nav-group a:focus-visible,
+    .nav-group a.active {
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .nav-group a:hover::after,
+    .nav-group a:focus-visible::after,
+    .nav-group a.active::after {
+      right: 0;
+    }
+
+    .brand {
       display: flex;
       justify-content: center;
       align-items: center;
+      width: 260px;
+      margin: auto;
     }
 
-    .header-logo img {
-      width: 230px;
-      max-height: 180px;
-      object-fit: contain;
+    .logo {
+      width: 240px;
+      height: auto;
+      display: block;
+      transition: transform .25s ease;
     }
 
-    .menu-toggle {
+    .logo:hover {
+      transform: scale(.875);
+    }
+
+    .mobile-toggle {
       display: none;
-      width: 44px;
-      height: 38px;
-      padding: 0;
       border: 0;
       background: transparent;
+      font-weight: 700;
       cursor: pointer;
     }
 
-    .menu-toggle span {
-      display: block;
-      width: 100%;
-      height: 3px;
-      margin: 7px 0;
-      background: #000;
-    }
-
-    /* INTRO */
+    /* ABOUT INTRO */
 
     .about-intro {
-      position: relative;
-      min-height: 590px;
-      overflow: hidden;
       background: #fff;
+      border-bottom: 1px solid rgba(0, 0, 0, .12);
     }
 
-    .about-grid {
-      width: min(100%, 1788px);
+    .about-intro-grid {
+      width: min(1600px, 100%);
       min-height: 590px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 49% 51%;
-      align-items: stretch;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     }
 
     .cow-panel {
       position: relative;
       min-height: 590px;
       overflow: hidden;
+      background: #fff;
     }
 
     .cow-panel::after {
       content: "S";
       position: absolute;
       z-index: 0;
-      top: -45px;
-      right: -5px;
-      font-family: var(--display-font);
-      font-size: clamp(340px, 38vw, 660px);
+      top: -60px;
+      right: -15px;
+      color: #000;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(360px, 38vw, 680px);
       font-weight: 700;
       line-height: 1;
-      color: #000;
     }
 
     .cow-panel img {
@@ -182,12 +192,12 @@
       height: 100%;
       min-height: 590px;
       object-fit: cover;
-      object-position: center 38%;
+      object-position: center;
     }
 
     .story-panel {
       position: relative;
-      padding: 160px 11% 70px 7%;
+      padding: 160px clamp(40px, 7vw, 110px) 80px;
       background: #fff;
     }
 
@@ -195,59 +205,56 @@
       position: absolute;
       top: 0;
       left: 50%;
-      width: min(520px, 75%);
+      width: min(520px, 76%);
       transform: translateX(-50%);
+      mix-blend-mode: multiply;
     }
 
     .story-panel h1 {
-      margin: 0 0 28px;
+      margin: 0 0 26px;
       font-family: var(--display-font);
-      font-size: clamp(38px, 3vw, 58px);
-      line-height: 1;
-      letter-spacing: 0.01em;
+      font-size: clamp(34px, 3vw, 50px);
+      font-weight: 400;
+      line-height: 1.1;
     }
 
     .story-panel p {
       max-width: 650px;
       margin: 0;
-      font-size: clamp(19px, 1.35vw, 25px);
-      line-height: 1.48;
+      font-size: clamp(17px, 1.25vw, 22px);
+      line-height: 1.62;
     }
 
     /* TEAM */
 
-    .team-title {
+    .team-heading {
       margin: 0;
       padding: 36px 20px 34px;
-      background: var(--gold);
+      background: #d9ad23;
       text-align: center;
       font-family: var(--display-font);
-      font-size: clamp(44px, 5vw, 78px);
+      font-size: clamp(42px, 5vw, 74px);
+      font-weight: 400;
       line-height: 1;
       text-transform: uppercase;
-      letter-spacing: 0.02em;
     }
 
     .team-section {
-      padding: 95px 45px 145px;
+      padding: 95px 40px 140px;
       background: #fff;
     }
 
     .team-grid {
-      width: min(100%, 1710px);
+      width: min(1710px, 100%);
       margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 64px;
+      gap: clamp(45px, 5vw, 80px);
       align-items: start;
     }
 
-    .team-card {
-      text-align: left;
-    }
-
     .team-photo {
-      width: 80%;
+      width: min(100%, 440px);
       aspect-ratio: 1 / 1;
       margin: 0 auto 30px;
       object-fit: cover;
@@ -257,23 +264,23 @@
       margin: 0;
       text-align: center;
       font-family: var(--display-font);
-      font-size: clamp(29px, 2.2vw, 42px);
-      line-height: 1.05;
+      font-size: clamp(26px, 2.2vw, 38px);
+      font-weight: 400;
+      line-height: 1.1;
     }
 
     .team-role {
-      margin: 8px 0 58px;
+      margin: 8px 0 44px;
       text-align: center;
       font-family: var(--display-font);
-      font-size: clamp(21px, 1.45vw, 28px);
-      font-weight: 700;
-      line-height: 1.1;
+      font-size: clamp(18px, 1.4vw, 24px);
+      line-height: 1.15;
     }
 
     .team-bio {
       margin: 0;
-      font-size: clamp(18px, 1.25vw, 24px);
-      line-height: 1.52;
+      font-size: clamp(16px, 1.18vw, 21px);
+      line-height: 1.6;
     }
 
     /* JOIN TEAM */
@@ -281,11 +288,11 @@
     .join-section {
       position: relative;
       min-height: 560px;
-      border-top: 22px solid var(--gold);
+      border-top: 22px solid #d9ad23;
       overflow: visible;
       background:
-        linear-gradient(rgba(0,0,0,.12), rgba(0,0,0,.12)),
-        url("join-team-bg.jpg") center / cover no-repeat;
+        linear-gradient(rgba(0, 0, 0, .18), rgba(0, 0, 0, .18)),
+        url("images/join-team-bg.jpg") center / cover no-repeat;
     }
 
     .join-logo {
@@ -294,14 +301,14 @@
       top: 0;
       left: 50%;
       width: min(620px, 74vw);
-      transform: translate(-50%, -27%);
+      transform: translate(-50%, -28%);
     }
 
     .join-inner {
-      width: min(100% - 40px, 1000px);
+      width: min(1000px, calc(100% - 40px));
       min-height: 560px;
       margin: 0 auto;
-      padding: 235px 0 45px;
+      padding: 225px 0 55px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -310,107 +317,187 @@
     }
 
     .join-inner h2 {
-      max-width: 980px;
-      margin: 0 0 55px;
+      margin: 0 0 50px;
       color: #fff;
       font-family: var(--display-font);
-      font-size: clamp(42px, 5vw, 74px);
-      line-height: 1.08;
+      font-size: clamp(38px, 5vw, 70px);
+      font-weight: 400;
+      line-height: 1.1;
       text-transform: uppercase;
-      text-shadow: 0 2px 4px rgba(0,0,0,.35);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, .35);
     }
 
     .inquire-button {
+      min-width: 350px;
+      min-height: 90px;
+      padding: 18px 36px;
       display: inline-flex;
-      min-width: 365px;
-      min-height: 92px;
-      padding: 18px 38px;
       align-items: center;
       justify-content: center;
-      border: 6px solid var(--gold);
+      border: 6px solid #d9ad23;
       border-radius: 10px;
-      background: #000;
       color: #fff;
+      background: #000;
       font-family: var(--display-font);
-      font-size: 31px;
-      font-weight: 700;
+      font-size: 29px;
       text-transform: uppercase;
       transition:
-        transform 180ms ease,
-        background 180ms ease,
-        color 180ms ease;
+        transform .22s ease,
+        background .22s ease,
+        color .22s ease;
     }
 
     .inquire-button:hover,
     .inquire-button:focus-visible {
       transform: translateY(-3px);
+      color: #111;
+      background: #d9ad23;
+    }
+
+    /* FOOTER — copied from index.html */
+
+    .site-footer {
+      padding: 65px 20px 35px;
+      background: #e8ddc9;
+    }
+
+    .footer-grid {
+      width: min(var(--content-width), 100%);
+      margin: 0 auto 45px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .footer-grid h3 {
+      margin: 0 0 22px;
+      font-family: var(--display-font);
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+
+    .location-address,
+    .contact-phone {
+      margin: 0;
+      font-family: var(--body-font);
+      font-size: 18px;
+      line-height: 1.65;
+      color: #111;
+    }
+
+    .hours-list p {
+      margin: 0 0 22px;
+      font-size: 15px;
+      line-height: 1.65;
+      color: #111;
+    }
+
+    .hours-list p:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-email {
+      margin: 12px 0 0;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: flex-start;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .social-links a {
+      width: 52px;
+      height: 52px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid var(--gold);
+      border-radius: 50%;
+      color: #fff;
+      background: #111;
+      font-size: 25px;
+      line-height: 1;
+      box-shadow: inset 0 0 0 2px #111;
+      transition:
+        transform .22s ease,
+        background .22s ease,
+        color .22s ease;
+    }
+
+    .social-links a:hover,
+    .social-links a:focus-visible {
+      transform: translateY(-3px) scale(.892);
+      color: #111;
       background: var(--gold);
-      color: #000;
-      outline: none;
+    }
+
+    .copyright {
+      width: min(var(--content-width), 100%);
+      margin: 0 auto;
+      padding-top: 22px;
+      border-top: 1px solid rgba(21, 21, 21, .22);
+      font-size: 12px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
     }
 
     /* MOBILE */
 
-    @media (max-width: 1050px) {
-      .site-header {
-        border-bottom-width: 1px;
-      }
-
-      .nav-wrap {
-        min-height: 140px;
+    @media (max-width: 880px) {
+      .header-inner {
+        min-height: 105px;
         grid-template-columns: 1fr auto;
       }
 
-      .header-logo {
+      .brand {
         justify-content: flex-start;
+        width: 220px;
+        margin: 0;
       }
 
-      .header-logo img {
+      .logo {
         width: 205px;
-        max-height: 125px;
       }
 
-      .menu-toggle {
+      .mobile-toggle {
         display: block;
-        justify-self: end;
+        grid-column: 2;
+        grid-row: 1;
       }
 
       .nav-group {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 140px;
         display: none;
-        padding: 8px 22px;
+        grid-column: 1 / -1;
         flex-direction: column;
         align-items: stretch;
         gap: 0;
-        background: #fff;
-        border-bottom: 8px solid #000;
+        padding: 8px 0 20px;
       }
 
-      .nav-group.left {
-        top: 140px;
-      }
-
-      .nav-group.right {
-        top: 305px;
-      }
-
-      .nav-wrap.open .nav-group {
+      .site-header.menu-open .nav-group {
         display: flex;
       }
 
-      .nav-link {
-        padding: 15px 8px;
-        border-bottom: 1px solid #ddd;
+      .nav-left {
+        grid-row: 2;
       }
 
-      .nav-link.active::after {
-        display: none;
+      .nav-right {
+        grid-row: 3;
       }
 
-      .about-grid {
+      .nav-group a {
+        padding: 13px 0;
+        border-top: 1px solid rgba(21, 21, 21, .12);
+      }
+
+      .about-intro-grid,
+      .team-grid,
+      .footer-grid {
         grid-template-columns: 1fr;
       }
 
@@ -424,12 +511,7 @@
       }
 
       .team-grid {
-        grid-template-columns: 1fr;
         gap: 85px;
-      }
-
-      .team-photo {
-        width: min(100%, 520px);
       }
 
       .team-bio {
@@ -438,35 +520,18 @@
       }
     }
 
-    @media (max-width: 640px) {
-      .nav-wrap {
-        width: min(100% - 28px, 1080px);
-        min-height: 112px;
-      }
-
-      .header-logo img {
-        width: 170px;
-      }
-
-      .nav-group.left {
-        top: 112px;
-      }
-
-      .nav-group.right {
-        top: 277px;
-      }
-
+    @media (max-width: 560px) {
       .cow-panel,
       .cow-panel img {
-        min-height: 370px;
+        min-height: 360px;
       }
 
       .cow-panel::after {
-        font-size: 380px;
+        font-size: 360px;
       }
 
       .story-panel {
-        padding: 88px 24px 52px;
+        padding: 90px 24px 55px;
       }
 
       .story-flourish {
@@ -479,79 +544,70 @@
       }
 
       .team-role {
-        margin-bottom: 32px;
-      }
-
-      .join-section {
-        min-height: 490px;
+        margin-bottom: 30px;
       }
 
       .join-inner {
-        min-height: 490px;
+        min-height: 500px;
         padding-top: 170px;
       }
 
-      .join-inner h2 {
-        margin-bottom: 36px;
-      }
-
       .inquire-button {
-        min-width: min(100%, 320px);
-        min-height: 76px;
-        font-size: 25px;
+        min-width: min(100%, 315px);
+        min-height: 74px;
+        font-size: 24px;
       }
     }
   </style>
 </head>
 
 <body>
-  <header class="site-header">
-    <nav class="nav-wrap" id="siteNav" aria-label="Main navigation">
-      <div class="nav-group left">
-        <a class="nav-link active" href="about.html" aria-current="page">About</a>
-        <a class="nav-link" href="menu.html">Menu</a>
-        <a class="nav-link" href="https://order.toasttab.com/online/supergeil">Order</a>
-      </div>
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <nav class="nav-group nav-left" aria-label="Primary navigation">
+        <a class="active" href="about.html" aria-current="page">About</a>
+        <a href="menu.html">Menu</a>
+        <a href="https://order.toasttab.com/online/supergeil">Order</a>
+      </nav>
 
-      <a class="header-logo" href="index.html" aria-label="Supergeil home">
-        <img src="logo.jpg" alt="Supergeil" />
+      <a class="brand" href="index.html" aria-label="Supergeil Home">
+        <img class="logo" src="images/logo.jpg" alt="Supergeil Detroit Logo">
       </a>
 
-      <div class="nav-group right">
-        <a class="nav-link" href="gallery.html">Gallery</a>
-        <a class="nav-link" href="events.html">Events</a>
-        <a class="nav-link" href="index.html#contact">Contact</a>
-      </div>
-
       <button
-        class="menu-toggle"
-        id="menuToggle"
+        class="mobile-toggle"
         type="button"
-        aria-label="Open navigation"
         aria-expanded="false"
-        aria-controls="siteNav"
+        aria-controls="site-header"
       >
-        <span></span>
-        <span></span>
-        <span></span>
+        Menu
       </button>
-    </nav>
+
+      <nav class="nav-group nav-right" aria-label="Secondary navigation">
+        <a href="gallery.html">Gallery</a>
+        <a href="events.html">Events</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
   <main>
     <section class="about-intro">
-      <div class="about-grid">
+      <div class="about-intro-grid">
         <div class="cow-panel">
-          <img src="about-cow.jpg" alt="Illustrated green cow" />
+          <img
+            src="images/about-cow.jpg"
+            alt="Illustrated green cow"
+          >
         </div>
 
         <div class="story-panel">
           <img
             class="story-flourish"
-            src="flourish-top.png"
+            src="images/flourish-top.png"
             alt=""
             aria-hidden="true"
-          />
+          >
 
           <h1>Supergeil Detroit</h1>
 
@@ -569,18 +625,20 @@
       </div>
     </section>
 
-    <h2 class="team-title">Meet the Team</h2>
+    <h2 class="team-heading">Meet the Team</h2>
 
     <section class="team-section" aria-label="Meet the Supergeil team">
       <div class="team-grid">
         <article class="team-card">
           <img
             class="team-photo"
-            src="david-landrum.jpg"
+            src="images/david-landrum.jpg"
             alt="David Landrum"
-          />
+          >
+
           <h2>David Landrum</h2>
           <p class="team-role">Owner</p>
+
           <p class="team-bio">
             David spent over a decade in hospitality before opening up Two James
             Spirits, the first distillery in Detroit since prohibition. With an
@@ -595,11 +653,13 @@
         <article class="team-card">
           <img
             class="team-photo"
-            src="brendan-mccall.jpg"
+            src="images/brendan-mccall.jpg"
             alt="Brendan McCall"
-          />
+          >
+
           <h2>Brendan McCall</h2>
           <p class="team-role">Executive Chef/Partner</p>
+
           <p class="team-bio">
             Brendan cut his teeth as a chef at Everyday Cook in Ann Arbor where he
             produced a daily changing menu from products sourced from Kerrytown
@@ -613,11 +673,13 @@
         <article class="team-card">
           <img
             class="team-photo"
-            src="joshua-taylor.jpg"
+            src="images/joshua-taylor.jpg"
             alt="Joshua Taylor"
-          />
+          >
+
           <h2>Joshua Taylor</h2>
           <p class="team-role">Chef de Cuisine</p>
+
           <p class="team-bio">
             A graduate of the French Culinary Institute in New York City, Josh
             worked in all aspects of the culinary field. Josh started learning
@@ -635,38 +697,119 @@
     <section class="join-section">
       <img
         class="join-logo"
-        src="logo-gold.png"
+        src="images/logo-gold.png"
         alt="Supergeil"
-      />
+      >
 
       <div class="join-inner">
-        <h2>Interested in joining<br />the Supergeil team?</h2>
-        <a class="inquire-button" href="mailto:info@supergeildetroit.com?subject=Employment%20Inquiry">
+        <h2>
+          Interested in joining<br>
+          the Supergeil team?
+        </h2>
+
+        <a
+          class="inquire-button"
+          href="mailto:events@supergeildetroit.com?subject=Employment%20Inquiry"
+        >
           Inquire
         </a>
       </div>
     </section>
   </main>
 
+  <footer class="site-footer" id="contact">
+    <div class="footer-grid">
+      <div class="footer-column">
+        <h3>Location</h3>
+
+        <p class="location-address">
+          2442 Michigan Ave<br>
+          Detroit, MI 48216
+        </p>
+      </div>
+
+      <div class="footer-column hours-column">
+        <h3>Hours</h3>
+
+        <div class="hours-list">
+          <p><strong>Monday</strong> – Closed</p>
+
+          <p>
+            <strong>Tuesday – Thursday</strong><br>
+            <em>Lunch: noon-4pm</em> | Dinner: 4pm-9pm
+          </p>
+
+          <p>
+            <strong>Friday &amp; Saturday</strong><br>
+            <em>Lunch: noon-4pm</em> | Dinner: 4pm-10pm
+          </p>
+
+          <p>
+            <strong>Sunday</strong><br>
+            <em>Brunch: 11am-3pm</em> | Dinner: 3pm-8pm
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h3>Contact</h3>
+
+        <p class="contact-phone">
+          <a href="tel:3134624133">313-462-4133</a>
+        </p>
+
+        <p class="contact-email">
+          <a href="mailto:events@supergeildetroit.com">
+            events@supergeildetroit.com
+          </a>
+        </p>
+
+        <div class="social-links" aria-label="Social media links">
+          <a
+            href="https://www.facebook.com/supergeildetroit/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Supergeil on Facebook"
+          >
+            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+          </a>
+
+          <a
+            href="https://www.instagram.com/supergeildetroit/?hl=en"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Supergeil on Instagram"
+          >
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="copyright">
+      © 2026 Supergeil Detroit
+    </div>
+  </footer>
+
   <script>
-    const nav = document.getElementById("siteNav");
-    const toggle = document.getElementById("menuToggle");
+    window.addEventListener("DOMContentLoaded", () => {
+      const header = document.querySelector(".site-header");
+      const toggle = document.querySelector(".mobile-toggle");
 
-    toggle.addEventListener("click", () => {
-      const isOpen = nav.classList.toggle("open");
-      toggle.setAttribute("aria-expanded", String(isOpen));
-      toggle.setAttribute(
-        "aria-label",
-        isOpen ? "Close navigation" : "Open navigation"
-      );
-    });
+      toggle.addEventListener("click", () => {
+        const isOpen = header.classList.toggle("menu-open");
 
-    window.addEventListener("resize", () => {
-      if (window.innerWidth > 1050) {
-        nav.classList.remove("open");
-        toggle.setAttribute("aria-expanded", "false");
-        toggle.setAttribute("aria-label", "Open navigation");
-      }
+        toggle.setAttribute("aria-expanded", String(isOpen));
+        toggle.textContent = isOpen ? "Close" : "Menu";
+      });
+
+      document.querySelectorAll(".nav-group a").forEach((link) => {
+        link.addEventListener("click", () => {
+          header.classList.remove("menu-open");
+          toggle.setAttribute("aria-expanded", "false");
+          toggle.textContent = "Menu";
+        });
+      });
     });
   </script>
 </body>
