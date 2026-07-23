@@ -353,7 +353,7 @@
     /* STORY */
 
     .story {
-      padding: clamp(85px, 10vw, 155px) 20px;
+      padding: 55px 20px 75px;
       background:
         linear-gradient(
           rgba(248, 246, 240, 0.95),
@@ -372,16 +372,16 @@
       display: grid;
       grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
       gap: clamp(52px, 5vw, 90px);
-      align-items: center;
+      align-items: start;
     }
 
     .story-photo-wrap {
       position: relative;
       width: 100%;
       display: grid;
-      place-items: center;
-      align-self: center;
-      padding: 95px 145px;
+      place-items: start center;
+      align-self: start;
+      padding: 0 145px 45px;
       overflow: visible;
     }
 
@@ -465,7 +465,7 @@
     }
 
     .story-flourish-top {
-      top: -125px;
+      top: -72px;
       left: -185px;
       transform: scaleY(-1) translateY(-24px) rotate(-5deg);
       animation:
@@ -475,7 +475,7 @@
 
     .story-flourish-bottom {
       right: -185px;
-      bottom: -110px;
+      bottom: -72px;
       transform: scaleX(-1) translateY(24px) rotate(-5deg);
       animation:
         flourishBottomIn .9s ease 1.2s forwards,
@@ -845,7 +845,7 @@
       .story-photo-wrap {
         width: min(760px, 100%);
         margin: 0 auto;
-        padding: 80px 105px;
+        padding: 0 105px 45px;
       }
 
       .story-slideshow {
@@ -874,7 +874,7 @@
 
       .story-photo-wrap {
         width: 100%;
-        padding: 58px 54px;
+        padding: 0 54px 40px;
       }
 
       .story-slideshow {
@@ -1007,7 +1007,6 @@
 
 .reservation-section{padding:90px 0!important;}
 
-.story-section{padding:80px 0!important;}
 </style>
   <link
     rel="stylesheet"
