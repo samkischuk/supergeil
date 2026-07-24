@@ -768,6 +768,28 @@
       color: #111;
     }
 
+    .location-link {
+      margin: 18px 0 0;
+      font-family: "Inter", sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .location-link a {
+      display: inline-block;
+      color: #c8a12d;
+      text-decoration: none;
+      transition:
+        color .22s ease,
+        transform .22s ease;
+    }
+
+    .location-link a:hover,
+    .location-link a:focus-visible {
+      color: #111;
+      transform: translateX(4px);
+    }
+
     .hours-list p {
       margin: 0 0 22px;
       font-family: "Inter", sans-serif;
@@ -1316,8 +1338,19 @@
         <h3>Location</h3>
 
         <p class="location-address">
+          <strong aria-hidden="true">📍</strong><br>
           2442 Michigan Ave<br>
           Detroit, MI 48216
+        </p>
+
+        <p class="location-link">
+          <a
+            href="https://maps.google.com/?q=2442+Michigan+Ave+Detroit+MI+48216"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Get Directions →
+          </a>
         </p>
       </div>
 
@@ -1462,4 +1495,3 @@
     });
   </script>
 </body>
-</html>
