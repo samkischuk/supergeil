@@ -733,7 +733,7 @@
       }
 
       .about-photo-wrap {
-        width: min(72vw, 330px);
+        width: min(68vw, 310px);
         margin: 0 auto;
       }
 
@@ -748,20 +748,22 @@
 
       .about-flourish {
         z-index: 2;
-        width: 200px;
+        width: 205px;
         opacity: 1;
         mix-blend-mode: multiply;
       }
 
+      /* Pull the flourishes slightly inward and away from the photo
+         so their curved tails remain visible on narrow screens. */
       .about-flourish-top {
-        top: -70px;
-        left: -92px;
+        top: -62px;
+        left: -72px;
         right: auto;
       }
 
       .about-flourish-bottom {
-        right: -92px;
-        bottom: -70px;
+        right: -72px;
+        bottom: -62px;
         left: auto;
       }
 
