@@ -150,23 +150,28 @@
     }
 
     
-    /* CONTACT INTRO */
+    /* CONTACT LAYOUT */
 
-    .contact-intro {
-      background: #fff;
-      border-bottom: 1px solid rgba(0, 0, 0, .12);
+    .contact-layout {
+      background:
+        linear-gradient(rgba(248,246,240,.96), rgba(248,246,240,.96)),
+        repeating-linear-gradient(
+          90deg,
+          transparent 0 28px,
+          rgba(21,21,21,.04) 28px 29px
+        );
     }
 
-    .contact-intro-grid {
+    .contact-layout-grid {
       width: min(1600px, 100%);
-      min-height: 520px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1.05fr) minmax(420px, .95fr);
+      align-items: stretch;
     }
 
     .contact-photo-panel {
-      min-height: 520px;
+      min-height: 980px;
       overflow: hidden;
       background: #ddd;
     }
@@ -178,59 +183,16 @@
       object-position: center;
     }
 
-    .contact-info-panel {
-      min-height: 520px;
-      padding: 90px clamp(40px, 7vw, 110px);
+    .contact-stack {
+      padding: 54px clamp(28px, 4vw, 64px);
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: center;
-      background:
-        linear-gradient(
-          rgba(248, 246, 240, .96),
-          rgba(248, 246, 240, .96)
-        ),
-        repeating-linear-gradient(
-          90deg,
-          transparent 0 28px,
-          rgba(21, 21, 21, .04) 28px 29px
-        );
-    }
-
-    .contact-info-panel h1 {
-      margin: 0;
-      font-family: var(--display-font);
-      font-size: clamp(42px, 5vw, 68px);
-      font-weight: 400;
-      line-height: 1.05;
-      text-align: center;
-      text-transform: uppercase;
-    }
-
-    /* CONTACT DETAILS */
-
-
-    .contact-section {
-      padding: 95px 20px 115px;
-      background:
-        linear-gradient(rgba(248,246,240,.96), rgba(248,246,240,.96)),
-        repeating-linear-gradient(
-          90deg,
-          transparent 0 28px,
-          rgba(21,21,21,.04) 28px 29px
-        );
-    }
-
-    .contact-grid {
-      width: min(1280px, 100%);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 28px;
+      gap: 24px;
     }
 
     .contact-card {
-      min-height: 310px;
-      padding: 38px 32px;
+      padding: 30px 30px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -243,27 +205,27 @@
     }
 
     .contact-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 26px 54px rgba(35,26,18,.18);
+      transform: translateY(-4px);
+      box-shadow: 0 24px 50px rgba(35,26,18,.18);
     }
 
     .contact-card h2 {
-      margin: 0 0 24px;
+      margin: 0 0 18px;
       font-family: var(--display-font);
-      font-size: clamp(28px, 2.5vw, 40px);
+      font-size: clamp(27px, 2.2vw, 38px);
       font-weight: 400;
       text-transform: uppercase;
     }
 
     .contact-card p {
-      margin: 0 0 16px;
-      font-size: 17px;
-      line-height: 1.7;
+      margin: 0 0 14px;
+      font-size: 16px;
+      line-height: 1.65;
     }
 
     .hours-card p {
-      margin-bottom: 19px;
-      font-size: 15px;
+      margin-bottom: 14px;
+      font-size: 14px;
     }
 
     .hours-card p:last-child {
@@ -272,7 +234,7 @@
 
     .contact-link {
       width: fit-content;
-      margin-top: 8px;
+      margin-top: 5px;
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -293,43 +255,10 @@
       transform: translateY(-2px);
     }
 
-    .contact-actions {
-      margin-top: auto;
-      padding-top: 12px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .contact-button {
-      min-width: 145px;
-      padding: 13px 20px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border: 2px solid var(--ink);
-      border-radius: 6px;
-      background: var(--ink);
-      color: #fff;
-      font-size: 15px;
-      font-weight: 600;
-      transition:
-        transform .22s ease,
-        background .22s ease,
-        color .22s ease;
-    }
-
-    .contact-button:hover,
-    .contact-button:focus-visible {
-      transform: translateY(-3px);
-      background: var(--gold);
-      color: var(--ink);
-    }
-
     .social-links {
       display: flex;
       gap: 12px;
-      margin-top: 18px;
+      margin-top: 14px;
     }
 
     .social-links a {
@@ -510,43 +439,34 @@
         border-top: 1px solid rgba(21,21,21,.12);
       }
 
-      .contact-intro-grid,
-      .contact-grid,
+      .contact-layout-grid,
       .footer-grid {
         grid-template-columns: 1fr;
       }
 
-      .contact-photo-panel,
-      .contact-info-panel {
-        min-height: 420px;
+      .contact-photo-panel {
+        min-height: 520px;
       }
 
-      .contact-grid {
-        width: min(720px, 100%);
+      .contact-stack {
+        width: min(760px, 100%);
+        margin: 0 auto;
+        padding: 50px 24px 70px;
       }
     }
 
     @media (max-width: 560px) {
       .contact-photo-panel {
-        min-height: 300px;
+        min-height: 320px;
       }
 
-      .contact-info-panel {
-        min-height: 220px;
-        padding: 50px 24px;
-      }
-
-      .contact-info-panel h1 {
-        font-size: clamp(38px, 12vw, 54px);
-      }
-
-      .contact-section {
-        padding: 70px 16px 85px;
+      .contact-stack {
+        padding: 38px 16px 55px;
+        gap: 18px;
       }
 
       .contact-card {
-        min-height: auto;
-        padding: 30px 24px;
+        padding: 27px 23px;
       }
 
       .events-contact {
@@ -592,8 +512,8 @@
 
   <main>
     
-    <section class="contact-intro">
-      <div class="contact-intro-grid">
+    <section class="contact-layout" aria-label="Supergeil contact information">
+      <div class="contact-layout-grid">
         <div class="contact-photo-panel">
           <img
             src="images/interior.jpg"
@@ -601,92 +521,85 @@
           >
         </div>
 
-        <div class="contact-info-panel">
-          <h1>Our Info</h1>
+        <div class="contact-stack">
+          <article class="contact-card">
+            <h2>Visit Us</h2>
+
+            <p>
+              2442 Michigan Ave<br>
+              Detroit, MI 48216
+            </p>
+
+            <a
+              class="contact-link"
+              href="https://www.google.com/maps/dir/?api=1&destination=2442+Michigan+Ave,+Detroit,+MI+48216"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Get Directions <span aria-hidden="true">→</span>
+            </a>
+          </article>
+
+          <article class="contact-card hours-card">
+            <h2>Hours</h2>
+
+            <p><strong>Monday</strong> – Closed</p>
+
+            <p>
+              <strong>Tuesday – Thursday</strong><br>
+              <em>Lunch: noon-4pm</em><br>
+              Dinner: 4pm-9pm
+            </p>
+
+            <p>
+              <strong>Friday &amp; Saturday</strong><br>
+              <em>Lunch: noon-4pm</em><br>
+              Dinner: 4pm-10pm
+            </p>
+
+            <p>
+              <strong>Sunday</strong><br>
+              <em>Brunch: 11am-3pm</em><br>
+              Dinner: 3pm-8pm
+            </p>
+          </article>
+
+          <article class="contact-card">
+            <h2>Get in Touch</h2>
+
+            <p>
+              <strong>Phone</strong><br>
+              <a href="tel:3134624133">313-462-4133</a>
+            </p>
+
+            <p>
+              <strong>Email</strong><br>
+              <a href="mailto:events@supergeildetroit.com">
+                events@supergeildetroit.com
+              </a>
+            </p>
+
+            <div class="social-links" aria-label="Social media links">
+              <a
+                href="https://www.facebook.com/supergeildetroit/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Supergeil on Facebook"
+              >
+                <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+              </a>
+
+              <a
+                href="https://www.instagram.com/supergeildetroit/?hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Supergeil on Instagram"
+              >
+                <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
         </div>
-      </div>
-    </section>
-
-
-    <section class="contact-section" aria-label="Supergeil contact information">
-      <div class="contact-grid">
-        <article class="contact-card">
-          <h2>Visit Us</h2>
-
-          <p>
-            2442 Michigan Ave<br>
-            Detroit, MI 48216
-          </p>
-
-          <a
-            class="contact-link"
-            href="https://www.google.com/maps/dir/?api=1&destination=2442+Michigan+Ave,+Detroit,+MI+48216"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Get Directions <span aria-hidden="true">→</span>
-          </a>
-        </article>
-
-        <article class="contact-card hours-card">
-          <h2>Hours</h2>
-
-          <p><strong>Monday</strong> – Closed</p>
-
-          <p>
-            <strong>Tuesday – Thursday</strong><br>
-            <em>Lunch: noon-4pm</em><br>
-            Dinner: 4pm-9pm
-          </p>
-
-          <p>
-            <strong>Friday &amp; Saturday</strong><br>
-            <em>Lunch: noon-4pm</em><br>
-            Dinner: 4pm-10pm
-          </p>
-
-          <p>
-            <strong>Sunday</strong><br>
-            <em>Brunch: 11am-3pm</em><br>
-            Dinner: 3pm-8pm
-          </p>
-        </article>
-
-        <article class="contact-card">
-          <h2>Get in Touch</h2>
-
-          <p>
-            <strong>Phone</strong><br>
-            <a href="tel:3134624133">313-462-4133</a>
-          </p>
-
-          <p>
-            <strong>Email</strong><br>
-            <a href="mailto:events@supergeildetroit.com">
-              events@supergeildetroit.com
-            </a>
-          </p>
-
-          <div class="social-links" aria-label="Social media links">
-            <a
-              href="https://www.facebook.com/supergeildetroit/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Supergeil on Facebook"
-            >
-              <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
-            </a>
-
-            <a
-              href="https://www.instagram.com/supergeildetroit/?hl=en"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Supergeil on Instagram"
-            >
-              <i class="fa-brands fa-instagram" aria-hidden="true"></i>
-            </a>
-          </div>
-        </article>
       </div>
     </section>
   </main>
