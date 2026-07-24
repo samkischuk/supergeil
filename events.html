@@ -1,1 +1,789 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <title>Events | Supergeil Detroit</title>
+  <meta
+    name="description"
+    content="Host your wedding reception, retirement party, graduation, work event, or private gathering at Supergeil Detroit."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rye&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    referrerpolicy="no-referrer"
+  >
+
+  <style>
+    :root {
+      --paper: #f8f6f0;
+      --ink: #151515;
+      --gold: #c8a12d;
+      --content-width: 1240px;
+      --display-font: "Rye", Georgia, serif;
+      --body-font: "Inter", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--body-font);
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .site-header {
+      position: relative;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.97);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    }
+
+    .header-inner {
+      width: min(var(--content-width), calc(100% - 40px));
+      min-height: 170px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .nav-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(22px, 3vw, 52px);
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .nav-group a {
+      position: relative;
+      padding: 10px 0;
+      transition:
+        color .25s ease,
+        transform .25s ease;
+    }
+
+    .nav-group a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 100%;
+      bottom: 2px;
+      height: 2px;
+      background: var(--gold);
+      transition: right .25s ease;
+    }
+
+    .nav-group a:hover,
+    .nav-group a:focus-visible,
+    .nav-group a.active {
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .nav-group a:hover::after,
+    .nav-group a:focus-visible::after,
+    .nav-group a.active::after {
+      right: 0;
+    }
+
+    .brand {
+      width: 260px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo {
+      width: 240px;
+      height: auto;
+      transition: transform .25s ease;
+    }
+
+    .logo:hover {
+      transform: scale(.875);
+    }
+
+    .mobile-toggle {
+      display: none;
+      border: 0;
+      background: transparent;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .events-intro {
+      position: relative;
+      padding: 95px 20px 90px;
+      overflow: hidden;
+      text-align: center;
+      background:
+        linear-gradient(
+          rgba(248, 246, 240, .96),
+          rgba(248, 246, 240, .96)
+        ),
+        repeating-linear-gradient(
+          90deg,
+          transparent 0 28px,
+          rgba(21, 21, 21, .04) 28px 29px
+        );
+    }
+
+    .events-intro::before,
+    .events-intro::after {
+      content: "";
+      position: absolute;
+      width: clamp(210px, 23vw, 360px);
+      aspect-ratio: 1;
+      background: url("images/backgroundflourish.jpg") center / contain no-repeat;
+      mix-blend-mode: multiply;
+      opacity: .92;
+      pointer-events: none;
+    }
+
+    .events-intro::before {
+      top: -115px;
+      left: -115px;
+      transform: scaleY(-1);
+    }
+
+    .events-intro::after {
+      right: -115px;
+      bottom: -120px;
+      transform: scaleX(-1);
+    }
+
+    .events-intro-inner {
+      position: relative;
+      z-index: 2;
+      width: min(860px, 100%);
+      margin: 0 auto;
+    }
+
+    .events-intro h1 {
+      margin: 0 0 24px;
+      font-family: var(--display-font);
+      font-size: clamp(42px, 6vw, 76px);
+      font-weight: 400;
+      line-height: 1.05;
+      text-transform: uppercase;
+    }
+
+    .events-intro p {
+      max-width: 760px;
+      margin: 0 auto;
+      font-size: clamp(17px, 1.4vw, 20px);
+      line-height: 1.75;
+    }
+
+    .events-button {
+      min-width: 175px;
+      margin-top: 32px;
+      padding: 15px 25px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--ink);
+      border-radius: 6px;
+      color: #fff;
+      background: var(--ink);
+      font-size: 16px;
+      font-weight: 600;
+      transition:
+        transform .22s ease,
+        background .22s ease,
+        color .22s ease;
+    }
+
+    .events-button:hover,
+    .events-button:focus-visible {
+      transform: translateY(-3px);
+      color: var(--ink);
+      background: transparent;
+    }
+
+    .featured-event {
+      padding: 90px 20px 70px;
+      background: #fff;
+    }
+
+    .featured-event-inner {
+      width: min(1320px, 100%);
+      margin: 0 auto;
+    }
+
+    .featured-event-frame {
+      padding: 12px;
+      background: #fff;
+      box-shadow: 0 24px 52px rgba(35, 26, 18, .18);
+      transform: rotate(-.5deg);
+    }
+
+    .featured-event-frame img {
+      width: 100%;
+      aspect-ratio: 16 / 8;
+      object-fit: cover;
+      object-position: center;
+      border: 8px solid #ece8df;
+    }
+
+    .event-gallery {
+      padding: 35px 20px 110px;
+      background: #fff;
+    }
+
+    .event-gallery-inner {
+      width: min(1320px, 100%);
+      margin: 0 auto;
+    }
+
+    .event-gallery h2 {
+      margin: 0 0 50px;
+      text-align: center;
+      font-family: var(--display-font);
+      font-size: clamp(34px, 4vw, 56px);
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+
+    .event-photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px;
+    }
+
+    .event-photo {
+      padding: 9px;
+      background: #fff;
+      box-shadow: 0 16px 34px rgba(35, 26, 18, .14);
+      transition:
+        transform .28s ease,
+        box-shadow .28s ease;
+    }
+
+    .event-photo:nth-child(1) {
+      transform: rotate(-.7deg);
+    }
+
+    .event-photo:nth-child(2) {
+      transform: rotate(.6deg);
+    }
+
+    .event-photo:nth-child(3) {
+      transform: rotate(-.4deg);
+    }
+
+    .event-photo:hover {
+      transform: translateY(-5px) rotate(0);
+      box-shadow: 0 24px 46px rgba(35, 26, 18, .2);
+    }
+
+    .event-photo img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border: 6px solid #ece8df;
+    }
+
+    .events-cta {
+      position: relative;
+      padding: 85px 20px;
+      overflow: hidden;
+      text-align: center;
+      color: #fff;
+      background:
+        linear-gradient(rgba(0, 0, 0, .48), rgba(0, 0, 0, .58)),
+        url("images/insidebar.jpg") center / cover no-repeat;
+    }
+
+    .events-cta-inner {
+      width: min(760px, 100%);
+      margin: 0 auto;
+    }
+
+    .events-cta h2 {
+      margin: 0 0 18px;
+      font-family: var(--display-font);
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 400;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+
+    .events-cta p {
+      margin: 0 auto;
+      max-width: 650px;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .events-cta .events-button {
+      border-color: #fff;
+      color: var(--ink);
+      background: #fff;
+    }
+
+    .events-cta .events-button:hover,
+    .events-cta .events-button:focus-visible {
+      color: #fff;
+      background: rgba(0, 0, 0, .2);
+    }
+
+    .site-footer {
+      padding: 65px 20px 35px;
+      background: #e8ddc9;
+    }
+
+    .footer-grid {
+      width: min(var(--content-width), 100%);
+      margin: 0 auto 45px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .footer-column {
+      min-width: 0;
+    }
+
+    .footer-grid h3 {
+      margin: 0 0 22px;
+      font-family: var(--display-font);
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+
+    .location-address,
+    .contact-phone {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.65;
+      color: #111;
+    }
+
+    .directions-link {
+      width: fit-content;
+      margin-top: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding-bottom: 4px;
+      border-bottom: 2px solid var(--gold);
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: .02em;
+      transition:
+        color .22s ease,
+        gap .22s ease,
+        transform .22s ease;
+    }
+
+    .directions-link:hover,
+    .directions-link:focus-visible {
+      color: #8f6f0b;
+      gap: 12px;
+      transform: translateY(-2px);
+    }
+
+    .hours-list p {
+      margin: 0 0 22px;
+      font-size: 15px;
+      line-height: 1.65;
+      color: #111;
+    }
+
+    .hours-list p:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-email {
+      margin: 12px 0 0;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .social-links a {
+      width: 52px;
+      height: 52px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid var(--gold);
+      border-radius: 50%;
+      color: #fff;
+      background: #111;
+      font-size: 25px;
+      box-shadow: inset 0 0 0 2px #111;
+      transition:
+        transform .22s ease,
+        background .22s ease,
+        color .22s ease;
+    }
+
+    .social-links a:hover,
+    .social-links a:focus-visible {
+      transform: translateY(-3px) scale(.892);
+      color: #111;
+      background: var(--gold);
+    }
+
+    .copyright {
+      width: min(var(--content-width), 100%);
+      margin: 0 auto;
+      padding-top: 22px;
+      border-top: 1px solid rgba(21, 21, 21, .22);
+      font-size: 12px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 880px) {
+      .header-inner {
+        min-height: 105px;
+        grid-template-columns: 1fr auto;
+      }
+
+      .brand {
+        justify-content: flex-start;
+        width: 220px;
+        margin: 0;
+      }
+
+      .logo {
+        width: 205px;
+      }
+
+      .mobile-toggle {
+        display: block;
+        grid-column: 2;
+        grid-row: 1;
+      }
+
+      .nav-group {
+        display: none;
+        grid-column: 1 / -1;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 8px 0 20px;
+      }
+
+      .site-header.menu-open .nav-group {
+        display: flex;
+      }
+
+      .nav-left {
+        grid-row: 2;
+      }
+
+      .nav-right {
+        grid-row: 3;
+      }
+
+      .nav-group a {
+        padding: 13px 0;
+        border-top: 1px solid rgba(21, 21, 21, .12);
+      }
+
+      .event-photo-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .event-photo-grid {
+        width: min(720px, 100%);
+        margin: 0 auto;
+      }
+
+      .featured-event-frame img {
+        aspect-ratio: 4 / 3;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .events-intro {
+        padding: 72px 20px 68px;
+      }
+
+      .featured-event {
+        padding: 65px 16px 45px;
+      }
+
+      .event-gallery {
+        padding: 30px 16px 80px;
+      }
+
+      .featured-event-frame,
+      .event-photo {
+        padding: 7px;
+      }
+
+      .featured-event-frame img,
+      .event-photo img {
+        border-width: 5px;
+      }
+
+      .events-cta {
+        padding: 70px 20px;
+      }
+
+      .events-button {
+        width: 100%;
+        max-width: 315px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <nav class="nav-group nav-left" aria-label="Primary navigation">
+        <a href="about.html">About</a>
+        <a href="menu.html">Menu</a>
+        <a href="https://order.toasttab.com/online/supergeil">Order</a>
+      </nav>
+
+      <a class="brand" href="index.html" aria-label="Supergeil Home">
+        <img class="logo" src="images/logo.jpg" alt="Supergeil Detroit Logo">
+      </a>
+
+      <button
+        class="mobile-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-header"
+      >
+        Menu
+      </button>
+
+      <nav class="nav-group nav-right" aria-label="Secondary navigation">
+        <a href="gallery.html">Gallery</a>
+        <a class="active" href="events.html" aria-current="page">Events</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="events-intro">
+      <div class="events-intro-inner">
+        <h1>Book Us for Your Event</h1>
+
+        <p>
+          Planning a wedding reception, retirement party, graduation, or large
+          work event? We’ve got you. Our spacious event area and flexible
+          indoor-outdoor options provide the perfect setting for gatherings of
+          all kinds. Inquire below to start planning your event at Supergeil.
+        </p>
+
+        <a class="events-button" href="index.html#contact">
+          Book Now
+        </a>
+      </div>
+    </section>
+
+    <section class="featured-event" aria-label="Featured event space photo">
+      <div class="featured-event-inner">
+        <div class="featured-event-frame">
+          <img
+            src="images/eventspace1.jpg"
+            alt="Supergeil event space"
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="event-gallery" aria-labelledby="event-gallery-heading">
+      <div class="event-gallery-inner">
+        <h2 id="event-gallery-heading">Our Event Space</h2>
+
+        <div class="event-photo-grid">
+          <div class="event-photo">
+            <img
+              src="images/eventspace2.jpg"
+              alt="Indoor event space at Supergeil"
+            >
+          </div>
+
+          <div class="event-photo">
+            <img
+              src="images/eventspace3.jpg"
+              alt="Outdoor event space at Supergeil"
+            >
+          </div>
+
+          <div class="event-photo">
+            <img
+              src="images/eventspace4.jpg"
+              alt="Private gathering at Supergeil"
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="events-cta">
+      <div class="events-cta-inner">
+        <h2>Let’s Plan Something Great</h2>
+
+        <p>
+          Tell us a little about your gathering, preferred date, and party size,
+          and our team will be in touch.
+        </p>
+
+        <a class="events-button" href="index.html#contact">
+          Book Now
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="footer-grid">
+      <div class="footer-column">
+        <h3>Location</h3>
+
+        <p class="location-address">
+          2442 Michigan Ave<br>
+          Detroit, MI 48216
+        </p>
+
+        <a
+          class="directions-link"
+          href="https://www.google.com/maps/dir/?api=1&destination=2442+Michigan+Ave,+Detroit,+MI+48216"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Get Directions <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <div class="footer-column hours-column">
+        <h3>Hours</h3>
+
+        <div class="hours-list">
+          <p><strong>Monday</strong> – Closed</p>
+
+          <p>
+            <strong>Tuesday – Thursday</strong><br>
+            <em>Lunch: noon-4pm</em> | Dinner: 4pm-9pm
+          </p>
+
+          <p>
+            <strong>Friday &amp; Saturday</strong><br>
+            <em>Lunch: noon-4pm</em> | Dinner: 4pm-10pm
+          </p>
+
+          <p>
+            <strong>Sunday</strong><br>
+            <em>Brunch: 11am-3pm</em> | Dinner: 3pm-8pm
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h3>Contact</h3>
+
+        <p class="contact-phone">
+          <a href="tel:3134624133">313-462-4133</a>
+        </p>
+
+        <p class="contact-email">
+          <a href="mailto:events@supergeildetroit.com">
+            events@supergeildetroit.com
+          </a>
+        </p>
+
+        <div class="social-links" aria-label="Social media links">
+          <a
+            href="https://www.facebook.com/supergeildetroit/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Supergeil on Facebook"
+          >
+            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+          </a>
+
+          <a
+            href="https://www.instagram.com/supergeildetroit/?hl=en"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Supergeil on Instagram"
+          >
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="copyright">
+      © 2026 Supergeil Detroit
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const header = document.querySelector(".site-header");
+      const toggle = document.querySelector(".mobile-toggle");
+
+      toggle.addEventListener("click", () => {
+        const isOpen = header.classList.toggle("menu-open");
+
+        toggle.setAttribute("aria-expanded", String(isOpen));
+        toggle.textContent = isOpen ? "Close" : "Menu";
+      });
+
+      document.querySelectorAll(".nav-group a").forEach((link) => {
+        link.addEventListener("click", () => {
+          header.classList.remove("menu-open");
+          toggle.setAttribute("aria-expanded", "false");
+          toggle.textContent = "Menu";
+        });
+      });
+    });
+  </script>
+</body>
+</html>
