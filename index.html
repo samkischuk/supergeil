@@ -768,24 +768,25 @@
       color: #111;
     }
 
-    .location-link {
-      margin: 18px 0 0;
-      font-family: "Inter", sans-serif;
-      font-size: 15px;
-      font-weight: 600;
+    .directions-link{
+      width:fit-content;
+      margin-top:14px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding-bottom:4px;
+      border-bottom:2px solid #c8a12d;
+      font-family:"Inter",sans-serif;
+      font-size:15px;
+      font-weight:600;
+      transition:color .22s ease,gap .22s ease,transform .22s ease;
     }
 
-    .location-link a{
-      display:inline-block;
-      color:#c8a12d;
-      text-decoration:none;
-      transition:color .22s ease, transform .22s ease;
-    }
-
-    .location-link a:hover,
-    .location-link a:focus-visible{
-      color:#111;
-      transform:translateX(4px);
+    .directions-link:hover,
+    .directions-link:focus-visible{
+      color:#8f6f0b;
+      gap:12px;
+      transform:translateY(-2px);
     }
 
     .hours-list p {
@@ -1340,11 +1341,14 @@
           Detroit, MI 48216
         </p>
 
-        <p class="location-link">
-          <a href="https://maps.google.com/?q=2442+Michigan+Ave+Detroit+MI+48216" target="_blank" rel="noopener noreferrer">
-            Get Directions →
-          </a>
-        </p>
+        <a
+          class="directions-link"
+          href="https://www.google.com/maps/dir/?api=1&destination=2442+Michigan+Ave,+Detroit,+MI+48216"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Get Directions <span aria-hidden="true">→</span>
+        </a>
       </div>
 
       <div class="footer-column hours-column">
