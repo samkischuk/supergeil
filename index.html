@@ -1002,41 +1002,53 @@
         min-height: 650px;
       }
 
+      /* Move the visible mobile bird slightly higher so it does not
+         overlap the word “Casablanca” as much. */
       .flying-bird {
         width: 170px;
+        animation:
+          birdFlightMobile 2.8s cubic-bezier(.22, .82, .18, 1) .15s forwards,
+          birdFloatMobile 6s ease-in-out 2.95s infinite;
       }
 
       .flying-bird-right {
         display: none;
       }
 
+      /* Make the story image smaller and truly centered on phones,
+         leaving more room for both flourishes to show. */
       .story-photo-wrap {
         width: 100%;
-        padding: 0 52px 40px;
+        margin: 0 auto;
+        padding: 28px 70px 58px;
+        place-items: start center;
       }
 
       .story-slideshow {
-        width: min(100%, 520px);
+        width: min(100%, 390px);
+        margin: 0 auto;
+      }
+
+      .story-slides {
+        transform: none;
       }
 
       .story-flourish {
-        width: 190px;
+        width: 205px;
       }
 
       .story-flourish-top {
-        left: -62px;
-        top: -58px;
+        top: -66px;
+        left: -112px;
+        right: auto;
+        bottom: auto;
       }
 
       .story-flourish-bottom {
-        right: -62px;
-        bottom: -52px;
-      }
-
-      .story-flourish {
-        right: -55px;
-        bottom: -55px;
-        width: 175px;
+        right: -112px;
+        bottom: -64px;
+        left: auto;
+        top: auto;
       }
 
       .hero h1 {
@@ -1064,6 +1076,52 @@
       }
     }
 
+    @keyframes birdFlightMobile {
+      0% {
+        left: -360px;
+        top: 38%;
+        opacity: 0;
+        transform: rotate(-15deg) scale(0.612);
+      }
+
+      18% {
+        opacity: 1;
+      }
+
+      36% {
+        top: 15%;
+        transform: rotate(7deg) scale(0.765);
+      }
+
+      56% {
+        top: 21%;
+        transform: rotate(-5deg) scale(0.850);
+      }
+
+      76% {
+        top: 14%;
+        transform: rotate(4deg) scale(0.850);
+      }
+
+      100% {
+        left: -48px;
+        top: 17%;
+        opacity: 1;
+        transform: rotate(0deg) scale(0.850);
+      }
+    }
+
+    @keyframes birdFloatMobile {
+      0%,
+      100% {
+        transform: translateY(0) rotate(0deg) scale(.850);
+      }
+
+      50% {
+        transform: translateY(-5px) rotate(-1deg) scale(.850);
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       html {
         scroll-behavior: auto;
@@ -1079,7 +1137,7 @@
 
       .flying-bird {
         left: -48px;
-        top: 24%;
+        top: 17%;
         opacity: 1;
         transform: scale(.850);
       }
