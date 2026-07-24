@@ -460,24 +460,29 @@
 
     @media (max-width: 880px) {
       .header-inner {
-        min-height: 105px;
+        min-height: 92px;
         grid-template-columns: 1fr auto;
+        column-gap:16px;
       }
 
       .brand {
-        justify-content: flex-start;
-        width: 220px;
-        margin: 0;
+        justify-content:flex-start;
+        width:auto;
+        margin:0;
       }
 
       .logo {
-        width: 205px;
+        width:145px;
       }
 
       .mobile-toggle {
-        display: block;
-        grid-column: 2;
-        grid-row: 1;
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        width:48px;
+        height:48px;
+        grid-column:2;
+        grid-row:1;
       }
 
       .nav-group {
@@ -502,8 +507,15 @@
       }
 
       .nav-group a {
-        padding: 13px 0;
-        border-top: 1px solid rgba(21, 21, 21, .12);
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        width:100%;
+        min-height:54px;
+        flex:0 0 54px;
+        margin:0;
+        padding:15px 12px;
+        border-top:1px solid rgba(21,21,21,.10);
       }
 
       .menu-pages,
@@ -796,14 +808,14 @@
       toggle.addEventListener("click", () => {
         const isOpen = header.classList.toggle("menu-open");
         toggle.setAttribute("aria-expanded", String(isOpen));
-        toggle.textContent = isOpen ? "Close" : "Menu";
+        toggle.innerHTML=isOpen?'<i class="fa-solid fa-xmark" aria-hidden="true"></i>':'<i class="fa-solid fa-bars" aria-hidden="true"></i>';
       });
 
       document.querySelectorAll(".nav-group a").forEach((link) => {
         link.addEventListener("click", () => {
           header.classList.remove("menu-open");
           toggle.setAttribute("aria-expanded", "false");
-          toggle.textContent = "Menu";
+          toggle.innerHTML='<i class="fa-solid fa-bars" aria-hidden="true"></i>';
         });
       });
 
