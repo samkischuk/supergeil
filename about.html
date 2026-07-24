@@ -301,21 +301,39 @@
       align-items: start;
     }
 
-     .team-photo-frame {
+    .team-photo-frame {
       width: min(100%, 360px);
       margin: 0 auto 30px;
       padding: 10px;
+      overflow: hidden;
       background: #fff;
       box-shadow: 0 14px 30px rgba(0,0,0,.12);
       transform: rotate(-1deg);
+      transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+    }
+
+    .team-card:nth-child(even) .team-photo-frame {
+      transform: rotate(1deg);
+    }
+
+    .team-photo-frame:hover {
+      transform: translateY(-5px) rotate(0);
+      box-shadow: 0 24px 46px rgba(35, 26, 18, .2);
     }
 
     .team-photo {
       width: 100%;
       aspect-ratio: 1 / 1;
-      display:block;
+      display: block;
       object-fit: cover;
       border: 8px solid #e4e4e4;
+      transition: transform .4s ease;
+    }
+
+    .team-photo-frame:hover .team-photo {
+      transform: scale(1.035);
     }
 
     .team-card h2 {
