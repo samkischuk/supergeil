@@ -144,10 +144,28 @@
 
     .mobile-toggle {
       display: none;
+      width: 48px;
+      height: 48px;
+      padding: 0;
+      align-items: center;
+      justify-content: center;
       border: 0;
+      border-radius: 50%;
+      color: var(--ink);
       background: transparent;
-      font-weight: 700;
+      font-size: 25px;
       cursor: pointer;
+      transition:
+        color .22s ease,
+        background .22s ease,
+        transform .22s ease;
+    }
+
+    .mobile-toggle:hover,
+    .mobile-toggle:focus-visible {
+      color: #8f6f0b;
+      background: rgba(200, 161, 45, 0.12);
+      transform: translateY(-1px);
     }
 
     /* MENU INTRO */
@@ -460,38 +478,45 @@
 
     @media (max-width: 880px) {
       .header-inner {
+        width: min(100% - 28px, var(--content-width));
         min-height: 92px;
         grid-template-columns: 1fr auto;
-        column-gap:16px;
+        column-gap: 16px;
+        row-gap: 0;
       }
 
       .brand {
-        justify-content:flex-start;
-        width:auto;
-        margin:0;
+        width: auto;
+        margin: 0;
+        justify-self: start;
       }
 
       .logo {
-        width:145px;
+        width: 145px;
+      }
+
+      .logo:hover {
+        transform: scale(.96);
       }
 
       .mobile-toggle {
-        display:inline-flex;
-        align-items:center;
-        justify-content:center;
-        width:48px;
-        height:48px;
-        grid-column:2;
-        grid-row:1;
+        display: inline-flex;
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: end;
       }
 
       .nav-group {
         display: none;
         grid-column: 1 / -1;
+        width: 100%;
+        margin: 0;
         flex-direction: column;
         align-items: stretch;
         gap: 0;
-        padding: 8px 0 20px;
+        padding: 0;
+        text-align: center;
+        background: #fff;
       }
 
       .site-header.menu-open .nav-group {
@@ -507,15 +532,31 @@
       }
 
       .nav-group a {
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        width:100%;
-        min-height:54px;
-        flex:0 0 54px;
-        margin:0;
-        padding:15px 12px;
-        border-top:1px solid rgba(21,21,21,.10);
+        width: 100%;
+        min-height: 54px;
+        margin: 0;
+        padding: 15px 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 54px;
+        border-top: 1px solid rgba(21, 21, 21, .10);
+      }
+
+      .nav-group a::after {
+        display: none;
+      }
+
+      .nav-group a:hover,
+      .nav-group a:focus-visible,
+      .nav-group a.active {
+        color: #8f6f0b;
+        background: rgba(200, 161, 45, .08);
+        transform: none;
+      }
+
+      .site-header.menu-open {
+        box-shadow: 0 12px 30px rgba(0, 0, 0, .10);
       }
 
       .menu-pages,
@@ -530,8 +571,15 @@
         width: min(760px, 100%);
         margin: 0 auto;
       }
-    }
 
+      /* Keep every menu image straight on mobile and tablet. */
+      .menu-page-frame,
+      .menu-page-frame:nth-child(odd),
+      .menu-page-frame:nth-child(even),
+      .menu-page-frame:hover {
+        transform: none;
+      }
+    }
 
     @media (min-width: 561px) and (max-width: 880px) {
       .menu-pages.single.portrait {
@@ -616,6 +664,7 @@
         type="button"
         aria-expanded="false"
         aria-controls="site-header"
+        aria-label="Open navigation"
       >
         Menu
       </button>
@@ -805,18 +854,39 @@
       const header = document.querySelector(".site-header");
       const toggle = document.querySelector(".mobile-toggle");
 
-      toggle.addEventListener("click", () => {
-        const isOpen = header.classList.toggle("menu-open");
+      const setMobileMenuState = (isOpen) => {
+        header.classList.toggle("menu-open", isOpen);
         toggle.setAttribute("aria-expanded", String(isOpen));
-        toggle.innerHTML=isOpen?'<i class="fa-solid fa-xmark" aria-hidden="true"></i>':'<i class="fa-solid fa-bars" aria-hidden="true"></i>';
+        toggle.setAttribute(
+          "aria-label",
+          isOpen ? "Close navigation" : "Open navigation"
+        );
+        toggle.innerHTML = isOpen
+          ? '<i class="fa-solid fa-xmark" aria-hidden="true"></i>'
+          : '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
+      };
+
+      toggle.addEventListener("click", () => {
+        const isOpen = !header.classList.contains("menu-open");
+        setMobileMenuState(isOpen);
       });
 
       document.querySelectorAll(".nav-group a").forEach((link) => {
         link.addEventListener("click", () => {
-          header.classList.remove("menu-open");
-          toggle.setAttribute("aria-expanded", "false");
-          toggle.innerHTML='<i class="fa-solid fa-bars" aria-hidden="true"></i>';
+          setMobileMenuState(false);
         });
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          setMobileMenuState(false);
+        }
+      });
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 880) {
+          setMobileMenuState(false);
+        }
       });
 
       const revealElements = document.querySelectorAll(".reveal");
