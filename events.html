@@ -154,43 +154,17 @@
 
     .events-intro {
       position: relative;
-      padding: 95px 20px 90px;
+      min-height: 420px;
+      padding: 72px 20px;
       overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
+      color: #fff;
       background:
-        linear-gradient(
-          rgba(248, 246, 240, .96),
-          rgba(248, 246, 240, .96)
-        ),
-        repeating-linear-gradient(
-          90deg,
-          transparent 0 28px,
-          rgba(21, 21, 21, .04) 28px 29px
-        );
-    }
-
-    .events-intro::before,
-    .events-intro::after {
-      content: "";
-      position: absolute;
-      width: clamp(210px, 23vw, 360px);
-      aspect-ratio: 1;
-      background: url("images/backgroundflourish.jpg") center / contain no-repeat;
-      mix-blend-mode: multiply;
-      opacity: .92;
-      pointer-events: none;
-    }
-
-    .events-intro::before {
-      top: -115px;
-      left: -115px;
-      transform: scaleY(-1);
-    }
-
-    .events-intro::after {
-      right: -115px;
-      bottom: -120px;
-      transform: scaleX(-1);
+        linear-gradient(rgba(0, 0, 0, .60), rgba(0, 0, 0, .66)),
+        url("images/eventheader.jpg") center / cover no-repeat;
     }
 
     .events-intro-inner {
@@ -201,19 +175,23 @@
     }
 
     .events-intro h1 {
-      margin: 0 0 24px;
+      margin: 0 0 22px;
+      color: #fff;
       font-family: var(--display-font);
-      font-size: clamp(42px, 6vw, 76px);
+      font-size: clamp(42px, 5.5vw, 72px);
       font-weight: 400;
       line-height: 1.05;
       text-transform: uppercase;
+      text-shadow: 0 3px 14px rgba(0, 0, 0, .6);
     }
 
     .events-intro p {
       max-width: 760px;
       margin: 0 auto;
-      font-size: clamp(17px, 1.4vw, 20px);
-      line-height: 1.75;
+      color: #fff;
+      font-size: clamp(17px, 1.35vw, 20px);
+      line-height: 1.7;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, .65);
     }
 
     .events-button {
@@ -702,7 +680,9 @@
 
     @media (max-width: 560px) {
       .events-intro {
-        padding: 72px 20px 68px;
+        min-height: 330px;
+        padding: 54px 20px;
+        background-position: center;
       }
 
       .featured-event {
@@ -808,11 +788,7 @@
           indoor-outdoor options provide the perfect setting for gatherings of
           all kinds. Inquire below to start planning your event at Supergeil.
         </p>
-
-        <a class="events-button" href="index.html#contact">
-          Book Now
-        </a>
-      </div>
+</div>
     </section>
 
     <section class="featured-event" aria-label="Featured event space photo">
@@ -842,7 +818,7 @@
           <div class="event-carousel-viewport">
             <div class="event-carousel-track">
               <button class="event-slide" type="button" data-index="0" aria-label="Open event space photo 1">
-                <img src="images/event1.jpg" alt="Supergeil event space">
+                <img src="images/eventspace.jpg" alt="Supergeil event space">
               </button>
 
               <button class="event-slide" type="button" data-index="1" aria-label="Open event space photo 2">
