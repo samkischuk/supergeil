@@ -143,11 +143,18 @@
     }
 
     .mobile-toggle {
-      display: none;
-      border: 0;
-      background: transparent;
-      font-weight: 700;
-      cursor: pointer;
+      display:none;
+      width:48px;
+      height:48px;
+      padding:0;
+      align-items:center;
+      justify-content:center;
+      border:0;
+      border-radius:50%;
+      background:transparent;
+      color:var(--ink);
+      font-size:25px;
+      cursor:pointer;
     }
 
     /* COMING SOON */
@@ -338,56 +345,17 @@
     /* MOBILE */
 
     @media (max-width: 880px) {
-      .header-inner {
-        min-height: 105px;
-        grid-template-columns: 1fr auto;
-      }
-
-      .brand {
-        justify-content: flex-start;
-        width: 220px;
-        margin: 0;
-      }
-
-      .logo {
-        width: 205px;
-      }
-
-      .mobile-toggle {
-        display: block;
-        grid-column: 2;
-        grid-row: 1;
-      }
-
-      .nav-group {
-        display: none;
-        grid-column: 1 / -1;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0;
-        padding: 8px 0 20px;
-      }
-
-      .site-header.menu-open .nav-group {
-        display: flex;
-      }
-
-      .nav-left {
-        grid-row: 2;
-      }
-
-      .nav-right {
-        grid-row: 3;
-      }
-
-      .nav-group a {
-        padding: 13px 0;
-        border-top: 1px solid rgba(21, 21, 21, .12);
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
+      .header-inner{width:min(100% - 28px,var(--content-width));min-height:92px;grid-template-columns:1fr auto;column-gap:16px;}
+      .brand{width:auto;margin:0;justify-self:start;}
+      .logo{width:145px;}
+      .mobile-toggle{display:inline-flex;grid-column:2;grid-row:1;justify-self:end;}
+      .nav-group{display:none;grid-column:1/-1;width:100%;margin:0;flex-direction:column;align-items:stretch;gap:0;padding:0;background:#fff;}
+      .site-header.menu-open .nav-group{display:flex;}
+      .nav-left{grid-row:2;}
+      .nav-right{grid-row:3;}
+      .nav-group a{display:flex;align-items:center;justify-content:center;width:100%;min-height:54px;flex:0 0 54px;margin:0;padding:15px 12px;border-top:1px solid rgba(21,21,21,.10);}
+      .nav-group a::after{display:none;}
+      .footer-grid{grid-template-columns:1fr;}
     }
 
     @media (max-width: 560px) {
@@ -538,24 +506,11 @@
 
   <script>
     window.addEventListener("DOMContentLoaded", () => {
-      const header = document.querySelector(".site-header");
-      const toggle = document.querySelector(".mobile-toggle");
-
-      toggle.addEventListener("click", () => {
-        const isOpen = header.classList.toggle("menu-open");
-
-        toggle.setAttribute("aria-expanded", String(isOpen));
-        toggle.textContent = isOpen ? "Close" : "Menu";
-      });
-
-      document.querySelectorAll(".nav-group a").forEach((link) => {
-        link.addEventListener("click", () => {
-          header.classList.remove("menu-open");
-          toggle.setAttribute("aria-expanded", "false");
-          toggle.textContent = "Menu";
-        });
-      });
-    });
+      const header=document.querySelector(".site-header");
+      const toggle=document.querySelector(".mobile-toggle");
+      const setMenu=(o)=>{header.classList.toggle("menu-open",o);toggle.setAttribute("aria-expanded",String(o));toggle.innerHTML=o?'<i class="fa-solid fa-xmark"></i>':'<i class="fa-solid fa-bars"></i>';};
+      toggle.addEventListener("click",()=>setMenu(!header.classList.contains("menu-open")));
+      document.querySelectorAll(".nav-group a").forEach(l=>l.addEventListener("click",()=>setMenu(false)));
   </script>
 </body>
 </html>
