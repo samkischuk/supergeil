@@ -64,6 +64,8 @@
       font: inherit;
     }
 
+    /* HEADER */
+
     .site-header {
       position: relative;
       z-index: 50;
@@ -147,6 +149,8 @@
       font-weight: 700;
       cursor: pointer;
     }
+
+    /* EVENTS INTRO */
 
     .events-intro {
       position: relative;
@@ -238,6 +242,8 @@
       background: transparent;
     }
 
+    /* FEATURED EVENT PHOTO */
+
     .featured-event {
       padding: 90px 20px 70px;
       background: #fff;
@@ -263,13 +269,15 @@
       border: 8px solid #ece8df;
     }
 
+    /* EVENT SPACE CAROUSEL */
+
     .event-gallery {
-      padding: 35px 20px 110px;
+      padding: 55px 20px 110px;
       background: #fff;
     }
 
     .event-gallery-inner {
-      width: min(1320px, 100%);
+      width: min(1500px, 100%);
       margin: 0 auto;
     }
 
@@ -282,44 +290,185 @@
       text-transform: uppercase;
     }
 
-    .event-photo-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 28px;
+    .event-carousel {
+      position: relative;
+      padding: 0 54px;
     }
 
-    .event-photo {
-      padding: 9px;
+    .event-carousel-viewport {
+      overflow: hidden;
+    }
+
+    .event-carousel-track {
+      display: flex;
+      gap: 18px;
+      transition: transform .45s cubic-bezier(.2, .8, .2, 1);
+      will-change: transform;
+    }
+
+    .event-slide {
+      flex: 0 0 calc((100% - 54px) / 4);
+      min-width: 0;
+      padding: 8px;
+      border: 0;
       background: #fff;
-      box-shadow: 0 16px 34px rgba(35, 26, 18, .14);
+      box-shadow: 0 14px 30px rgba(35, 26, 18, .14);
+      cursor: zoom-in;
       transition:
-        transform .28s ease,
-        box-shadow .28s ease;
+        transform .25s ease,
+        box-shadow .25s ease;
     }
 
-    .event-photo:nth-child(1) {
-      transform: rotate(-.7deg);
+    .event-slide:hover,
+    .event-slide:focus-visible {
+      transform: translateY(-5px);
+      box-shadow: 0 22px 42px rgba(35, 26, 18, .2);
+      outline: none;
     }
 
-    .event-photo:nth-child(2) {
-      transform: rotate(.6deg);
-    }
-
-    .event-photo:nth-child(3) {
-      transform: rotate(-.4deg);
-    }
-
-    .event-photo:hover {
-      transform: translateY(-5px) rotate(0);
-      box-shadow: 0 24px 46px rgba(35, 26, 18, .2);
-    }
-
-    .event-photo img {
+    .event-slide img {
       width: 100%;
-      aspect-ratio: 4 / 3;
+      aspect-ratio: 1 / 1;
       object-fit: cover;
-      border: 6px solid #ece8df;
+      border: 5px solid #ece8df;
     }
+
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      z-index: 3;
+      width: 44px;
+      height: 58px;
+      border: 0;
+      color: var(--ink);
+      background: rgba(255,255,255,.92);
+      font-size: 34px;
+      line-height: 1;
+      cursor: pointer;
+      transform: translateY(-50%);
+      transition:
+        color .2s ease,
+        transform .2s ease,
+        opacity .2s ease;
+    }
+
+    .carousel-arrow:hover,
+    .carousel-arrow:focus-visible {
+      color: var(--gold);
+      transform: translateY(-50%) scale(1.08);
+      outline: none;
+    }
+
+    .carousel-arrow:disabled {
+      opacity: .25;
+      cursor: default;
+    }
+
+    .carousel-arrow-prev {
+      left: 0;
+    }
+
+    .carousel-arrow-next {
+      right: 0;
+    }
+
+    .carousel-dots {
+      margin-top: 24px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .carousel-dot {
+      width: 9px;
+      height: 9px;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: #cfcfcf;
+      cursor: pointer;
+      transition:
+        transform .2s ease,
+        background .2s ease;
+    }
+
+    .carousel-dot:hover,
+    .carousel-dot:focus-visible {
+      transform: scale(1.25);
+      outline: none;
+    }
+
+    .carousel-dot.is-active {
+      background: var(--ink);
+    }
+
+    /* LIGHTBOX */
+
+    .event-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+      background: rgba(0,0,0,.9);
+    }
+
+    .event-lightbox.is-open {
+      display: flex;
+    }
+
+    .event-lightbox-image {
+      max-width: min(1200px, 92vw);
+      max-height: 88vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+    }
+
+    .lightbox-close,
+    .lightbox-arrow {
+      position: fixed;
+      z-index: 1001;
+      border: 0;
+      color: #fff;
+      background: transparent;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .lightbox-close {
+      top: 20px;
+      right: 24px;
+      font-size: 42px;
+    }
+
+    .lightbox-arrow {
+      top: 50%;
+      font-size: 52px;
+      transform: translateY(-50%);
+    }
+
+    .lightbox-prev {
+      left: 24px;
+    }
+
+    .lightbox-next {
+      right: 24px;
+    }
+
+    .lightbox-close:hover,
+    .lightbox-close:focus-visible,
+    .lightbox-arrow:hover,
+    .lightbox-arrow:focus-visible {
+      color: var(--gold);
+      outline: none;
+    }
+
+    /* FINAL CTA */
 
     .events-cta {
       position: relative;
@@ -364,6 +513,8 @@
       color: #fff;
       background: rgba(0, 0, 0, .2);
     }
+
+    /* FOOTER */
 
     .site-footer {
       padding: 65px 20px 35px;
@@ -479,6 +630,15 @@
       text-transform: uppercase;
     }
 
+    /* MOBILE */
+
+
+    @media (max-width: 1100px) {
+      .event-slide {
+        flex-basis: calc((100% - 36px) / 3);
+      }
+    }
+
     @media (max-width: 880px) {
       .header-inner {
         min-height: 105px;
@@ -527,14 +687,12 @@
         border-top: 1px solid rgba(21, 21, 21, .12);
       }
 
-      .event-photo-grid,
-      .footer-grid {
-        grid-template-columns: 1fr;
+      .event-slide {
+        flex-basis: calc((100% - 18px) / 2);
       }
 
-      .event-photo-grid {
-        width: min(720px, 100%);
-        margin: 0 auto;
+      .footer-grid {
+        grid-template-columns: 1fr;
       }
 
       .featured-event-frame img {
@@ -552,17 +710,49 @@
       }
 
       .event-gallery {
-        padding: 30px 16px 80px;
+        padding: 30px 12px 80px;
       }
 
-      .featured-event-frame,
-      .event-photo {
+      .event-carousel {
+        padding: 0 36px;
+      }
+
+      .event-slide {
+        flex-basis: 100%;
+        padding: 6px;
+      }
+
+      .event-slide img {
+        border-width: 4px;
+      }
+
+      .carousel-arrow {
+        width: 34px;
+        font-size: 30px;
+      }
+
+      .featured-event-frame {
         padding: 7px;
       }
 
-      .featured-event-frame img,
-      .event-photo img {
+      .featured-event-frame img {
         border-width: 5px;
+      }
+
+      .event-lightbox {
+        padding: 16px;
+      }
+
+      .lightbox-arrow {
+        font-size: 40px;
+      }
+
+      .lightbox-prev {
+        left: 8px;
+      }
+
+      .lightbox-next {
+        right: 8px;
       }
 
       .events-cta {
@@ -629,7 +819,7 @@
       <div class="featured-event-inner">
         <div class="featured-event-frame">
           <img
-            src="images/eventspace1.jpg"
+            src="images/event.jpg"
             alt="Supergeil event space"
           >
         </div>
@@ -640,30 +830,84 @@
       <div class="event-gallery-inner">
         <h2 id="event-gallery-heading">Our Event Space</h2>
 
-        <div class="event-photo-grid">
-          <div class="event-photo">
-            <img
-              src="images/eventspace2.jpg"
-              alt="Indoor event space at Supergeil"
-            >
+        <div class="event-carousel" aria-label="Supergeil event space gallery">
+          <button
+            class="carousel-arrow carousel-arrow-prev"
+            type="button"
+            aria-label="Previous event photos"
+          >
+            ‹
+          </button>
+
+          <div class="event-carousel-viewport">
+            <div class="event-carousel-track">
+              <button class="event-slide" type="button" data-index="0" aria-label="Open event space photo 1">
+                <img src="images/event1.jpg" alt="Supergeil event space">
+              </button>
+
+              <button class="event-slide" type="button" data-index="1" aria-label="Open event space photo 2">
+                <img src="images/event2.jpg" alt="Supergeil event space">
+              </button>
+
+              <button class="event-slide" type="button" data-index="2" aria-label="Open event space photo 3">
+                <img src="images/event3.jpg" alt="Supergeil event space">
+              </button>
+
+              <button class="event-slide" type="button" data-index="3" aria-label="Open event space photo 4">
+                <img src="images/event4.jpg" alt="Supergeil event space">
+              </button>
+
+              <button class="event-slide" type="button" data-index="4" aria-label="Open event space photo 5">
+                <img src="images/event5.jpg" alt="Supergeil event space">
+              </button>
+
+              <button class="event-slide" type="button" data-index="5" aria-label="Open event space photo 6">
+                <img src="images/event6.jpg" alt="Supergeil event space">
+              </button>
+
+              <button class="event-slide" type="button" data-index="6" aria-label="Open event space photo 7">
+                <img src="images/event7.jpg" alt="Supergeil event space">
+              </button>
+
+              <button class="event-slide" type="button" data-index="7" aria-label="Open event space photo 8">
+                <img src="images/event8.jpg" alt="Supergeil event space">
+              </button>
+            </div>
           </div>
 
-          <div class="event-photo">
-            <img
-              src="images/eventspace3.jpg"
-              alt="Outdoor event space at Supergeil"
-            >
-          </div>
+          <button
+            class="carousel-arrow carousel-arrow-next"
+            type="button"
+            aria-label="Next event photos"
+          >
+            ›
+          </button>
 
-          <div class="event-photo">
-            <img
-              src="images/eventspace4.jpg"
-              alt="Private gathering at Supergeil"
-            >
+          <div class="carousel-dots" aria-label="Choose gallery position">
+              <button class="carousel-dot is-active" type="button" data-slide="0" aria-label="Show gallery position 1"></button>
+              <button class="carousel-dot" type="button" data-slide="1" aria-label="Show gallery position 2"></button>
+              <button class="carousel-dot" type="button" data-slide="2" aria-label="Show gallery position 3"></button>
+              <button class="carousel-dot" type="button" data-slide="3" aria-label="Show gallery position 4"></button>
+              <button class="carousel-dot" type="button" data-slide="4" aria-label="Show gallery position 5"></button>
+              <button class="carousel-dot" type="button" data-slide="5" aria-label="Show gallery position 6"></button>
+              <button class="carousel-dot" type="button" data-slide="6" aria-label="Show gallery position 7"></button>
+              <button class="carousel-dot" type="button" data-slide="7" aria-label="Show gallery position 8"></button>
           </div>
         </div>
       </div>
     </section>
+
+    <div
+      class="event-lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Expanded event space photo"
+    >
+      <button class="lightbox-close" type="button" aria-label="Close image">×</button>
+      <button class="lightbox-arrow lightbox-prev" type="button" aria-label="Previous image">‹</button>
+      <img class="event-lightbox-image" src="" alt="Expanded Supergeil event space">
+      <button class="lightbox-arrow lightbox-next" type="button" aria-label="Next image">›</button>
+    </div>
 
     <section class="events-cta">
       <div class="events-cta-inner">
@@ -782,6 +1026,128 @@
           toggle.setAttribute("aria-expanded", "false");
           toggle.textContent = "Menu";
         });
+      });
+
+
+      const carousel = document.querySelector(".event-carousel");
+      const track = document.querySelector(".event-carousel-track");
+      const slides = Array.from(document.querySelectorAll(".event-slide"));
+      const prevButton = document.querySelector(".carousel-arrow-prev");
+      const nextButton = document.querySelector(".carousel-arrow-next");
+      const dots = Array.from(document.querySelectorAll(".carousel-dot"));
+
+      let carouselIndex = 0;
+
+      const visibleSlides = () => {
+        if (window.innerWidth <= 560) return 1;
+        if (window.innerWidth <= 880) return 2;
+        if (window.innerWidth <= 1100) return 3;
+        return 4;
+      };
+
+      const maxCarouselIndex = () =>
+        Math.max(0, slides.length - visibleSlides());
+
+      const updateCarousel = () => {
+        const firstSlide = slides[0];
+        if (!firstSlide) return;
+
+        const gap = parseFloat(getComputedStyle(track).gap) || 0;
+        const step = firstSlide.getBoundingClientRect().width + gap;
+        carouselIndex = Math.min(carouselIndex, maxCarouselIndex());
+
+        track.style.transform = `translateX(${-carouselIndex * step}px)`;
+        prevButton.disabled = carouselIndex === 0;
+        nextButton.disabled = carouselIndex === maxCarouselIndex();
+
+        dots.forEach((dot, index) => {
+          dot.classList.toggle("is-active", index === carouselIndex);
+        });
+      };
+
+      prevButton.addEventListener("click", () => {
+        carouselIndex = Math.max(0, carouselIndex - 1);
+        updateCarousel();
+      });
+
+      nextButton.addEventListener("click", () => {
+        carouselIndex = Math.min(maxCarouselIndex(), carouselIndex + 1);
+        updateCarousel();
+      });
+
+      dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+          carouselIndex = Math.min(index, maxCarouselIndex());
+          updateCarousel();
+        });
+      });
+
+      let touchStartX = 0;
+
+      carousel.addEventListener("touchstart", (event) => {
+        touchStartX = event.changedTouches[0].clientX;
+      }, { passive: true });
+
+      carousel.addEventListener("touchend", (event) => {
+        const distance = event.changedTouches[0].clientX - touchStartX;
+
+        if (Math.abs(distance) < 45) return;
+
+        if (distance < 0) {
+          carouselIndex = Math.min(maxCarouselIndex(), carouselIndex + 1);
+        } else {
+          carouselIndex = Math.max(0, carouselIndex - 1);
+        }
+
+        updateCarousel();
+      }, { passive: true });
+
+      window.addEventListener("resize", updateCarousel);
+      updateCarousel();
+
+      const lightbox = document.querySelector(".event-lightbox");
+      const lightboxImage = document.querySelector(".event-lightbox-image");
+      const lightboxClose = document.querySelector(".lightbox-close");
+      const lightboxPrev = document.querySelector(".lightbox-prev");
+      const lightboxNext = document.querySelector(".lightbox-next");
+      let lightboxIndex = 0;
+
+      const openLightbox = (index) => {
+        lightboxIndex = index;
+        lightboxImage.src = slides[lightboxIndex].querySelector("img").src;
+        lightbox.classList.add("is-open");
+        document.body.style.overflow = "hidden";
+        lightboxClose.focus();
+      };
+
+      const closeLightbox = () => {
+        lightbox.classList.remove("is-open");
+        document.body.style.overflow = "";
+      };
+
+      const showLightboxImage = (index) => {
+        lightboxIndex = (index + slides.length) % slides.length;
+        lightboxImage.src = slides[lightboxIndex].querySelector("img").src;
+      };
+
+      slides.forEach((slide, index) => {
+        slide.addEventListener("click", () => openLightbox(index));
+      });
+
+      lightboxClose.addEventListener("click", closeLightbox);
+      lightboxPrev.addEventListener("click", () => showLightboxImage(lightboxIndex - 1));
+      lightboxNext.addEventListener("click", () => showLightboxImage(lightboxIndex + 1));
+
+      lightbox.addEventListener("click", (event) => {
+        if (event.target === lightbox) closeLightbox();
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (!lightbox.classList.contains("is-open")) return;
+
+        if (event.key === "Escape") closeLightbox();
+        if (event.key === "ArrowLeft") showLightboxImage(lightboxIndex - 1);
+        if (event.key === "ArrowRight") showLightboxImage(lightboxIndex + 1);
       });
     });
   </script>
