@@ -164,7 +164,7 @@
       color:#fff;
       background:
         linear-gradient(rgba(0,0,0,.58),rgba(0,0,0,.64)),
-        url("images/menu.jpg") center center/cover no-repeat;
+        url("images/menu.jpg") center -150px / cover no-repeat;
     }
 
     .menu-intro-inner {
@@ -290,18 +290,22 @@
     }
 
     .menu-pages.single {
-      grid-template-columns: minmax(0, 880px);
-      justify-content: center;
+      grid-template-columns: minmax(0, 1fr);
+      width: min(880px, 100%);
+      margin: 0 auto;
+    }
+
+    .menu-pages.single.wide {
+      width: min(1180px, 100%);
+    }
+
+    .menu-pages.single.portrait {
+      width: min(620px, 100%);
     }
 
     .menu-page-frame {
       position: relative;
-      height: 1100px;
       padding: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
       background: #fff;
       box-shadow: 0 22px 48px rgba(35, 26, 18, .16);
       transition:
@@ -324,12 +328,8 @@
 
     .menu-page-frame img {
       display: block;
-      width: auto;
-      max-width: 100%;
+      width: 100%;
       height: auto;
-      max-height: 100%;
-      object-fit: contain;
-      object-position: center;
       background: #fff;
       border: 8px solid #ece8df;
     }
@@ -511,9 +511,19 @@
         grid-template-columns: 1fr;
       }
 
-      .menu-pages {
+      .menu-pages,
+      .menu-pages.single,
+      .menu-pages.single.wide,
+      .menu-pages.single.portrait {
         width: min(760px, 100%);
         margin: 0 auto;
+      }
+    }
+
+
+    @media (min-width: 561px) and (max-width: 880px) {
+      .menu-pages.single.portrait {
+        width: min(580px, 100%);
       }
     }
 
@@ -545,13 +555,12 @@
       }
 
       .menu-page-frame {
-        height: 700px;
         padding: 8px;
       }
 
       .menu-page-frame img {
-        max-width: 100%;
-        max-height: 100%;
+        width: 100%;
+        height: auto;
         border-width: 5px;
       }
     }
@@ -659,7 +668,7 @@
       <div class="menu-section-inner">
         <h2>Dinner</h2>
 
-        <div class="menu-pages single reveal">
+        <div class="menu-pages single wide reveal">
           <div class="menu-page-frame">
             <img src="images/dinner.jpg" alt="Supergeil dinner menu">
           </div>
@@ -671,7 +680,7 @@
       <div class="menu-section-inner">
         <h2>Desserts</h2>
 
-        <div class="menu-pages single reveal">
+        <div class="menu-pages single portrait reveal">
           <div class="menu-page-frame">
             <img src="images/dessert.jpg" alt="Supergeil dessert menu">
           </div>
