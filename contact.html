@@ -314,6 +314,30 @@
       line-height: 1.7;
     }
 
+
+    /* SIMPLE FOOTER */
+
+    .simple-footer {
+      padding: 32px 20px 34px;
+      background: #e8ddc9;
+      text-align: center;
+    }
+
+    .simple-footer-inner {
+      width: min(var(--content-width), 100%);
+      margin: 0 auto;
+      padding-top: 22px;
+      border-top: 1px solid rgba(21, 21, 21, .22);
+    }
+
+    .simple-footer p {
+      margin: 0;
+      color: #333;
+      font-size: 13px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
     /* MOBILE */
 
     @media (max-width: 880px) {
@@ -527,6 +551,13 @@
       </div>
     </section>
   </main>
+
+
+  <footer class="simple-footer">
+    <div class="simple-footer-inner">
+      <p>© 2026 Supergeil Detroit</p>
+    </div>
+  </footer>
 
   <script>
     window.addEventListener("DOMContentLoaded", () => {
