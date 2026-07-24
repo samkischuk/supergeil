@@ -227,6 +227,7 @@
     }
 
     .hero h1 {
+      width: 100%;
       margin: 0;
       text-align: center;
       font-family: var(--display-font);
@@ -236,6 +237,16 @@
       text-transform: uppercase;
       color: white;
       text-shadow: none;
+    }
+
+    .hero-line {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+
+    .hero-line-casablanca {
+      transform: translateX(-0.12em);
     }
 
     .hero-buttons {
@@ -933,7 +944,13 @@
 
       .nav-group a {
         width: 100%;
+        min-height: 54px;
+        margin: 0;
         padding: 15px 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 54px;
         border-top: 1px solid rgba(21, 21, 21, 0.10);
       }
 
@@ -1202,9 +1219,9 @@
 
       <div class="hero-content">
         <h1 id="hero-heading" class="hero-title-animate">
-          A culinary jaunt<br>
-          from Casablanca<br>
-          to Kreuzberg
+          <span class="hero-line">A culinary jaunt</span>
+          <span class="hero-line hero-line-casablanca">from Casablanca</span>
+          <span class="hero-line">to Kreuzberg</span>
         </h1>
 
         <div class="hero-buttons hero-buttons-animate">
