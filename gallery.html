@@ -7,7 +7,7 @@
   <title>Gallery | Supergeil Detroit</title>
   <meta
     name="description"
-    content="Explore photos from Supergeil Detroit, including food, cocktails, events, and moments from the restaurant."
+    content="The Supergeil Detroit gallery is coming soon."
   >
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -150,12 +150,12 @@
       cursor: pointer;
     }
 
-    /* GALLERY INTRO */
+    /* COMING SOON */
 
-    .gallery-intro {
+    .coming-soon {
       position: relative;
-      min-height: 430px;
-      padding: 95px 20px 85px;
+      min-height: 390px;
+      padding: 85px 20px;
       overflow: hidden;
       display: grid;
       place-items: center;
@@ -172,8 +172,8 @@
         );
     }
 
-    .gallery-intro::before,
-    .gallery-intro::after {
+    .coming-soon::before,
+    .coming-soon::after {
       content: "";
       position: absolute;
       width: clamp(210px, 23vw, 360px);
@@ -184,69 +184,39 @@
       pointer-events: none;
     }
 
-    .gallery-intro::before {
+    .coming-soon::before {
       top: -115px;
       left: -115px;
       transform: scaleY(-1);
     }
 
-    .gallery-intro::after {
+    .coming-soon::after {
       right: -115px;
       bottom: -120px;
       transform: scaleX(-1);
     }
 
-    .gallery-intro-inner {
+    .coming-soon-inner {
       position: relative;
       z-index: 2;
-      width: min(800px, 100%);
+      width: min(720px, 100%);
       margin: 0 auto;
     }
 
-    .gallery-intro h1 {
-      margin: 0 0 24px;
+    .coming-soon h1 {
+      margin: 0 0 22px;
       font-family: var(--display-font);
-      font-size: clamp(48px, 7vw, 88px);
+      font-size: clamp(44px, 6vw, 76px);
       font-weight: 400;
       line-height: 1;
       text-transform: uppercase;
     }
 
-    .gallery-intro p {
-      max-width: 680px;
+    .coming-soon p {
+      max-width: 660px;
       margin: 0 auto;
-      font-size: clamp(16px, 1.4vw, 19px);
+      font-size: clamp(16px, 1.3vw, 18px);
       line-height: 1.75;
-    }
-
-    /* EMPTY GALLERY AREA — READY FOR POSTS LATER */
-
-    .gallery-placeholder {
-      min-height: 340px;
-      padding: 90px 20px;
-      display: grid;
-      place-items: center;
-      background: #fff;
-    }
-
-    .gallery-placeholder-inner {
-      width: min(760px, 100%);
-      text-align: center;
-    }
-
-    .gallery-placeholder h2 {
-      margin: 0 0 18px;
-      font-family: var(--display-font);
-      font-size: clamp(30px, 4vw, 48px);
-      font-weight: 400;
-      text-transform: uppercase;
-    }
-
-    .gallery-placeholder p {
-      margin: 0;
-      font-size: 16px;
-      line-height: 1.75;
-      color: #444;
     }
 
     /* FOOTER */
@@ -421,14 +391,19 @@
     }
 
     @media (max-width: 560px) {
-      .gallery-intro {
-        min-height: 380px;
-        padding: 72px 20px 65px;
+      .coming-soon {
+        min-height: 320px;
+        padding: 65px 20px;
       }
 
-      .gallery-placeholder {
-        min-height: 280px;
-        padding: 70px 20px;
+      .coming-soon::before {
+        top: -90px;
+        left: -90px;
+      }
+
+      .coming-soon::after {
+        right: -90px;
+        bottom: -95px;
       }
     }
   </style>
@@ -465,20 +440,16 @@
   </header>
 
   <main>
-    <section class="gallery-intro">
-      <div class="gallery-intro-inner">
-        <h1>Gallery</h1>
+    <section class="coming-soon">
+      <div class="coming-soon-inner">
+        <h1>Coming Soon</h1>
 
         <p>
-          Snapshots from our corner of Corktown—seasonal dishes, cocktails, events, and the people who bring Supergeil to life.
+          We’re putting the finishing touches on our gallery. Check back soon
+          for seasonal dishes, cocktails, events, and moments from around
+          Supergeil.
         </p>
       </div>
-    </section>
-
-    <section class="gallery-placeholder" aria-label="Gallery coming soon">
-      <div class="gallery-placeholder-inner">
-        <h2>Coming Soon</h2>
-</div>
     </section>
   </main>
 
