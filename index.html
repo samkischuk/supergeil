@@ -274,6 +274,7 @@
       pointer-events: none;
       opacity: 0;
       transform-origin: center;
+      will-change: left, top, opacity, transform;
       animation:
         birdFlight 2.8s cubic-bezier(.22, .82, .18, 1) .15s forwards,
         birdFloat 6s ease-in-out 2.95s infinite;
@@ -376,22 +377,22 @@
     @keyframes birdFloat {
       0%,
       100% {
-        transform: translateY(0) rotate(0deg);
+        transform: translateY(0) rotate(0deg) scale(.850);
       }
 
       50% {
-        transform: translateY(-6px) rotate(-1deg);
+        transform: translateY(-6px) rotate(-1deg) scale(.850);
       }
     }
 
     @keyframes birdFloatRight {
       0%,
       100% {
-        transform: scaleX(-1) translateY(0) rotate(0deg);
+        transform: scaleX(-1) translateY(0) rotate(0deg) scale(.850);
       }
 
       50% {
-        transform: scaleX(-1) translateY(-6px) rotate(1deg);
+        transform: scaleX(-1) translateY(-6px) rotate(1deg) scale(.850);
       }
     }
 
@@ -1017,7 +1018,7 @@
         left: -48px;
         top: 24%;
         opacity: 1;
-        transform: none;
+        transform: scale(.850);
       }
 
       .flying-bird-right {
@@ -1026,7 +1027,7 @@
         right: -48px;
         top: 21%;
         opacity: 1;
-        transform: scaleX(-1);
+        transform: scaleX(-1) scale(.850);
       }
 
       .hero-title-animate,
