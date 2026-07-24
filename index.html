@@ -246,7 +246,7 @@
     }
 
     .hero-line-casablanca {
-      transform: translateX(-0.12em);
+      transform: translateX(-0.08em);
     }
 
     .hero-buttons {
@@ -893,7 +893,8 @@
         width: min(100% - 28px, var(--content-width));
         min-height: 92px;
         grid-template-columns: 1fr auto;
-        gap: 16px;
+        column-gap: 16px;
+        row-gap: 0;
       }
 
       .brand {
@@ -1040,6 +1041,11 @@
 
       .hero h1 {
         font-size: clamp(43px, 14vw, 68px);
+      }
+
+      .hero-line-casablanca {
+        font-size: 0.84em;
+        transform: translateX(-6px);
       }
 
       .hero-buttons {
