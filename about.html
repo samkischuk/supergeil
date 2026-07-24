@@ -725,47 +725,53 @@
     }
 
     @media (max-width: 560px) {
+
+      /* Mobile photo and flourish layout */
       .cow-panel {
-        min-height: 500px;
-        padding: 88px 0;
+        min-height: 610px;
+        padding: 78px 0 92px;
         overflow: visible;
-        place-items: center;
       }
 
       .about-photo-wrap {
+        position: relative;
         width: min(68vw, 310px);
         margin: 0 auto;
       }
 
       .about-photo-frame {
-        padding: 8px;
-        transform: rotate(0deg);
+        padding: 9px;
+        transform: none;
       }
 
       .about-photo {
-        border-width: 7px;
+        border-width: 8px;
       }
 
       .about-flourish {
-        z-index: 2;
         width: 205px;
+        z-index: 1;
         opacity: 1;
         mix-blend-mode: multiply;
       }
 
-      /* Pull the flourishes slightly inward and away from the photo
-         so their curved tails remain visible on narrow screens. */
       .about-flourish-top {
-        top: -62px;
-        left: -72px;
+        top: -70px;
+        left: -112px;
         right: auto;
+        bottom: auto;
       }
 
       .about-flourish-bottom {
-        right: -72px;
-        bottom: -62px;
+        right: -112px;
+        bottom: -68px;
         left: auto;
+        top: auto;
       }
+
+
+      /* Pull the flourishes slightly inward and away from the photo
+         so their curved tails remain visible on narrow screens. */
 
       .story-panel {
         padding: 90px 24px 55px;
