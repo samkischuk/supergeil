@@ -612,7 +612,8 @@
         width: min(100% - 28px, var(--content-width));
         min-height: 88px;
         grid-template-columns: 1fr auto;
-        gap: 16px;
+        column-gap: 16px;
+        row-gap: 0;
       }
 
       .brand {
@@ -648,17 +649,26 @@
 
       .nav-left {
         grid-row: 2;
+        margin: 0;
       }
 
       .nav-right {
         grid-row: 3;
+        margin: 0;
         padding-bottom: 14px;
       }
 
       .nav-group a {
         width: 100%;
-        padding: 14px 10px;
+        min-height: 52px;
+        margin: 0;
+        padding: 0 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         border-top: 1px solid rgba(21, 21, 21, .12);
+        font-size: 16px;
+        line-height: 1;
         text-align: center;
       }
 
