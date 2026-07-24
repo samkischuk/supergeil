@@ -164,7 +164,7 @@
       color: #fff;
       background:
         linear-gradient(rgba(0, 0, 0, .60), rgba(0, 0, 0, .66)),
-        url("images/eventlink.jpg") center / cover no-repeat;
+        url("images/eventheader.jpg") center / cover no-repeat;
     }
 
     .events-intro-inner {
@@ -250,7 +250,7 @@
     /* EVENT SPACE CAROUSEL */
 
     .event-gallery {
-      padding: 55px 20px 110px;
+      padding: 0 20px 110px;
       background: #fff;
     }
 
@@ -259,12 +259,15 @@
       margin: 0 auto;
     }
 
-    .event-gallery h2 {
-      margin: 0 0 50px;
+    .event-gallery-banner {
+      margin: 0 0 55px;
+      padding: 24px 20px 22px;
+      background: #d9ad23;
       text-align: center;
       font-family: var(--display-font);
-      font-size: clamp(34px, 4vw, 56px);
+      font-size: clamp(34px, 4vw, 58px);
       font-weight: 400;
+      line-height: 1;
       text-transform: uppercase;
     }
 
@@ -690,7 +693,12 @@
       }
 
       .event-gallery {
-        padding: 30px 12px 80px;
+        padding: 0 12px 80px;
+      }
+
+      .event-gallery-banner {
+        margin-bottom: 36px;
+        padding: 20px 16px 18px;
       }
 
       .event-carousel {
@@ -803,9 +811,11 @@
     </section>
 
     <section class="event-gallery" aria-labelledby="event-gallery-heading">
-      <div class="event-gallery-inner">
-        <h2 id="event-gallery-heading">Our Event Space</h2>
+      <h2 class="event-gallery-banner" id="event-gallery-heading">
+        Our Event Space
+      </h2>
 
+      <div class="event-gallery-inner">
         <div class="event-carousel" aria-label="Supergeil event space gallery">
           <button
             class="carousel-arrow carousel-arrow-prev"
@@ -818,34 +828,30 @@
           <div class="event-carousel-viewport">
             <div class="event-carousel-track">
               <button class="event-slide" type="button" data-index="0" aria-label="Open event space photo 1">
-                <img src="images/eventspace.jpg" alt="Supergeil event space">
-              </button>
-
-              <button class="event-slide" type="button" data-index="1" aria-label="Open event space photo 2">
                 <img src="images/event2.jpg" alt="Supergeil event space">
               </button>
 
-              <button class="event-slide" type="button" data-index="2" aria-label="Open event space photo 3">
+              <button class="event-slide" type="button" data-index="1" aria-label="Open event space photo 2">
                 <img src="images/event3.jpg" alt="Supergeil event space">
               </button>
 
-              <button class="event-slide" type="button" data-index="3" aria-label="Open event space photo 4">
+              <button class="event-slide" type="button" data-index="2" aria-label="Open event space photo 3">
                 <img src="images/event4.jpg" alt="Supergeil event space">
               </button>
 
-              <button class="event-slide" type="button" data-index="4" aria-label="Open event space photo 5">
+              <button class="event-slide" type="button" data-index="3" aria-label="Open event space photo 4">
                 <img src="images/event5.jpg" alt="Supergeil event space">
               </button>
 
-              <button class="event-slide" type="button" data-index="5" aria-label="Open event space photo 6">
+              <button class="event-slide" type="button" data-index="4" aria-label="Open event space photo 5">
                 <img src="images/event6.jpg" alt="Supergeil event space">
               </button>
 
-              <button class="event-slide" type="button" data-index="6" aria-label="Open event space photo 7">
+              <button class="event-slide" type="button" data-index="5" aria-label="Open event space photo 6">
                 <img src="images/event7.jpg" alt="Supergeil event space">
               </button>
 
-              <button class="event-slide" type="button" data-index="7" aria-label="Open event space photo 8">
+              <button class="event-slide" type="button" data-index="6" aria-label="Open event space photo 7">
                 <img src="images/event8.jpg" alt="Supergeil event space">
               </button>
             </div>
@@ -860,14 +866,13 @@
           </button>
 
           <div class="carousel-dots" aria-label="Choose gallery position">
-              <button class="carousel-dot is-active" type="button" data-slide="0" aria-label="Show gallery position 1"></button>
-              <button class="carousel-dot" type="button" data-slide="1" aria-label="Show gallery position 2"></button>
-              <button class="carousel-dot" type="button" data-slide="2" aria-label="Show gallery position 3"></button>
-              <button class="carousel-dot" type="button" data-slide="3" aria-label="Show gallery position 4"></button>
-              <button class="carousel-dot" type="button" data-slide="4" aria-label="Show gallery position 5"></button>
-              <button class="carousel-dot" type="button" data-slide="5" aria-label="Show gallery position 6"></button>
-              <button class="carousel-dot" type="button" data-slide="6" aria-label="Show gallery position 7"></button>
-              <button class="carousel-dot" type="button" data-slide="7" aria-label="Show gallery position 8"></button>
+            <button class="carousel-dot is-active" type="button" data-slide="0" aria-label="Show gallery position 1"></button>
+            <button class="carousel-dot" type="button" data-slide="1" aria-label="Show gallery position 2"></button>
+            <button class="carousel-dot" type="button" data-slide="2" aria-label="Show gallery position 3"></button>
+            <button class="carousel-dot" type="button" data-slide="3" aria-label="Show gallery position 4"></button>
+            <button class="carousel-dot" type="button" data-slide="4" aria-label="Show gallery position 5"></button>
+            <button class="carousel-dot" type="button" data-slide="5" aria-label="Show gallery position 6"></button>
+            <button class="carousel-dot" type="button" data-slide="6" aria-label="Show gallery position 7"></button>
           </div>
         </div>
       </div>
