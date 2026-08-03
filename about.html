@@ -78,15 +78,20 @@
     /* HEADER — copied from index.html */
 
     .site-header {
-      position: relative;
-      z-index: 50;
-      background: rgba(255, 255, 255, 0.97);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+      position: sticky;
+      top: 0;
+      width:100%;
+      z-index:1000;
+      background: rgba(255,255,255,.97);
+      border-bottom:1px solid rgba(0,0,0,.12);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      box-shadow:0 2px 10px rgba(0,0,0,.08);
     }
 
     .header-inner {
       width: min(var(--content-width), calc(100% - 40px));
-      min-height: 170px;
+      min-height: 120px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr auto 1fr;
@@ -605,7 +610,9 @@
 
     @media (max-width: 880px) {
       .site-header {
-        position: relative;
+        position: sticky;
+        top: 0;
+        z-index:1000;
       }
 
       .header-inner {
