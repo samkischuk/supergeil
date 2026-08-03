@@ -518,6 +518,232 @@
       background: rgba(0, 0, 0, .2);
     }
 
+
+    /* EVENT PLANNER */
+
+    .planner-section {
+      padding: 90px 20px;
+      background: #fff;
+    }
+
+    .planner-inner {
+      width: min(1320px, 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(320px, .85fr) minmax(0, 1.15fr);
+      align-items: center;
+      gap: clamp(44px, 6vw, 90px);
+    }
+
+    .planner-photo-frame {
+      width: min(100%, 520px);
+      margin: 0 auto;
+      padding: 12px;
+      background: #fff;
+      box-shadow: 0 22px 48px rgba(35, 26, 18, .16);
+      transform: rotate(-.7deg);
+      transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+    }
+
+    .planner-photo-frame:hover {
+      transform: translateY(-5px) rotate(0);
+      box-shadow: 0 30px 60px rgba(35, 26, 18, .2);
+    }
+
+    .planner-photo {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center;
+      border: 8px solid #ece8df;
+    }
+
+    .planner-copy {
+      max-width: 720px;
+    }
+
+    .planner-kicker {
+      margin: 0 0 12px;
+      color: var(--gold);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .planner-copy h2 {
+      margin: 0 0 8px;
+      font-family: var(--display-font);
+      font-size: clamp(36px, 4vw, 58px);
+      font-weight: 400;
+      line-height: 1.05;
+      text-transform: uppercase;
+    }
+
+    .planner-role {
+      margin: 0 0 24px;
+      font-family: var(--display-font);
+      font-size: clamp(20px, 1.7vw, 28px);
+      line-height: 1.2;
+    }
+
+    .planner-bio {
+      margin: 0;
+      font-size: clamp(16px, 1.2vw, 19px);
+      line-height: 1.75;
+    }
+
+    /* EVENT CTA BUTTON GROUP */
+
+    .events-button-group {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .events-button-group .events-button {
+      margin-top: 0;
+    }
+
+    .events-button-secondary {
+      border-color: #fff;
+      color: #fff;
+      background: transparent;
+    }
+
+    .events-button-secondary:hover,
+    .events-button-secondary:focus-visible {
+      color: var(--ink);
+      background: #fff;
+    }
+
+    /* ALLES PALETTI */
+
+    .stay-section {
+      padding: 90px 20px;
+      background:
+        linear-gradient(
+          rgba(248, 246, 240, .96),
+          rgba(248, 246, 240, .96)
+        ),
+        repeating-linear-gradient(
+          90deg,
+          transparent 0 28px,
+          rgba(21, 21, 21, .04) 28px 29px
+        );
+    }
+
+    .stay-inner {
+      width: min(1320px, 100%);
+      margin: 0 auto;
+    }
+
+    .stay-heading {
+      margin: 0 0 16px;
+      text-align: center;
+      font-family: var(--display-font);
+      font-size: clamp(36px, 4.5vw, 62px);
+      font-weight: 400;
+      line-height: 1.05;
+      text-transform: uppercase;
+    }
+
+    .stay-intro {
+      max-width: 760px;
+      margin: 0 auto 44px;
+      text-align: center;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .stay-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .stay-main-photo {
+      min-height: 500px;
+      overflow: hidden;
+      box-shadow: 0 20px 46px rgba(35, 26, 18, .16);
+    }
+
+    .stay-main-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .stay-side {
+      display: grid;
+      grid-template-rows: 1fr auto;
+      gap: 24px;
+    }
+
+    .stay-thumbs {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .stay-thumbs img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      box-shadow: 0 12px 26px rgba(35, 26, 18, .13);
+    }
+
+    .stay-card {
+      padding: 28px;
+      background: #fff;
+      border-top: 7px solid var(--gold);
+      box-shadow: 0 18px 42px rgba(35, 26, 18, .13);
+    }
+
+    .stay-card h3 {
+      margin: 0 0 12px;
+      font-family: var(--display-font);
+      font-size: clamp(28px, 2.5vw, 40px);
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+
+    .stay-card p {
+      margin: 0 0 20px;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .stay-button {
+      min-width: 180px;
+      padding: 14px 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--ink);
+      border-radius: 6px;
+      color: #fff;
+      background: var(--ink);
+      font-size: 15px;
+      font-weight: 600;
+      transition:
+        transform .22s ease,
+        background .22s ease,
+        color .22s ease;
+    }
+
+    .stay-button:hover,
+    .stay-button:focus-visible {
+      transform: translateY(-3px);
+      color: var(--ink);
+      background: transparent;
+    }
+
     /* FOOTER — matches index.html */
 
 .site-footer {
@@ -768,6 +994,38 @@
         grid-template-columns: 1fr;
       }
 
+
+      .planner-section {
+        padding: 64px 20px;
+      }
+
+      .planner-inner {
+        grid-template-columns: 1fr;
+        gap: 34px;
+      }
+
+      .planner-copy {
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .stay-section {
+        padding: 65px 16px;
+      }
+
+      .stay-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stay-main-photo {
+        min-height: 380px;
+      }
+
+      .stay-thumbs {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+
       .featured-event-frame img {
         aspect-ratio: 4 / 3;
       }
@@ -843,6 +1101,46 @@
         width: 100%;
         max-width: 315px;
       }
+
+
+      .planner-section {
+        padding: 50px 16px;
+      }
+
+      .planner-photo-frame {
+        padding: 8px;
+      }
+
+      .planner-photo {
+        border-width: 5px;
+      }
+
+      .events-button-group {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .events-button-group .events-button {
+        width: 100%;
+        max-width: 315px;
+      }
+
+      .stay-main-photo {
+        min-height: 300px;
+      }
+
+      .stay-thumbs {
+        gap: 9px;
+      }
+
+      .stay-card {
+        padding: 24px 20px;
+      }
+
+      .stay-button {
+        width: 100%;
+      }
+
     }
   </style>
 </head>
@@ -959,6 +1257,41 @@
       </div>
     </section>
 
+
+    <section class="planner-section" aria-labelledby="planner-heading">
+      <div class="planner-inner">
+        <div class="planner-photo-frame">
+          <img
+            class="planner-photo"
+            src="images/rachel.jpg"
+            alt="Rachel Kret, Supergeil event planner"
+          >
+        </div>
+
+        <div class="planner-copy">
+          <p class="planner-kicker">Meet Your Event Planner</p>
+          <h2 id="planner-heading">Rachel Kret</h2>
+          <p class="planner-role">Event Planner</p>
+
+          <p class="planner-bio">
+            Rachel has a passion for bringing people together and creating events
+            that leave a lasting impression. With nearly a decade of experience in
+            hospitality, she has worked everywhere from fine dining restaurants to
+            neighborhood dive bars, giving her a well-rounded perspective on
+            exceptional guest experiences. Over the past five years, Rachel has
+            planned and coordinated large-scale events, corporate gatherings,
+            weddings, and private celebrations. She enjoys working closely with
+            each client to create a planning experience that feels seamless,
+            personal, and stress-free, with the goal of creating celebrations that
+            guests will remember long after the event is over. Rachel is pursuing
+            her bachelor's degree in Public Relations at Wayne State University,
+            where she continues to strengthen her expertise in communication,
+            marketing, and relationship building.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <div
       class="event-lightbox"
       role="dialog"
@@ -980,14 +1313,72 @@
           and our team will be in touch.
         </p>
 
-        <a
-          class="events-button"
-          href="https://docs.google.com/forms/d/e/1FAIpQLSeDLOXfvFHyBMpU3b-qSIk-qof3cNj8o7wy6Xml6z8hFpW8zA/viewform?usp=publish-editor"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Book Now
-        </a>
+        <div class="events-button-group">
+          <a
+            class="events-button"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSeDLOXfvFHyBMpU3b-qSIk-qof3cNj8o7wy6Xml6z8hFpW8zA/viewform?usp=publish-editor"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Book Now
+          </a>
+
+          <a
+            class="events-button events-button-secondary"
+            href="documents/supergeil-event-pricing.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Event Pricing
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="stay-section" aria-labelledby="stay-heading">
+      <div class="stay-inner">
+        <h2 class="stay-heading" id="stay-heading">Make a Weekend of It</h2>
+
+        <p class="stay-intro">
+          Hosting guests from out of town? Stay nearby at Alles Paletti, a
+          distinctive Corktown retreat located close to Supergeil.
+        </p>
+
+        <div class="stay-grid">
+          <div class="stay-main-photo">
+            <img src="images/airbnb.jpg" alt="Alles Paletti Airbnb interior">
+          </div>
+
+          <div class="stay-side">
+            <div class="stay-thumbs" aria-label="Alles Paletti photo gallery">
+              <img src="images/airbnb1.jpg" alt="Alles Paletti Airbnb">
+              <img src="images/airbnb2.jpg" alt="Alles Paletti Airbnb">
+              <img src="images/airbnb4.jpg" alt="Alles Paletti Airbnb">
+              <img src="images/airbnb5.jpg" alt="Alles Paletti Airbnb">
+              <img src="images/airbnb6.jpg" alt="Alles Paletti Airbnb">
+              <img src="images/airbnb7.jpg" alt="Alles Paletti Airbnb">
+              <img src="images/airbnb8.jpg" alt="Alles Paletti Airbnb">
+            </div>
+
+            <div class="stay-card">
+              <h3>Alles Paletti</h3>
+              <p>
+                Give your guests a nearby place to settle in before and after the
+                celebration.
+              </p>
+
+              <a
+                class="stay-button"
+                href="https://www.airbnb.com/rooms/52429158?check_in=2027-01-04&check_out=2027-01-08&guests=1&adults=1&s=67&unique_share_id=1fb696ee-4477-41ee-b0c9-2181f5218002"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Alles Paletti
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
