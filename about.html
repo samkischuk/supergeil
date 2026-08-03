@@ -514,10 +514,10 @@
       background: rgba(0, 0, 0, .22);
     }
 
-    /* FOOTER — copied from index.html */
+    /* FOOTER — matches index.html */
 
-    .site-footer {
-      padding: 65px 20px 35px;
+.site-footer {
+      padding: 42px 20px 24px;
       background: #e8ddc9;
     }
 
@@ -529,49 +529,54 @@
       gap: 40px;
     }
 
+    .footer-column {
+      min-width: 0;
+    }
+
     .footer-grid h3 {
-      margin: 0 0 22px;
+      min-height: 32px;
+      margin: 0 0 18px;
+      display: flex;
+      align-items: flex-start;
       font-family: var(--display-font);
       font-weight: 400;
+      line-height: 1;
       text-transform: uppercase;
     }
 
-    .location-address,
-    .contact-phone {
+    .location-address {
       margin: 0;
-      font-family: var(--body-font);
+      font-family: "Inter", sans-serif;
       font-size: 18px;
+      font-weight: 400;
       line-height: 1.65;
       color: #111;
     }
 
-    .directions-link {
-      width: fit-content;
-      margin-top: 14px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding-bottom: 4px;
-      border-bottom: 2px solid var(--gold);
-      font-family: var(--body-font);
-      font-size: 15px;
-      font-weight: 600;
-      letter-spacing: .02em;
-      transition:
-        color .22s ease,
-        gap .22s ease,
-        transform .22s ease;
+    .directions-link{
+      width:fit-content;
+      margin-top:14px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding-bottom:4px;
+      border-bottom:2px solid #c8a12d;
+      font-family:"Inter",sans-serif;
+      font-size:15px;
+      font-weight:600;
+      transition:color .22s ease,gap .22s ease,transform .22s ease;
     }
 
     .directions-link:hover,
-    .directions-link:focus-visible {
-      color: #8f6f0b;
-      gap: 12px;
-      transform: translateY(-2px);
+    .directions-link:focus-visible{
+      color:#8f6f0b;
+      gap:12px;
+      transform:translateY(-2px);
     }
 
     .hours-list p {
       margin: 0 0 22px;
+      font-family: "Inter", sans-serif;
       font-size: 15px;
       line-height: 1.65;
       color: #111;
@@ -581,61 +586,45 @@
       margin-bottom: 0;
     }
 
-    .contact-email {
-      margin: 12px 0 0;
-      font-size: 16px;
-      line-height: 1.6;
+    .hours-list strong {
+      font-weight: 700;
     }
 
-    .social-links {
-      display: flex;
-      justify-content: flex-start;
-      gap: 12px;
-      margin-top: 18px;
+    .contact-phone {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.65;
     }
 
-    .social-links a {
-      width: 52px;
-      height: 52px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border: 3px solid var(--gold);
-      border-radius: 50%;
-      color: #fff;
-      background: #111;
-      font-size: 25px;
-      line-height: 1;
-      box-shadow: inset 0 0 0 2px #111;
-      transition:
-        transform .22s ease,
-        background .22s ease,
-        color .22s ease;
+    .contact-phone a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    .social-links a:hover,
-    .social-links a:focus-visible {
-      transform: translateY(-3px) scale(.892);
-      color: #111;
-      background: var(--gold);
+    .contact-email{
+      margin:12px 0 0;
+      font-family:"Inter",sans-serif;
+      font-size:16px;
+      line-height:1.6;
     }
+
+    .contact-email a{
+      color:inherit;
+      text-decoration:none;
+    }
+
 
     .copyright {
       width: min(var(--content-width), 100%);
       margin: 0 auto;
-      padding-top: 22px;
-      border-top: 1px solid rgba(21, 21, 21, .22);
-      font-size: 12px;
-      letter-spacing: .06em;
+      padding-top: 18px;
+      border-top: 1px solid rgba(21, 21, 21, 0.22);
+      font-size: 14px;
+      letter-spacing: 0.09em;
+      opacity: 0.78;
       text-transform: uppercase;
-    }
-
-
-    @media (min-width: 881px) and (max-width: 1250px) {
-      .team-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 70px 60px;
-      }
     }
 
     /* MOBILE */
@@ -758,7 +747,7 @@
       }
 
       .story-panel {
-        padding: 75px 8% 70px;
+        padding: 48px 8% 70px;
       }
 
       .team-grid {
@@ -828,7 +817,7 @@
          so their curved tails remain visible on narrow screens. */
 
       .story-panel {
-        padding: 90px 24px 55px;
+        padding: 38px 24px 55px;
       }
 
       .story-flourish {
