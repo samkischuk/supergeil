@@ -701,7 +701,7 @@
 
     .story-copy {
       max-width: 620px;
-      margin-left: 40px;
+      margin-left: 0;
     }
 
     .story-copy p {
@@ -720,6 +720,23 @@
       color: white;
       background: var(--ink);
       border-color: var(--ink);
+    }
+
+
+    @media (min-width: 881px) {
+      .story-grid {
+        grid-template-columns: minmax(0, .96fr) minmax(0, 1.04fr);
+        gap: 30px;
+      }
+
+      .story-photo-wrap {
+        left: -20px;
+      }
+
+      .story-copy {
+        position: relative;
+        left: -28px;
+      }
     }
 
     /* RESERVATIONS */
@@ -1031,11 +1048,13 @@
 
       .story-copy {
         margin-left: 0;
+        left: 0;
       }
 
       .story-photo-wrap {
         width: min(760px, 100%);
         margin: 0 auto;
+        left: 0;
         padding: 0 105px 45px;
       }
 
