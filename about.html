@@ -361,13 +361,13 @@
       width: min(1710px, 100%);
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: clamp(32px, 3.5vw, 58px);
+      grid-template-columns: repeat(2, minmax(420px, 1fr));
+      gap: 90px 80px;
       align-items: start;
     }
 
     .team-photo-frame {
-      width: min(100%, 320px);
+      width: min(100%, 360px);
       margin: 0 auto 30px;
       padding: 10px;
       overflow: hidden;
@@ -414,6 +414,11 @@
       font-size: clamp(24px, 2.2vw, 36px);
       text-align: center;
       text-transform: uppercase;
+    }
+
+    .team-card {
+      max-width: 520px;
+      margin: 0 auto;
     }
 
     .team-card h2 {
@@ -625,7 +630,7 @@
     @media (min-width: 881px) and (max-width: 1250px) {
       .team-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 70px 50px;
+        gap: 70px 60px;
       }
     }
 
