@@ -127,21 +127,22 @@
       display:flex;
       justify-content:center;
       align-items:center;
-      width:185px;
+      width:210px;
       margin:auto;
     }
 
     .logo{
-      width:165px;
+      width:190px;
       height:auto;
       display:block;
       transform-origin:center;
+      transform:translateY(5px);
       transition:transform .28s ease;
       will-change:transform;
     }
 
     .logo:hover{
-      transform:scale(.94);
+      transform:translateY(5px) scale(.94);
     }
 
     @media (min-width: 881px) {
@@ -150,11 +151,11 @@
       }
 
       .site-header.scrolled .logo {
-        transform: scale(.84);
+        transform: translateY(5px) scale(.84);
       }
 
       .site-header.scrolled .logo:hover {
-        transform: scale(.88);
+        transform: translateY(5px) scale(.88);
       }
     }
 
@@ -926,6 +927,7 @@
 
       .logo {
         width: 145px;
+        transform: none;
       }
 
       .logo:hover {
