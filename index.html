@@ -746,6 +746,19 @@
       border-radius: 6px;
       box-shadow: 10px 10px 0 var(--red);
       overflow: hidden;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      width:100%;
+      max-width:480px;
+      margin:0 auto;
+    }
+
+    .opentable-wrapper{
+      width:100%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
     }
 
     .booking-shell h3 {
@@ -1031,7 +1044,7 @@
       }
 
       .hero-buttons{
-        margin-top:22px;
+        margin-top:34px;
       }
 
       .story{
@@ -1464,10 +1477,12 @@
         </div>
 
         <div class="booking-shell reveal">
+          <div class="opentable-wrapper">
           <script
             type="text/javascript"
             src="//www.opentable.com/widget/reservation/loader?rid=1225513&type=standard&theme=standard&color=1&dark=false&iframe=true&domain=com&lang=en-US&newtab=false&ot_source=Restaurant%20website&cfe=true">
           </script>
+          </div>
         </div>
       </div>
     </section>
