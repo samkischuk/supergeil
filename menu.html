@@ -246,7 +246,7 @@
 
     .category-nav {
       position: sticky;
-      top: var(--header-height, 150px);
+      top: calc(var(--header-height, 150px) - 1px);
       z-index: 999;
       margin: 0;
       padding: 18px 20px;
@@ -639,7 +639,7 @@
       }
 
       .category-nav {
-        top: var(--header-height, 92px);
+        top: calc(var(--header-height, 92px) - 1px);
       }
 
       .menu-pages,
@@ -678,7 +678,7 @@
 
       .category-nav {
         position: sticky;
-        top: var(--header-height, 92px);
+        top: calc(var(--header-height, 92px) - 1px);
       }
 
       .category-nav-inner {
@@ -757,7 +757,14 @@
   </header>
 
   <main>
-
+    <section class="menu-intro">
+      <div class="menu-intro-inner">
+        <h1>Menus</h1>
+        <p>
+          Thoughtfully crafted from the first bite to the last sip.
+        </p>
+      </div>
+    </section>
 
     <nav class="category-nav" aria-label="Menu categories">
       <div class="category-nav-inner">
@@ -768,15 +775,6 @@
         <a href="#drinks">Drinks</a>
       </div>
     </nav>
-
-<section class="menu-intro">
-      <div class="menu-intro-inner">
-        <h1>Menus</h1>
-        <p>
-          Thoughtfully crafted from the first bite to the last sip.
-        </p>
-      </div>
-    </section>
 
     <section class="menu-section" id="brunch">
       <div class="menu-section-inner">
@@ -938,10 +936,12 @@
       const categoryNav = document.querySelector(".category-nav");
 
       const updateStickyOffsets = () => {
-        const headerHeight = Math.ceil(header.getBoundingClientRect().height);
+        const headerRect = header.getBoundingClientRect();
+        const headerBottom = Math.ceil(headerRect.bottom);
+
         document.documentElement.style.setProperty(
           "--header-height",
-          `${headerHeight}px`
+          `${headerBottom}px`
         );
 
         const categoryHeight = categoryNav
@@ -950,7 +950,7 @@
 
         document.documentElement.style.setProperty(
           "--sticky-offset",
-          `${headerHeight + categoryHeight}px`
+          `${headerBottom + categoryHeight}px`
         );
       };
 
@@ -1000,9 +1000,18 @@
         }
       };
 
-      window.addEventListener("scroll", updateHeaderScrollState, { passive: true });
-      window.addEventListener("resize", updateHeaderScrollState);
+      window.addEventListener("scroll", () => {
+        updateHeaderScrollState();
+        updateStickyOffsets();
+      }, { passive: true });
+
+      window.addEventListener("resize", () => {
+        updateHeaderScrollState();
+        updateStickyOffsets();
+      });
+
       updateHeaderScrollState();
+      updateStickyOffsets();
 
       const revealElements = document.querySelectorAll(".reveal");
 
