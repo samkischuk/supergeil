@@ -387,10 +387,11 @@
       transform: rotate(1deg);
     }
 
-    .team-photo-frame:hover {
-      transform: translateY(-5px) rotate(0);
-      box-shadow: 0 24px 46px rgba(35, 26, 18, .2);
-    }
+    .team-card:nth-child(odd) .team-photo-frame:hover,
+.team-card:nth-child(even) .team-photo-frame:hover {
+  transform: translateY(-5px) rotate(0deg);
+  box-shadow: 0 24px 46px rgba(35,26,18,.2);
+}
 
     .team-photo {
       width: 100%;
