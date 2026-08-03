@@ -91,7 +91,7 @@
 
     .header-inner {
       width: min(var(--content-width), calc(100% - 40px));
-      min-height: 120px;
+      min-height: 86px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr auto 1fr;
@@ -103,7 +103,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: clamp(22px, 3vw, 52px);
+      gap: clamp(18px, 2.2vw, 38px);
       font-size: 16px;
       font-weight: 500;
     }
@@ -144,19 +144,34 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 260px;
+      width: 210px;
       margin: auto;
     }
 
     .logo {
-      width: 240px;
+      width: 190px;
       height: auto;
       display: block;
-      transition: transform .25s ease;
+      transform: translateY(5px);
+      transform-origin: center;
+      transition: transform .28s ease;
+      will-change: transform;
     }
 
     .logo:hover {
-      transform: scale(.875);
+      transform: translateY(5px) scale(.94);
+    }
+
+    @media (min-width:881px){
+      .site-header.scrolled{
+        box-shadow:0 4px 14px rgba(0,0,0,.11);
+      }
+      .site-header.scrolled .logo{
+        transform:translateY(5px) scale(.84);
+      }
+      .site-header.scrolled .logo:hover{
+        transform:translateY(5px) scale(.88);
+      }
     }
 
     .mobile-toggle {
@@ -967,7 +982,7 @@
           <p class="team-role">General Manager</p>
 
           <p class="team-bio">
-            Mike Day brings ten years of hospitality experience to his role as General Manager, with a background in both front- and back-of-house operations. He believes exceptional hospitality begins with a strong, collaborative team. His passion for exploring cuisines and traditions from around the world shapes his leadership and commitment to creating thoughtful, memorable experiences in an environment that feels relaxed, polished, and genuinely welcoming.
+            Mike brings ten years of hospitality experience to his role as General Manager, with a background in both front- and back-of-house operations. He believes exceptional hospitality begins with a strong, collaborative team. His passion for exploring cuisines and traditions from around the world shapes his leadership and commitment to creating thoughtful, memorable experiences in an environment that feels relaxed, polished, and genuinely welcoming.
           </p>
         </article>
       </div>
@@ -1087,6 +1102,18 @@
           ? "Close navigation"
           : "Open navigation";
       });
+
+
+      const updateHeaderScrollState=()=>{
+        if(window.innerWidth>880){
+          header.classList.toggle("scrolled",window.scrollY>40);
+        }else{
+          header.classList.remove("scrolled");
+        }
+      };
+      window.addEventListener("scroll",updateHeaderScrollState,{passive:true});
+      window.addEventListener("resize",updateHeaderScrollState);
+      updateHeaderScrollState();
 
       document.querySelectorAll(".nav-group a").forEach((link) => {
         link.addEventListener("click", () => {
