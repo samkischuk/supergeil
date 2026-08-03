@@ -201,6 +201,7 @@
 
     .menu-intro {
       position: relative;
+      margin-top: 0;
       min-height: 330px;
       padding: 42px 20px;
       overflow: hidden;
@@ -246,12 +247,15 @@
     .category-nav {
       position: sticky;
       top: var(--header-height, 150px);
-      z-index: 30;
+      z-index: 999;
+      margin: 0;
       padding: 18px 20px;
-      background: rgba(255, 255, 255, .96);
-      border-top: 1px solid rgba(21, 21, 21, .1);
+      background: rgba(255, 255, 255, .98);
+      border-top: 0;
       border-bottom: 1px solid rgba(21, 21, 21, .14);
       backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 6px 16px rgba(0,0,0,.05);
     }
 
     .category-nav-inner {
