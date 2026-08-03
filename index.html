@@ -741,16 +741,17 @@
     }
 
     .booking-shell {
-      padding: 18px;
+      padding: 24px 26px;
       background: #fff;
       border-radius: 6px;
-      box-shadow: 10px 10px 0 var(--red);
+      box-shadow: 8px 8px 0 var(--red);
       overflow: hidden;
       display:flex;
       justify-content:center;
       align-items:center;
-      width:100%;
-      max-width:480px;
+      width:fit-content;
+      min-width:360px;
+      max-width:390px;
       margin:0 auto;
     }
 
@@ -1035,7 +1036,7 @@
 
     @media (max-width: 560px) {
       .hero {
-        min-height: 650px;
+        min-height: 600px;
       }
 
       .hero-content{
@@ -1124,8 +1125,13 @@
       }
 
       .booking-shell {
-        padding: 20px;
+        width:100%;
+        min-width:0;
+        max-width:390px;
+        padding:22px 18px;
       }
+
+
     }
 
     @keyframes birdFlightMobile {
