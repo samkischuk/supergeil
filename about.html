@@ -217,21 +217,21 @@
     }
 
     .about-intro-grid {
-      width: min(1600px, 100%);
+      width: 100%;
       min-height: 590px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
+      align-items: stretch;
     }
 
     .cow-panel {
       position: relative;
       z-index: 2;
       min-height: 590px;
-      overflow: visible;
-      display: grid;
-      place-items: center;
-      padding: 70px 80px;
+      overflow: hidden;
+      display: block;
+      padding: 0;
       background:
         linear-gradient(
           rgba(248, 246, 240, 0.96),
@@ -246,7 +246,9 @@
 
     .about-photo-wrap {
       position: relative;
-      width: min(100%, 650px);
+      width: 100%;
+      height: 100%;
+      min-height: 590px;
       isolation: isolate;
       opacity: 0;
       transform: translateY(24px);
@@ -255,10 +257,13 @@
 
     .about-photo-frame{
       width:100%;
+      height:100%;
+      min-height:590px;
       max-width:none;
       background:none;
       padding:0;
       box-shadow:none;
+      border:0;
       border-radius:0;
       overflow:hidden;
     }
@@ -266,9 +271,11 @@
     .about-photo{
       display:block;
       width:100%;
-      height:100%;
-      min-height:640px;
+      height:590px;
+      min-height:0;
+      border:0;
       object-fit:cover;
+      object-position:center;
     }
 
     .about-flourish{display:none;}
@@ -303,8 +310,12 @@
     .story-panel {
       position: relative;
       z-index: 1;
-      padding: 105px clamp(40px, 7vw, 110px) 80px;
-      background: #fff;
+      min-height:590px;
+      padding:72px clamp(44px, 6vw, 100px);
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      background:#fff;
     }
     .story-panel h1 {
       margin: 0 0 26px;
@@ -718,12 +729,20 @@
       }
 
       .cow-panel {
-        min-height: 560px;
-        padding: 80px 95px;
+        min-height:440px;
+        padding:0;
       }
 
-      .about-photo-wrap {
-        width: min(100%, 620px);
+      .about-photo-wrap,
+      .about-photo-frame {
+        width:100%;
+        min-height:440px;
+      }
+
+      .about-photo {
+        height:440px;
+        min-height:0;
+        border:0;
       }
 
       .about-flourish-top {
@@ -756,24 +775,31 @@
 
       /* Mobile photo and flourish layout */
       .cow-panel {
-        min-height: 610px;
-        padding: 78px 0 92px;
-        overflow: visible;
+        min-height:360px;
+        padding:0;
+        overflow:hidden;
       }
 
-      .about-photo-wrap {
-        position: relative;
-        width: min(68vw, 310px);
-        margin: 0 auto;
+      .about-photo-wrap,
+      .about-photo-frame {
+        position:relative;
+        width:100%;
+        min-height:360px;
+        margin:0;
       }
 
       .about-photo-frame {
-        padding: 9px;
-        transform: none;
+        padding:0;
+        border:0;
+        transform:none;
       }
 
       .about-photo {
-        border-width: 8px;
+        width:100%;
+        height:360px;
+        min-height:0;
+        border:0;
+        object-fit:cover;
       }
 
       .about-flourish {
