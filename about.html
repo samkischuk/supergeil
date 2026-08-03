@@ -96,7 +96,7 @@
       display: grid;
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      gap: 40px;
+      gap: 28px;
     }
 
     .nav-group {
@@ -128,10 +128,14 @@
     }
 
     .nav-group a:hover,
-    .nav-group a:focus-visible,
-    .nav-group a.active {
+    .nav-group a:focus-visible {
       color: var(--gold);
       transform: translateY(-2px);
+    }
+
+    .nav-group a.active {
+      color: var(--gold);
+      transform: none;
     }
 
     .nav-group a:hover::after,
