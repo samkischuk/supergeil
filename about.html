@@ -361,13 +361,13 @@
       width: min(1710px, 100%);
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: clamp(45px, 5vw, 80px);
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: clamp(32px, 3.5vw, 58px);
       align-items: start;
     }
 
     .team-photo-frame {
-      width: min(100%, 360px);
+      width: min(100%, 320px);
       margin: 0 auto 30px;
       padding: 10px;
       overflow: hidden;
@@ -619,6 +619,14 @@
       font-size: 12px;
       letter-spacing: .06em;
       text-transform: uppercase;
+    }
+
+
+    @media (min-width: 881px) and (max-width: 1250px) {
+      .team-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 70px 50px;
+      }
     }
 
     /* MOBILE */
@@ -983,6 +991,25 @@
 
           <p class="team-bio">
             Mike Day brings ten years of hospitality experience to his role as General Manager, with a background in both front- and back-of-house operations. He believes exceptional hospitality begins with a strong, collaborative team. His passion for exploring cuisines and traditions from around the world shapes his leadership and commitment to creating thoughtful, memorable experiences in an environment that feels relaxed, polished, and genuinely welcoming.
+          </p>
+        </article>
+
+        <article class="team-card">
+          <div class="team-photo-frame">
+            <div
+              class="team-photo-placeholder"
+              role="img"
+              aria-label="Ashley Carter photo coming soon"
+            >
+              Coming Soon
+            </div>
+          </div>
+
+          <h2>Ashley Carter</h2>
+          <p class="team-role">Sous Chef</p>
+
+          <p class="team-bio">
+            Ashley Carter brings over a decade of hospitality experience to her role as Sous Chef. Her passion for cooking began alongside her grandmother, and by age 11, she was preparing meals for her family. Today, her curiosity, dedication, and love of exploring new flavors continue to shape every dish she creates. For Ashley, cooking is a way to care for others, bring people together, and create memorable moments around the table.
           </p>
         </article>
       </div>
