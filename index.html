@@ -741,11 +741,11 @@
     }
 
     .booking-shell {
-      padding: 22px;
-      color: var(--ink);
-      background: white;
-      border-radius: 2px;
+      padding: 18px;
+      background: #fff;
+      border-radius: 6px;
       box-shadow: 10px 10px 0 var(--red);
+      overflow: hidden;
     }
 
     .booking-shell h3 {
@@ -1442,30 +1442,10 @@
         </div>
 
         <div class="booking-shell reveal">
-          <h3>Make a Reservation</h3>
-
-          <div class="booking-field">
-            <span>📅 Select date</span>
-            <span>⌄</span>
-          </div>
-
-          <div class="booking-field">
-            <span>◷ Select time</span>
-            <span>⌄</span>
-          </div>
-
-          <div class="booking-field">
-            <span>♙ Party size</span>
-            <span>⌄</span>
-          </div>
-
-          <button class="booking-submit" type="button">
-            Find a Table
-          </button>
-
-          <p class="booking-note">
-            Demo only — paste the official OpenTable widget here.
-          </p>
+          <script
+            type="text/javascript"
+            src="//www.opentable.com/widget/reservation/loader?rid=1225513&type=standard&theme=standard&color=1&dark=false&iframe=true&domain=com&lang=en-US&newtab=false&ot_source=Restaurant%20website&cfe=true">
+          </script>
         </div>
       </div>
     </section>
