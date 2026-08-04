@@ -311,7 +311,7 @@
     }
 
     .event-slide {
-      flex: 0 0 calc((100% - 48px) / 3);
+      flex: 0 0 calc((100% - 24px) / 2);
       min-width: 0;
       padding: 8px;
       border: 0;
@@ -536,7 +536,7 @@
     }
 
     .planner-photo-frame {
-      width: min(100%, 430px);
+      width: min(100%, 360px);
       height: auto;
       margin: 0 auto;
       padding: 12px;
@@ -555,10 +555,10 @@
 
     .planner-photo {
       width: 100%;
-      aspect-ratio: 4 / 5;
+      aspect-ratio: 4 / 4.45;
       height: auto;
       object-fit: cover;
-      object-position: center 28%;
+      object-position: center 24%;
       border: 8px solid #ece8df;
     }
 
@@ -1007,6 +1007,7 @@
       }
 
       .planner-photo-frame {
+        width: min(100%, 430px);
         height: auto;
       }
 
@@ -1533,8 +1534,7 @@
 
       const visibleSlides = () => {
         if (window.innerWidth <= 560) return 1;
-        if (window.innerWidth <= 1100) return 2;
-        return 3;
+        return 2;
       };
 
       const maxCarouselIndex = () =>
@@ -1546,32 +1546,43 @@
 
         const gap = parseFloat(getComputedStyle(track).gap) || 0;
         const step = firstSlide.getBoundingClientRect().width + gap;
-        carouselIndex = Math.min(carouselIndex, maxCarouselIndex());
+        const maxIndex = maxCarouselIndex();
 
-        track.style.transform = `translateX(${-carouselIndex * step}px)`;
+        carouselIndex = Math.max(0, Math.min(carouselIndex, maxIndex));
+
+        requestAnimationFrame(() => {
+          track.style.transform = `translate3d(${-carouselIndex * step}px, 0, 0)`;
+        });
+
         prevButton.disabled = false;
         nextButton.disabled = false;
 
         dots.forEach((dot, index) => {
-          dot.classList.toggle("is-active", index === carouselIndex);
+          const isUsable = index <= maxIndex;
+          dot.hidden = !isUsable;
+          dot.classList.toggle(
+            "is-active",
+            isUsable && index === carouselIndex
+          );
         });
       };
 
       prevButton.addEventListener("click", () => {
-        const maxIndex = maxCarouselIndex();
-        carouselIndex = carouselIndex <= 0 ? maxIndex : carouselIndex - 1;
+        const positions = maxCarouselIndex() + 1;
+        carouselIndex = (carouselIndex - 1 + positions) % positions;
         updateCarousel();
       });
 
       nextButton.addEventListener("click", () => {
-        const maxIndex = maxCarouselIndex();
-        carouselIndex = carouselIndex >= maxIndex ? 0 : carouselIndex + 1;
+        const positions = maxCarouselIndex() + 1;
+        carouselIndex = (carouselIndex + 1) % positions;
         updateCarousel();
       });
 
       dots.forEach((dot, index) => {
         dot.addEventListener("click", () => {
-          carouselIndex = Math.min(index, maxCarouselIndex());
+          if (index > maxCarouselIndex()) return;
+          carouselIndex = index;
           updateCarousel();
         });
       });
@@ -1587,12 +1598,12 @@
 
         if (Math.abs(distance) < 45) return;
 
-        const maxIndex = maxCarouselIndex();
+        const positions = maxCarouselIndex() + 1;
 
         if (distance < 0) {
-          carouselIndex = carouselIndex >= maxIndex ? 0 : carouselIndex + 1;
+          carouselIndex = (carouselIndex + 1) % positions;
         } else {
-          carouselIndex = carouselIndex <= 0 ? maxIndex : carouselIndex - 1;
+          carouselIndex = (carouselIndex - 1 + positions) % positions;
         }
 
         updateCarousel();
