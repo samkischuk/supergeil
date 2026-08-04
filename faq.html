@@ -1,1 +1,1081 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <title>FAQ | Supergeil Detroit</title>
+  <meta
+    name="description"
+    content="Frequently asked questions about dining, reservations, parking, private events, accessibility, and more at Supergeil Detroit."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rye&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    referrerpolicy="no-referrer"
+  >
+
+  <style>
+    :root {
+      --paper: #f8f6f0;
+      --ink: #151515;
+      --gold: #c8a12d;
+      --content-width: 1240px;
+      --display-font: "Rye", Georgia, serif;
+      --body-font: "Inter", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--body-font);
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    /* HEADER — matches index.html */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.97);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0,0,0,.08);
+    }
+
+    .header-inner {
+      width: min(var(--content-width), calc(100% - 40px));
+      min-height: 86px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(18px, 2.2vw, 38px);
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .nav-group a {
+      position: relative;
+      padding: 10px 0;
+    }
+
+    .nav-group a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 100%;
+      bottom: 2px;
+      height: 2px;
+      background: var(--gold);
+      transition: right .25s ease;
+    }
+
+    .nav-group a:hover,
+    .nav-group a:focus-visible {
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .nav-group a:hover::after,
+    .nav-group a:focus-visible::after,
+    .nav-group a.active::after {
+      right: 0;
+    }
+
+    .nav-group a.active {
+      color: var(--gold);
+    }
+
+    .brand {
+      width: 210px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo {
+      width: 190px;
+      height: auto;
+      display: block;
+      transform: translateY(5px);
+      transform-origin: center;
+      transition: transform .28s ease;
+      will-change: transform;
+    }
+
+    .logo:hover {
+      transform: translateY(5px) scale(.94);
+    }
+
+    @media (min-width: 881px) {
+      .site-header.scrolled {
+        box-shadow: 0 4px 14px rgba(0,0,0,.11);
+      }
+
+      .site-header.scrolled .logo {
+        transform: translateY(5px) scale(.84);
+      }
+
+      .site-header.scrolled .logo:hover {
+        transform: translateY(5px) scale(.88);
+      }
+    }
+
+    .mobile-toggle {
+      display: none;
+      width: 48px;
+      height: 48px;
+      padding: 0;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: 50%;
+      color: var(--ink);
+      background: transparent;
+      font-size: 25px;
+      cursor: pointer;
+      transition:
+        color .22s ease,
+        background .22s ease,
+        transform .22s ease;
+    }
+
+    .mobile-toggle:hover,
+    .mobile-toggle:focus-visible {
+      color: #8f6f0b;
+      background: rgba(200, 161, 45, .12);
+      transform: translateY(-1px);
+    }
+
+    /* FAQ HERO */
+
+    .faq-hero {
+      position: relative;
+      min-height: 330px;
+      padding: 70px 20px;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      background:
+        linear-gradient(
+          rgba(248, 246, 240, .95),
+          rgba(248, 246, 240, .95)
+        ),
+        repeating-linear-gradient(
+          90deg,
+          transparent 0 28px,
+          rgba(21, 21, 21, .04) 28px 29px
+        );
+    }
+
+    .faq-hero::before,
+    .faq-hero::after {
+      content: "";
+      position: absolute;
+      width: clamp(220px, 24vw, 370px);
+      aspect-ratio: 1;
+      background: url("images/backgroundflourish.jpg") center / contain no-repeat;
+      mix-blend-mode: multiply;
+      opacity: .86;
+      pointer-events: none;
+    }
+
+    .faq-hero::before {
+      top: -125px;
+      left: -125px;
+      transform: scaleY(-1);
+    }
+
+    .faq-hero::after {
+      right: -125px;
+      bottom: -130px;
+      transform: scaleX(-1);
+    }
+
+    .faq-hero-inner {
+      position: relative;
+      z-index: 2;
+      width: min(760px, 100%);
+      margin: 0 auto;
+    }
+
+    .faq-hero h1 {
+      margin: 0 0 18px;
+      font-family: var(--display-font);
+      font-size: clamp(46px, 6vw, 78px);
+      font-weight: 400;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .faq-hero p {
+      max-width: 650px;
+      margin: 0 auto;
+      font-size: clamp(16px, 1.35vw, 19px);
+      line-height: 1.75;
+    }
+
+    /* FAQ CONTENT */
+
+    .faq-section {
+      padding: 72px 20px 90px;
+      background: #fff;
+    }
+
+    .faq-inner {
+      width: min(980px, 100%);
+      margin: 0 auto;
+    }
+
+    .faq-group {
+      margin-bottom: 54px;
+    }
+
+    .faq-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .faq-group h2 {
+      margin: 0 0 20px;
+      padding-bottom: 12px;
+      border-bottom: 3px solid var(--gold);
+      font-family: var(--display-font);
+      font-size: clamp(28px, 3vw, 42px);
+      font-weight: 400;
+      line-height: 1.05;
+      text-transform: uppercase;
+    }
+
+    .faq-item {
+      margin: 0 0 14px;
+      border: 1px solid rgba(21, 21, 21, .14);
+      background: var(--paper);
+      box-shadow: 0 10px 24px rgba(35, 26, 18, .07);
+      transition:
+        transform .22s ease,
+        box-shadow .22s ease,
+        border-color .22s ease;
+    }
+
+    .faq-item:hover {
+      transform: translateY(-2px);
+      border-color: rgba(200, 161, 45, .65);
+      box-shadow: 0 16px 32px rgba(35, 26, 18, .11);
+    }
+
+    .faq-item[open] {
+      background: #fff;
+      border-color: var(--gold);
+    }
+
+    .faq-item summary {
+      position: relative;
+      padding: 22px 62px 22px 24px;
+      list-style: none;
+      cursor: pointer;
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 1.45;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary::after {
+      content: "+";
+      position: absolute;
+      top: 50%;
+      right: 24px;
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      color: var(--ink);
+      font-size: 21px;
+      font-weight: 500;
+      line-height: 1;
+      transform: translateY(-50%);
+      transition:
+        transform .22s ease,
+        background .22s ease,
+        color .22s ease;
+    }
+
+    .faq-item[open] summary::after {
+      content: "−";
+      color: #fff;
+      background: var(--ink);
+      transform: translateY(-50%) rotate(180deg);
+    }
+
+    .faq-answer {
+      padding: 0 24px 23px;
+      border-top: 1px solid rgba(21, 21, 21, .10);
+    }
+
+    .faq-answer p {
+      margin: 18px 0 0;
+      font-size: 16px;
+      line-height: 1.75;
+      color: #292929;
+    }
+
+    .faq-answer a {
+      padding-bottom: 2px;
+      border-bottom: 2px solid var(--gold);
+      font-weight: 600;
+    }
+
+    .faq-contact {
+      margin-top: 58px;
+      padding: 42px 28px;
+      text-align: center;
+      background: #d9ad23;
+    }
+
+    .faq-contact h2 {
+      margin: 0 0 12px;
+      font-family: var(--display-font);
+      font-size: clamp(30px, 3.5vw, 48px);
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+
+    .faq-contact p {
+      max-width: 620px;
+      margin: 0 auto 22px;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .faq-contact-button {
+      min-width: 170px;
+      padding: 14px 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--ink);
+      border-radius: 6px;
+      color: #fff;
+      background: var(--ink);
+      font-weight: 600;
+      transition:
+        transform .22s ease,
+        background .22s ease,
+        color .22s ease;
+    }
+
+    .faq-contact-button:hover,
+    .faq-contact-button:focus-visible {
+      transform: translateY(-3px);
+      color: var(--ink);
+      background: transparent;
+    }
+
+    /* FOOTER — matches index.html */
+
+    .site-footer {
+      padding: 42px 20px 24px;
+      background: #e8ddc9;
+    }
+
+    .footer-grid {
+      width: min(var(--content-width), 100%);
+      margin: 0 auto 45px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .footer-column {
+      min-width: 0;
+    }
+
+    .footer-grid h3 {
+      min-height: 32px;
+      margin: 0 0 18px;
+      display: flex;
+      align-items: flex-start;
+      font-family: var(--display-font);
+      font-weight: 400;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .location-address {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.65;
+      color: #111;
+    }
+
+    .directions-link {
+      width: fit-content;
+      margin-top: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding-bottom: 4px;
+      border-bottom: 2px solid var(--gold);
+      font-size: 15px;
+      font-weight: 600;
+      transition:
+        color .22s ease,
+        gap .22s ease,
+        transform .22s ease;
+    }
+
+    .directions-link:hover,
+    .directions-link:focus-visible {
+      color: #8f6f0b;
+      gap: 12px;
+      transform: translateY(-2px);
+    }
+
+    .hours-list p {
+      margin: 0 0 22px;
+      font-size: 15px;
+      line-height: 1.65;
+      color: #111;
+    }
+
+    .hours-list p:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-phone {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.65;
+    }
+
+    .contact-email {
+      margin: 12px 0 0;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: flex-start;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .social-links a {
+      width: 52px;
+      height: 52px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid var(--gold);
+      border-radius: 50%;
+      color: #fff;
+      background: #111;
+      font-size: 25px;
+      line-height: 1;
+      box-shadow: inset 0 0 0 2px #111;
+      transition:
+        transform .22s ease,
+        background .22s ease,
+        color .22s ease;
+    }
+
+    .social-links a:hover,
+    .social-links a:focus-visible {
+      transform: translateY(-3px) scale(.892);
+      background: var(--gold);
+      color: #111;
+    }
+
+    .copyright {
+      width: min(var(--content-width), 100%);
+      margin: 0 auto;
+      padding-top: 18px;
+      border-top: 1px solid rgba(21, 21, 21, .22);
+      font-size: 14px;
+      letter-spacing: .09em;
+      opacity: .78;
+      text-transform: uppercase;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 880px) {
+      .header-inner {
+        width: min(100% - 28px, var(--content-width));
+        min-height: 92px;
+        grid-template-columns: 1fr auto;
+        column-gap: 16px;
+        row-gap: 0;
+      }
+
+      .brand {
+        width: auto;
+        margin: 0;
+        justify-self: start;
+      }
+
+      .logo {
+        width: 145px;
+        transform: none;
+      }
+
+      .logo:hover {
+        transform: scale(.96);
+      }
+
+      .mobile-toggle {
+        display: inline-flex;
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: end;
+      }
+
+      .nav-group {
+        display: none;
+        grid-column: 1 / -1;
+        width: 100%;
+        margin: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 0;
+        text-align: center;
+        background: #fff;
+      }
+
+      .site-header.menu-open .nav-group {
+        display: flex;
+      }
+
+      .nav-left {
+        grid-row: 2;
+      }
+
+      .nav-right {
+        grid-row: 3;
+      }
+
+      .nav-group a {
+        width: 100%;
+        min-height: 54px;
+        margin: 0;
+        padding: 15px 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 54px;
+        border-top: 1px solid rgba(21, 21, 21, .10);
+      }
+
+      .nav-group a::after {
+        display: none;
+      }
+
+      .nav-group a:hover,
+      .nav-group a:focus-visible,
+      .nav-group a.active {
+        color: #8f6f0b;
+        background: rgba(200, 161, 45, .08);
+        transform: none;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .faq-hero {
+        min-height: 280px;
+        padding: 58px 20px;
+      }
+
+      .faq-hero::before {
+        top: -95px;
+        left: -95px;
+      }
+
+      .faq-hero::after {
+        right: -95px;
+        bottom: -100px;
+      }
+
+      .faq-section {
+        padding: 52px 14px 66px;
+      }
+
+      .faq-group {
+        margin-bottom: 42px;
+      }
+
+      .faq-item summary {
+        padding: 19px 56px 19px 18px;
+        font-size: 16px;
+      }
+
+      .faq-item summary::after {
+        right: 17px;
+      }
+
+      .faq-answer {
+        padding: 0 18px 20px;
+      }
+
+      .faq-contact {
+        margin-top: 46px;
+        padding: 36px 20px;
+      }
+
+      .faq-contact-button {
+        width: 100%;
+        max-width: 280px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <nav class="nav-group nav-left" aria-label="Primary navigation">
+        <a href="about.html">About</a>
+        <a href="upcoming-events.html">Upcoming Events</a>
+        <a href="menu.html">Menu</a>
+        <a href="https://order.toasttab.com/online/supergeil">Order</a>
+      </nav>
+
+      <a class="brand" href="index.html" aria-label="Supergeil Home">
+        <img class="logo" src="images/logo.jpg" alt="Supergeil Detroit Logo">
+      </a>
+
+      <button
+        class="mobile-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-header"
+        aria-label="Open navigation"
+      >
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
+
+      <nav class="nav-group nav-right" aria-label="Secondary navigation">
+        <a href="gallery.html">Gallery</a>
+        <a href="events.html">Private Events</a>
+        <a href="contact.html">Contact</a>
+        <a class="active" href="faq.html" aria-current="page">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="faq-hero">
+      <div class="faq-hero-inner">
+        <h1>Frequently Asked Questions</h1>
+        <p>
+          Everything you need to know before visiting, dining, celebrating, or
+          planning an event at Supergeil.
+        </p>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="faq-inner">
+        <div class="faq-group">
+          <h2>Reservations &amp; Dining</h2>
+
+          <details class="faq-item">
+            <summary>Do you take reservations?</summary>
+            <div class="faq-answer">
+              <p>
+                Yes. Reservations can be made through OpenTable. Walk-ins are
+                also welcome when space is available.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Do you accept walk-ins?</summary>
+            <div class="faq-answer">
+              <p>
+                Yes. We welcome walk-in guests, though availability may be
+                limited during busy dinner and weekend service.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Do you offer vegetarian, vegan, or gluten-free options?</summary>
+            <div class="faq-answer">
+              <p>
+                Our menu includes a variety of vegetable-forward dishes and
+                options that may accommodate common dietary needs. Please let
+                your server know about any allergies or restrictions when you
+                arrive.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Do you offer brunch?</summary>
+            <div class="faq-answer">
+              <p>
+                Yes. Brunch is served on Sundays from 11am–4pm.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Can I view the current menus online?</summary>
+            <div class="faq-answer">
+              <p>
+                Yes. Visit our <a href="menu.html">Menus page</a> to view brunch,
+                lunch, dinner, dessert, and drink menus.
+              </p>
+            </div>
+          </details>
+        </div>
+
+        <div class="faq-group">
+          <h2>Visiting Supergeil</h2>
+
+          <details class="faq-item">
+            <summary>Where is Supergeil located?</summary>
+            <div class="faq-answer">
+              <p>
+                We are located at 2442 Michigan Avenue in Detroit’s Corktown
+                neighborhood.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Where can I park?</summary>
+            <div class="faq-answer">
+              <p>
+                Street parking and nearby public parking options are available
+                throughout Corktown. Please allow a little extra time during
+                busy evenings and neighborhood events.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Is Supergeil wheelchair accessible?</summary>
+            <div class="faq-answer">
+              <p>
+                Please contact the restaurant before your visit so our team can
+                confirm current accessibility details and help make your arrival
+                as smooth as possible.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Are children welcome?</summary>
+            <div class="faq-answer">
+              <p>
+                Families are welcome. We recommend contacting the restaurant
+                ahead of time if you need a high chair or have other seating
+                needs.
+              </p>
+            </div>
+          </details>
+        </div>
+
+        <div class="faq-group">
+          <h2>Private Events</h2>
+
+          <details class="faq-item">
+            <summary>Can I host a private event at Supergeil?</summary>
+            <div class="faq-answer">
+              <p>
+                Yes. We host weddings, corporate gatherings, birthdays,
+                graduations, retirement parties, and other private celebrations.
+                Visit our <a href="events.html">Private Events page</a> to learn
+                more.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>How do I request information about hosting an event?</summary>
+            <div class="faq-answer">
+              <p>
+                Use the inquiry form linked on our Private Events page. Our event
+                planner will follow up about your preferred date, party size, and
+                event needs.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Can I view private-event pricing?</summary>
+            <div class="faq-answer">
+              <p>
+                Yes. The current pricing guide is available from the Event
+                Pricing button on the <a href="events.html">Private Events
+                page</a>.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Is there a nearby place for out-of-town guests to stay?</summary>
+            <div class="faq-answer">
+              <p>
+                Alles Paletti is a two-bedroom, two-bathroom loft located above
+                Supergeil. A link to the Airbnb listing is available on our
+                Private Events page.
+              </p>
+            </div>
+          </details>
+        </div>
+
+        <div class="faq-group">
+          <h2>Ordering &amp; Contact</h2>
+
+          <details class="faq-item">
+            <summary>Can I order food online?</summary>
+            <div class="faq-answer">
+              <p>
+                Yes. Online ordering is available through Toast from the Order
+                link in the site navigation.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>How can I contact Supergeil?</summary>
+            <div class="faq-answer">
+              <p>
+                Call us at <a href="tel:3134624133">313-462-4133</a> or email
+                <a href="mailto:events@supergeildetroit.com">events@supergeildetroit.com</a>.
+              </p>
+            </div>
+          </details>
+        </div>
+
+        <div class="faq-contact">
+          <h2>Still Have a Question?</h2>
+          <p>
+            Reach out to our team and we’ll help you find the information you
+            need.
+          </p>
+
+          <a class="faq-contact-button" href="contact.html">
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="footer-grid">
+      <div class="footer-column">
+        <h3>Location</h3>
+
+        <p class="location-address">
+          2442 Michigan Ave<br>
+          Detroit, MI 48216
+        </p>
+
+        <a
+          class="directions-link"
+          href="https://www.google.com/maps/dir/?api=1&destination=2442+Michigan+Ave,+Detroit,+MI+48216"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Get Directions <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <div class="footer-column hours-column">
+        <h3>Hours</h3>
+
+        <div class="hours-list">
+          <p>
+            <strong>Monday</strong> – Closed
+          </p>
+
+          <p>
+            <strong>Tuesday – Thursday</strong><br>
+            <em>Lunch: noon-4pm</em> | Dinner: 4pm-9pm
+          </p>
+
+          <p>
+            <strong>Friday &amp; Saturday</strong><br>
+            <em>Lunch: noon-4pm</em> | Dinner: 4pm-10pm
+          </p>
+
+          <p>
+            <strong>Sunday</strong><br>
+            <em>Brunch: 11am-4pm</em> | Dinner: 4pm-8pm
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h3>Contact</h3>
+
+        <p class="contact-phone">
+          <a href="tel:3134624133">313-462-4133</a>
+        </p>
+
+        <p class="contact-email">
+          <a href="mailto:events@supergeildetroit.com">events@supergeildetroit.com</a>
+        </p>
+
+        <div class="social-links" aria-label="Social media links">
+          <a
+            href="https://www.facebook.com/supergeildetroit/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Supergeil on Facebook"
+          >
+            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+          </a>
+
+          <a
+            href="https://www.instagram.com/supergeildetroit/?hl=en"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Supergeil on Instagram"
+          >
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="copyright">
+      © 2026 Supergeil Detroit
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const header = document.querySelector(".site-header");
+      const toggle = document.querySelector(".mobile-toggle");
+
+      const setMobileMenuState = (isOpen) => {
+        header.classList.toggle("menu-open", isOpen);
+        toggle.setAttribute("aria-expanded", String(isOpen));
+        toggle.setAttribute(
+          "aria-label",
+          isOpen ? "Close navigation" : "Open navigation"
+        );
+        toggle.innerHTML = isOpen
+          ? '<i class="fa-solid fa-xmark" aria-hidden="true"></i>'
+          : '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
+      };
+
+      toggle.addEventListener("click", () => {
+        setMobileMenuState(!header.classList.contains("menu-open"));
+      });
+
+      document.querySelectorAll(".nav-group a").forEach((link) => {
+        link.addEventListener("click", () => {
+          setMobileMenuState(false);
+        });
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          setMobileMenuState(false);
+        }
+      });
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 880) {
+          setMobileMenuState(false);
+        }
+      });
+
+      const updateHeaderScrollState = () => {
+        if (window.innerWidth > 880) {
+          header.classList.toggle("scrolled", window.scrollY > 40);
+        } else {
+          header.classList.remove("scrolled");
+        }
+      };
+
+      window.addEventListener(
+        "scroll",
+        updateHeaderScrollState,
+        { passive: true }
+      );
+      window.addEventListener("resize", updateHeaderScrollState);
+      updateHeaderScrollState();
+
+      // Keep only one FAQ answer open at a time within each section.
+      document.querySelectorAll(".faq-group").forEach((group) => {
+        const items = group.querySelectorAll(".faq-item");
+
+        items.forEach((item) => {
+          item.addEventListener("toggle", () => {
+            if (!item.open) return;
+
+            items.forEach((otherItem) => {
+              if (otherItem !== item) {
+                otherItem.removeAttribute("open");
+              }
+            });
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
