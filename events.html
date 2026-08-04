@@ -562,6 +562,10 @@
       border: 8px solid #ece8df;
     }
 
+    .planner-photo-mobile {
+      display: none;
+    }
+
     .planner-copy {
       max-width: 720px;
     }
@@ -1003,19 +1007,23 @@
 
       .planner-inner {
         grid-template-columns: 1fr;
-        gap: 26px;
+        gap: 0;
       }
 
       .planner-copy {
-        order: 1;
         max-width: 700px;
         margin: 0 auto;
       }
 
-      .planner-photo-frame {
-        order: 2;
+      .planner-photo-desktop {
+        display: none;
+      }
+
+      .planner-photo-mobile {
+        display: block;
         width: min(100%, 280px);
         height: auto;
+        margin: 18px auto 24px;
       }
 
       .planner-photo {
@@ -1125,7 +1133,7 @@
         padding: 38px 16px 48px;
       }
 
-      .planner-photo-frame {
+      .planner-photo-mobile {
         width: min(100%, 240px);
         padding: 8px;
       }
@@ -1283,7 +1291,7 @@
 
     <section class="planner-section" aria-labelledby="planner-heading">
       <div class="planner-inner">
-        <div class="planner-photo-frame">
+        <div class="planner-photo-frame planner-photo-desktop">
           <img
             class="planner-photo"
             src="images/rachel.jpeg"
@@ -1293,6 +1301,15 @@
 
         <div class="planner-copy">
           <p class="planner-kicker">Meet Your Event Planner</p>
+
+          <div class="planner-photo-frame planner-photo-mobile">
+            <img
+              class="planner-photo"
+              src="images/rachel.jpeg"
+              alt="Rachel Kret, Supergeil event planner"
+            >
+          </div>
+
           <h2 id="planner-heading">Rachel Kret</h2>
           <p class="planner-bio">
             Rachel has a passion for bringing people together and creating events
