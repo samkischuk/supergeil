@@ -269,7 +269,7 @@
     /* EVENT SPACE CAROUSEL */
 
     .event-gallery {
-      padding: 0 20px 110px;
+      padding: 0 20px 96px;
       background: #fff;
     }
 
@@ -278,7 +278,7 @@
     }
 
     .event-gallery-inner {
-      width: min(1500px, 100%);
+      width: min(1580px, 100%);
       margin: 0 auto;
     }
 
@@ -296,7 +296,7 @@
 
     .event-carousel {
       position: relative;
-      padding: 0 54px;
+      padding: 0 64px;
     }
 
     .event-carousel-viewport {
@@ -305,13 +305,13 @@
 
     .event-carousel-track {
       display: flex;
-      gap: 18px;
+      gap: 24px;
       transition: transform .45s cubic-bezier(.2, .8, .2, 1);
       will-change: transform;
     }
 
     .event-slide {
-      flex: 0 0 calc((100% - 54px) / 4);
+      flex: 0 0 calc((100% - 48px) / 3);
       min-width: 0;
       padding: 8px;
       border: 0;
@@ -332,9 +332,9 @@
 
     .event-slide img {
       width: 100%;
-      aspect-ratio: 1 / 1;
+      aspect-ratio: 4 / 3;
       object-fit: cover;
-      border: 5px solid #ece8df;
+      border: 6px solid #ece8df;
     }
 
     .carousel-arrow {
@@ -531,12 +531,13 @@
       margin: 0 auto;
       display: grid;
       grid-template-columns: minmax(320px, .85fr) minmax(0, 1.15fr);
-      align-items: start;
+      align-items: stretch;
       gap: clamp(44px, 6vw, 90px);
     }
 
     .planner-photo-frame {
       width: min(100%, 520px);
+      height: 100%;
       margin: 0 auto;
       padding: 12px;
       background: #fff;
@@ -554,7 +555,8 @@
 
     .planner-photo {
       width: 100%;
-      aspect-ratio: 4 / 5;
+      height: 100%;
+      min-height: 0;
       object-fit: cover;
       object-position: center;
       border: 8px solid #ece8df;
@@ -897,7 +899,7 @@
 
     @media (max-width: 1100px) {
       .event-slide {
-        flex-basis: calc((100% - 36px) / 3);
+        flex-basis: calc((100% - 24px) / 2);
       }
     }
 
@@ -1004,6 +1006,15 @@
         gap: 34px;
       }
 
+      .planner-photo-frame {
+        height: auto;
+      }
+
+      .planner-photo {
+        height: auto;
+        aspect-ratio: 4 / 5;
+      }
+
       .planner-copy {
         max-width: 700px;
         margin: 0 auto;
@@ -1052,7 +1063,7 @@
       }
 
       .event-carousel {
-        padding: 0 36px;
+        padding: 0 30px;
       }
 
       .event-slide {
@@ -1522,9 +1533,8 @@
 
       const visibleSlides = () => {
         if (window.innerWidth <= 560) return 1;
-        if (window.innerWidth <= 880) return 2;
-        if (window.innerWidth <= 1100) return 3;
-        return 4;
+        if (window.innerWidth <= 1100) return 2;
+        return 3;
       };
 
       const maxCarouselIndex = () =>
