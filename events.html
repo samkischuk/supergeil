@@ -530,14 +530,14 @@
       width: min(1320px, 100%);
       margin: 0 auto;
       display: grid;
-      grid-template-columns: minmax(320px, .85fr) minmax(0, 1.15fr);
-      align-items: stretch;
-      gap: clamp(44px, 6vw, 90px);
+      grid-template-columns: minmax(300px, .72fr) minmax(0, 1.28fr);
+      align-items: start;
+      gap: clamp(40px, 5vw, 76px);
     }
 
     .planner-photo-frame {
-      width: min(100%, 520px);
-      height: 100%;
+      width: min(100%, 430px);
+      height: auto;
       margin: 0 auto;
       padding: 12px;
       background: #fff;
@@ -555,10 +555,10 @@
 
     .planner-photo {
       width: 100%;
-      height: 100%;
-      min-height: 0;
+      aspect-ratio: 4 / 5;
+      height: auto;
       object-fit: cover;
-      object-position: center;
+      object-position: center 28%;
       border: 8px solid #ece8df;
     }
 
@@ -626,7 +626,7 @@
     /* ALLES PALETTI */
 
     .stay-section {
-      padding: 90px 20px;
+      padding: 54px 20px 82px;
       background:
         linear-gradient(
           rgba(248, 246, 240, .96),
@@ -1021,7 +1021,7 @@
       }
 
       .stay-section {
-        padding: 65px 16px;
+        padding: 46px 16px 62px;
       }
 
       .stay-grid {
@@ -1549,8 +1549,8 @@
         carouselIndex = Math.min(carouselIndex, maxCarouselIndex());
 
         track.style.transform = `translateX(${-carouselIndex * step}px)`;
-        prevButton.disabled = carouselIndex === 0;
-        nextButton.disabled = carouselIndex === maxCarouselIndex();
+        prevButton.disabled = false;
+        nextButton.disabled = false;
 
         dots.forEach((dot, index) => {
           dot.classList.toggle("is-active", index === carouselIndex);
@@ -1558,12 +1558,14 @@
       };
 
       prevButton.addEventListener("click", () => {
-        carouselIndex = Math.max(0, carouselIndex - 1);
+        const maxIndex = maxCarouselIndex();
+        carouselIndex = carouselIndex <= 0 ? maxIndex : carouselIndex - 1;
         updateCarousel();
       });
 
       nextButton.addEventListener("click", () => {
-        carouselIndex = Math.min(maxCarouselIndex(), carouselIndex + 1);
+        const maxIndex = maxCarouselIndex();
+        carouselIndex = carouselIndex >= maxIndex ? 0 : carouselIndex + 1;
         updateCarousel();
       });
 
@@ -1585,10 +1587,12 @@
 
         if (Math.abs(distance) < 45) return;
 
+        const maxIndex = maxCarouselIndex();
+
         if (distance < 0) {
-          carouselIndex = Math.min(maxCarouselIndex(), carouselIndex + 1);
+          carouselIndex = carouselIndex >= maxIndex ? 0 : carouselIndex + 1;
         } else {
-          carouselIndex = Math.max(0, carouselIndex - 1);
+          carouselIndex = carouselIndex <= 0 ? maxIndex : carouselIndex - 1;
         }
 
         updateCarousel();
