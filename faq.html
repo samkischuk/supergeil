@@ -195,46 +195,15 @@
 
     .faq-hero {
       position: relative;
-      min-height: 330px;
-      padding: 70px 20px;
+      min-height: 250px;
+      padding: 50px 20px;
       overflow: hidden;
       display: grid;
       place-items: center;
       text-align: center;
       background:
-        linear-gradient(
-          rgba(248, 246, 240, .95),
-          rgba(248, 246, 240, .95)
-        ),
-        repeating-linear-gradient(
-          90deg,
-          transparent 0 28px,
-          rgba(21, 21, 21, .04) 28px 29px
-        );
-    }
-
-    .faq-hero::before,
-    .faq-hero::after {
-      content: "";
-      position: absolute;
-      width: clamp(220px, 24vw, 370px);
-      aspect-ratio: 1;
-      background: url("images/backgroundflourish.jpg") center / contain no-repeat;
-      mix-blend-mode: multiply;
-      opacity: .86;
-      pointer-events: none;
-    }
-
-    .faq-hero::before {
-      top: -125px;
-      left: -125px;
-      transform: scaleY(-1);
-    }
-
-    .faq-hero::after {
-      right: -125px;
-      bottom: -130px;
-      transform: scaleX(-1);
+        linear-gradient(rgba(0,0,0,.50), rgba(0,0,0,.50)),
+        url("images/outside.jpeg") center center / cover no-repeat;
     }
 
     .faq-hero-inner {
@@ -245,7 +214,8 @@
     }
 
     .faq-hero h1 {
-      margin: 0 0 18px;
+      margin: 0 0 14px;
+      color:#fff;
       font-family: var(--display-font);
       font-size: clamp(46px, 6vw, 78px);
       font-weight: 400;
@@ -256,6 +226,7 @@
     .faq-hero p {
       max-width: 650px;
       margin: 0 auto;
+      color:#fff;
       font-size: clamp(16px, 1.35vw, 19px);
       line-height: 1.75;
     }
@@ -637,18 +608,8 @@
 
     @media (max-width: 560px) {
       .faq-hero {
-        min-height: 280px;
-        padding: 58px 20px;
-      }
-
-      .faq-hero::before {
-        top: -95px;
-        left: -95px;
-      }
-
-      .faq-hero::after {
-        right: -95px;
-        bottom: -100px;
+        min-height: 210px;
+        padding: 42px 18px;
       }
 
       .faq-section {
