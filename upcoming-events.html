@@ -1,1 +1,853 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <title>Upcoming Events | Supergeil Detroit</title>
+  <meta
+    name="description"
+    content="Explore upcoming dinners, celebrations, pop-ups, and special events at Supergeil Detroit."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rye&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    referrerpolicy="no-referrer"
+  >
+
+  <style>
+    :root {
+      --paper: #f8f6f0;
+      --ink: #151515;
+      --gold: #c8a12d;
+      --content-width: 1240px;
+      --display-font: "Rye", Georgia, serif;
+      --body-font: "Inter", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--body-font);
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    /* HEADER — matches index.html */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255, 255, 255, .97);
+      border-bottom: 1px solid rgba(0, 0, 0, .12);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0,0,0,.08);
+    }
+
+    .header-inner {
+      width: min(var(--content-width), calc(100% - 40px));
+      min-height: 86px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(18px, 2.2vw, 38px);
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .nav-group a {
+      position: relative;
+      padding: 10px 0;
+    }
+
+    .nav-group a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 100%;
+      bottom: 2px;
+      height: 2px;
+      background: var(--gold);
+      transition: right .25s ease;
+    }
+
+    .nav-group a:hover,
+    .nav-group a:focus-visible {
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .nav-group a:hover::after,
+    .nav-group a:focus-visible::after,
+    .nav-group a.active::after {
+      right: 0;
+    }
+
+    .nav-group a.active {
+      color: var(--gold);
+    }
+
+    .brand {
+      width: 210px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo {
+      width: 190px;
+      height: auto;
+      display: block;
+      transform: translateY(5px);
+      transform-origin: center;
+      transition: transform .28s ease;
+      will-change: transform;
+    }
+
+    .logo:hover {
+      transform: translateY(5px) scale(.94);
+    }
+
+    @media (min-width: 881px) {
+      .site-header.scrolled {
+        box-shadow: 0 4px 14px rgba(0,0,0,.11);
+      }
+
+      .site-header.scrolled .logo {
+        transform: translateY(5px) scale(.84);
+      }
+
+      .site-header.scrolled .logo:hover {
+        transform: translateY(5px) scale(.88);
+      }
+    }
+
+    .mobile-toggle {
+      display: none;
+      width: 48px;
+      height: 48px;
+      padding: 0;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: 50%;
+      color: var(--ink);
+      background: transparent;
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+    /* HERO */
+
+    .events-hero {
+      position: relative;
+      min-height: 310px;
+      padding: 64px 20px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      color: #fff;
+      text-align: center;
+      background:
+        linear-gradient(rgba(0,0,0,.50), rgba(0,0,0,.58)),
+        url("images/eventheader.jpg") center / cover no-repeat;
+    }
+
+    .events-hero-inner {
+      width: min(780px, 100%);
+      margin: 0 auto;
+    }
+
+    .events-hero h1 {
+      margin: 0 0 16px;
+      font-family: var(--display-font);
+      font-size: clamp(44px, 5.8vw, 74px);
+      font-weight: 400;
+      line-height: 1.05;
+      text-transform: uppercase;
+      text-shadow: 0 3px 14px rgba(0,0,0,.55);
+    }
+
+    .events-hero p {
+      max-width: 680px;
+      margin: 0 auto;
+      font-size: clamp(16px, 1.35vw, 19px);
+      line-height: 1.75;
+      text-shadow: 0 2px 10px rgba(0,0,0,.55);
+    }
+
+    /* EVENTS */
+
+    .events-list-section {
+      padding: 74px 20px 92px;
+      background:
+        linear-gradient(rgba(248,246,240,.96), rgba(248,246,240,.96)),
+        repeating-linear-gradient(
+          90deg,
+          transparent 0 28px,
+          rgba(21,21,21,.04) 28px 29px
+        );
+    }
+
+    .events-list-inner {
+      width: min(1240px, 100%);
+      margin: 0 auto;
+    }
+
+    .section-heading {
+      margin: 0 0 42px;
+      text-align: center;
+      font-family: var(--display-font);
+      font-size: clamp(34px, 4vw, 56px);
+      font-weight: 400;
+      line-height: 1.05;
+      text-transform: uppercase;
+    }
+
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 34px;
+    }
+
+    .event-card {
+      min-width: 0;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(210px, .82fr) minmax(0, 1.18fr);
+      background: #fff;
+      border-top: 7px solid var(--gold);
+      box-shadow: 0 18px 42px rgba(35,26,18,.13);
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+    }
+
+    .event-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 26px 54px rgba(35,26,18,.18);
+    }
+
+    .event-image {
+      min-height: 330px;
+      background: #ddd;
+      overflow: hidden;
+    }
+
+    .event-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .event-content {
+      padding: 30px 28px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .event-date {
+      margin: 0 0 12px;
+      color: #8f6f0b;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .event-content h2 {
+      margin: 0 0 14px;
+      font-family: var(--display-font);
+      font-size: clamp(27px, 2.4vw, 38px);
+      font-weight: 400;
+      line-height: 1.08;
+      text-transform: uppercase;
+    }
+
+    .event-content p {
+      margin: 0 0 20px;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #292929;
+    }
+
+    .event-details {
+      margin: auto 0 22px;
+      display: grid;
+      gap: 8px;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .event-details span {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+    }
+
+    .event-button {
+      min-width: 150px;
+      padding: 13px 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--ink);
+      border-radius: 6px;
+      color: #fff;
+      background: var(--ink);
+      font-size: 15px;
+      font-weight: 600;
+      transition:
+        transform .22s ease,
+        background .22s ease,
+        color .22s ease;
+    }
+
+    .event-button:hover,
+    .event-button:focus-visible {
+      transform: translateY(-3px);
+      color: var(--ink);
+      background: transparent;
+    }
+
+    .events-empty {
+      display: none;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 54px 30px;
+      text-align: center;
+      background: #fff;
+      border-top: 7px solid var(--gold);
+      box-shadow: 0 18px 42px rgba(35,26,18,.13);
+    }
+
+    .events-empty h2 {
+      margin: 0 0 12px;
+      font-family: var(--display-font);
+      font-size: clamp(30px, 3vw, 44px);
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+
+    .events-empty p {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* FOOTER — matches index.html */
+
+    .site-footer {
+      padding: 42px 20px 24px;
+      background: #e8ddc9;
+    }
+
+    .footer-grid {
+      width: min(var(--content-width), 100%);
+      margin: 0 auto 45px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .footer-column {
+      min-width: 0;
+    }
+
+    .footer-grid h3 {
+      min-height: 32px;
+      margin: 0 0 18px;
+      display: flex;
+      align-items: flex-start;
+      font-family: var(--display-font);
+      font-weight: 400;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .location-address {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.65;
+    }
+
+    .directions-link {
+      width: fit-content;
+      margin-top: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding-bottom: 4px;
+      border-bottom: 2px solid var(--gold);
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .hours-list p {
+      margin: 0 0 22px;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .hours-list p:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-phone {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.65;
+    }
+
+    .contact-email {
+      margin: 12px 0 0;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .social-links a {
+      width: 52px;
+      height: 52px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid var(--gold);
+      border-radius: 50%;
+      color: #fff;
+      background: #111;
+      font-size: 25px;
+      box-shadow: inset 0 0 0 2px #111;
+    }
+
+    .social-links a:hover,
+    .social-links a:focus-visible {
+      transform: translateY(-3px) scale(.892);
+      background: var(--gold);
+      color: #111;
+    }
+
+    .copyright {
+      width: min(var(--content-width), 100%);
+      margin: 0 auto;
+      padding-top: 18px;
+      border-top: 1px solid rgba(21,21,21,.22);
+      font-size: 14px;
+      letter-spacing: .09em;
+      opacity: .78;
+      text-transform: uppercase;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 1050px) {
+      .events-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 880px) {
+      .header-inner {
+        width: min(100% - 28px, var(--content-width));
+        min-height: 92px;
+        grid-template-columns: 1fr auto;
+        column-gap: 16px;
+        row-gap: 0;
+      }
+
+      .brand {
+        width: auto;
+        margin: 0;
+        justify-self: start;
+      }
+
+      .logo {
+        width: 145px;
+        transform: none;
+      }
+
+      .mobile-toggle {
+        display: inline-flex;
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: end;
+      }
+
+      .nav-group {
+        display: none;
+        grid-column: 1 / -1;
+        width: 100%;
+        margin: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 0;
+        text-align: center;
+        background: #fff;
+      }
+
+      .site-header.menu-open .nav-group {
+        display: flex;
+      }
+
+      .nav-left {
+        grid-row: 2;
+      }
+
+      .nav-right {
+        grid-row: 3;
+      }
+
+      .nav-group a {
+        width: 100%;
+        min-height: 54px;
+        margin: 0;
+        padding: 15px 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 54px;
+        border-top: 1px solid rgba(21,21,21,.10);
+      }
+
+      .nav-group a::after {
+        display: none;
+      }
+
+      .nav-group a:hover,
+      .nav-group a:focus-visible,
+      .nav-group a.active {
+        color: #8f6f0b;
+        background: rgba(200,161,45,.08);
+        transform: none;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .events-hero {
+        min-height: 250px;
+        padding: 48px 18px;
+      }
+
+      .events-list-section {
+        padding: 54px 14px 68px;
+      }
+
+      .event-card {
+        grid-template-columns: 1fr;
+      }
+
+      .event-image {
+        min-height: 260px;
+      }
+
+      .event-content {
+        padding: 25px 21px 28px;
+      }
+
+      .event-button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <nav class="nav-group nav-left" aria-label="Primary navigation">
+        <a href="about.html">About</a>
+        <a class="active" href="upcoming-events.html" aria-current="page">Upcoming Events</a>
+        <a href="menu.html">Menu</a>
+        <a href="https://order.toasttab.com/online/supergeil">Order</a>
+      </nav>
+
+      <a class="brand" href="index.html" aria-label="Supergeil Home">
+        <img class="logo" src="images/logo.jpg" alt="Supergeil Detroit Logo">
+      </a>
+
+      <button
+        class="mobile-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-header"
+        aria-label="Open navigation"
+      >
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
+
+      <nav class="nav-group nav-right" aria-label="Secondary navigation">
+        <a href="gallery.html">Gallery</a>
+        <a href="events.html">Private Events</a>
+        <a href="contact.html">Contact</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="events-hero">
+      <div class="events-hero-inner">
+        <h1>Upcoming Events</h1>
+        <p>
+          Special dinners, seasonal celebrations, pop-ups, and other reasons to
+          gather at Supergeil.
+        </p>
+      </div>
+    </section>
+
+    <section class="events-list-section" aria-labelledby="events-heading">
+      <div class="events-list-inner">
+        <h2 class="section-heading" id="events-heading">What’s Happening</h2>
+
+        <div class="events-grid">
+          <!--
+            DUPLICATE THIS ENTIRE ARTICLE FOR EACH NEW EVENT.
+            Change the photo, date, title, description, details, and button link.
+          -->
+          <article class="event-card">
+            <div class="event-image">
+              <img
+                src="images/event-placeholder.jpg"
+                alt="Upcoming Supergeil event"
+              >
+            </div>
+
+            <div class="event-content">
+              <p class="event-date">Date To Be Announced</p>
+              <h2>New Event Coming Soon</h2>
+
+              <p>
+                We’re preparing our next gathering. Check back soon for event
+                details, tickets, and reservation information.
+              </p>
+
+              <div class="event-details">
+                <span>
+                  <i class="fa-regular fa-calendar" aria-hidden="true"></i>
+                  Date and time coming soon
+                </span>
+
+                <span>
+                  <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                  Supergeil Detroit
+                </span>
+              </div>
+
+              <a class="event-button" href="contact.html">
+                Learn More
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!--
+          When there are no events, you can hide .events-grid and change
+          .events-empty from display:none to display:block.
+        -->
+        <div class="events-empty">
+          <h2>More Events Coming Soon</h2>
+          <p>
+            Check back soon or follow Supergeil on Instagram for new
+            announcements.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="footer-grid">
+      <div class="footer-column">
+        <h3>Location</h3>
+
+        <p class="location-address">
+          2442 Michigan Ave<br>
+          Detroit, MI 48216
+        </p>
+
+        <a
+          class="directions-link"
+          href="https://www.google.com/maps/dir/?api=1&destination=2442+Michigan+Ave,+Detroit,+MI+48216"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Get Directions <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <div class="footer-column hours-column">
+        <h3>Hours</h3>
+
+        <div class="hours-list">
+          <p>
+            <strong>Monday</strong> – Closed
+          </p>
+
+          <p>
+            <strong>Tuesday – Thursday</strong><br>
+            <em>Lunch: noon-4pm</em> | Dinner: 4pm-9pm
+          </p>
+
+          <p>
+            <strong>Friday &amp; Saturday</strong><br>
+            <em>Lunch: noon-4pm</em> | Dinner: 4pm-10pm
+          </p>
+
+          <p>
+            <strong>Sunday</strong><br>
+            <em>Brunch: 11am-4pm</em> | Dinner: 4pm-8pm
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h3>Contact</h3>
+
+        <p class="contact-phone">
+          <a href="tel:3134624133">313-462-4133</a>
+        </p>
+
+        <p class="contact-email">
+          <a href="mailto:events@supergeildetroit.com">events@supergeildetroit.com</a>
+        </p>
+
+        <div class="social-links" aria-label="Social media links">
+          <a
+            href="https://www.facebook.com/supergeildetroit/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Supergeil on Facebook"
+          >
+            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+          </a>
+
+          <a
+            href="https://www.instagram.com/supergeildetroit/?hl=en"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Supergeil on Instagram"
+          >
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="copyright">
+      © 2026 Supergeil Detroit
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const header = document.querySelector(".site-header");
+      const toggle = document.querySelector(".mobile-toggle");
+
+      const setMobileMenuState = (isOpen) => {
+        header.classList.toggle("menu-open", isOpen);
+        toggle.setAttribute("aria-expanded", String(isOpen));
+        toggle.setAttribute(
+          "aria-label",
+          isOpen ? "Close navigation" : "Open navigation"
+        );
+        toggle.innerHTML = isOpen
+          ? '<i class="fa-solid fa-xmark" aria-hidden="true"></i>'
+          : '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
+      };
+
+      toggle.addEventListener("click", () => {
+        setMobileMenuState(!header.classList.contains("menu-open"));
+      });
+
+      document.querySelectorAll(".nav-group a").forEach((link) => {
+        link.addEventListener("click", () => {
+          setMobileMenuState(false);
+        });
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          setMobileMenuState(false);
+        }
+      });
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 880) {
+          setMobileMenuState(false);
+        }
+      });
+
+      const updateHeaderScrollState = () => {
+        if (window.innerWidth > 880) {
+          header.classList.toggle("scrolled", window.scrollY > 40);
+        } else {
+          header.classList.remove("scrolled");
+        }
+      };
+
+      window.addEventListener(
+        "scroll",
+        updateHeaderScrollState,
+        { passive: true }
+      );
+      window.addEventListener("resize", updateHeaderScrollState);
+      updateHeaderScrollState();
+    });
+  </script>
+</body>
+</html>
